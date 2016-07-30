@@ -7,25 +7,40 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4CBEB7F31D4C5F970068E3E1 /* WEDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBEB7F21D4C5F960068E3E1 /* WEDataManager.m */; };
+		4CBEB7F81D4C7C680068E3E1 /* WETopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBEB7F71D4C7C680068E3E1 /* WETopicCell.m */; };
+		4CBEB7FC1D4C85FD0068E3E1 /* WETopicDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBEB7FB1D4C85FD0068E3E1 /* WETopicDetail.m */; };
 		4CFF42FD1D4C564F000CA3C5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF42FC1D4C564F000CA3C5 /* main.m */; };
 		4CFF43001D4C564F000CA3C5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF42FF1D4C564F000CA3C5 /* AppDelegate.m */; };
-		4CFF43031D4C564F000CA3C5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF43021D4C564F000CA3C5 /* ViewController.m */; };
+		4CFF43031D4C564F000CA3C5 /* WERootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF43021D4C564F000CA3C5 /* WERootViewController.m */; };
 		4CFF43061D4C564F000CA3C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CFF43041D4C564F000CA3C5 /* Main.storyboard */; };
 		4CFF43081D4C5650000CA3C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CFF43071D4C5650000CA3C5 /* Assets.xcassets */; };
 		4CFF430B1D4C5650000CA3C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CFF43091D4C5650000CA3C5 /* LaunchScreen.storyboard */; };
+		7641F8E10532E36250B71040 /* libPods-weToExplore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA3583A06B623D3CC602A7B /* libPods-weToExplore.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3CA1ACDF3ECBDEEE5DB0A2CB /* Pods-weToExplore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weToExplore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-weToExplore/Pods-weToExplore.debug.xcconfig"; sourceTree = "<group>"; };
+		4CBEB7F11D4C5F960068E3E1 /* WEDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WEDataManager.h; sourceTree = "<group>"; };
+		4CBEB7F21D4C5F960068E3E1 /* WEDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WEDataManager.m; sourceTree = "<group>"; };
+		4CBEB7F61D4C7C680068E3E1 /* WETopicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WETopicCell.h; sourceTree = "<group>"; };
+		4CBEB7F71D4C7C680068E3E1 /* WETopicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WETopicCell.m; sourceTree = "<group>"; };
+		4CBEB7FA1D4C85FD0068E3E1 /* WETopicDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WETopicDetail.h; sourceTree = "<group>"; };
+		4CBEB7FB1D4C85FD0068E3E1 /* WETopicDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WETopicDetail.m; sourceTree = "<group>"; };
+		4CD5E2E01D4CD1C900CA0110 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		4CD5E2E11D4CD1C900CA0110 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		4CFF42F81D4C564F000CA3C5 /* weToExplore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weToExplore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CFF42FC1D4C564F000CA3C5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4CFF42FE1D4C564F000CA3C5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4CFF42FF1D4C564F000CA3C5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		4CFF43011D4C564F000CA3C5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		4CFF43021D4C564F000CA3C5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		4CFF43011D4C564F000CA3C5 /* WERootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WERootViewController.h; sourceTree = "<group>"; };
+		4CFF43021D4C564F000CA3C5 /* WERootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WERootViewController.m; sourceTree = "<group>"; };
 		4CFF43051D4C564F000CA3C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4CFF43071D4C5650000CA3C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4CFF430A1D4C5650000CA3C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CFF430C1D4C5650000CA3C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		743EAD76CC1703ECC33DAC32 /* Pods-weToExplore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weToExplore.release.xcconfig"; path = "Pods/Target Support Files/Pods-weToExplore/Pods-weToExplore.release.xcconfig"; sourceTree = "<group>"; };
+		BCA3583A06B623D3CC602A7B /* libPods-weToExplore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-weToExplore.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +48,49 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7641F8E10532E36250B71040 /* libPods-weToExplore.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3332E5609C43BE1D1F88A2FC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3CA1ACDF3ECBDEEE5DB0A2CB /* Pods-weToExplore.debug.xcconfig */,
+				743EAD76CC1703ECC33DAC32 /* Pods-weToExplore.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		4CBEB7F51D4C7AB50068E3E1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4CBEB7FA1D4C85FD0068E3E1 /* WETopicDetail.h */,
+				4CBEB7FB1D4C85FD0068E3E1 /* WETopicDetail.m */,
+				4CBEB7F11D4C5F960068E3E1 /* WEDataManager.h */,
+				4CBEB7F21D4C5F960068E3E1 /* WEDataManager.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		4CBEB7F91D4C7C6E0068E3E1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4CBEB7F61D4C7C680068E3E1 /* WETopicCell.h */,
+				4CBEB7F71D4C7C680068E3E1 /* WETopicCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		4CFF42EF1D4C564F000CA3C5 = {
 			isa = PBXGroup;
 			children = (
 				4CFF42FA1D4C564F000CA3C5 /* weToExplore */,
 				4CFF42F91D4C564F000CA3C5 /* Products */,
+				3332E5609C43BE1D1F88A2FC /* Pods */,
+				68F0125053A0A6E37AD01CA3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,15 +105,12 @@
 		4CFF42FA1D4C564F000CA3C5 /* weToExplore */ = {
 			isa = PBXGroup;
 			children = (
-				4CFF42FE1D4C564F000CA3C5 /* AppDelegate.h */,
-				4CFF42FF1D4C564F000CA3C5 /* AppDelegate.m */,
-				4CFF43011D4C564F000CA3C5 /* ViewController.h */,
-				4CFF43021D4C564F000CA3C5 /* ViewController.m */,
+				4CFF43011D4C564F000CA3C5 /* WERootViewController.h */,
+				4CFF43021D4C564F000CA3C5 /* WERootViewController.m */,
 				4CFF43041D4C564F000CA3C5 /* Main.storyboard */,
-				4CFF43071D4C5650000CA3C5 /* Assets.xcassets */,
-				4CFF43091D4C5650000CA3C5 /* LaunchScreen.storyboard */,
-				4CFF430C1D4C5650000CA3C5 /* Info.plist */,
 				4CFF42FB1D4C564F000CA3C5 /* Supporting Files */,
+				4CBEB7F51D4C7AB50068E3E1 /* Model */,
+				4CBEB7F91D4C7C6E0068E3E1 /* View */,
 			);
 			path = weToExplore;
 			sourceTree = "<group>";
@@ -74,9 +118,22 @@
 		4CFF42FB1D4C564F000CA3C5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4CFF430C1D4C5650000CA3C5 /* Info.plist */,
+				4CFF42FE1D4C564F000CA3C5 /* AppDelegate.h */,
+				4CFF42FF1D4C564F000CA3C5 /* AppDelegate.m */,
+				4CFF43071D4C5650000CA3C5 /* Assets.xcassets */,
+				4CFF43091D4C5650000CA3C5 /* LaunchScreen.storyboard */,
 				4CFF42FC1D4C564F000CA3C5 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		68F0125053A0A6E37AD01CA3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BCA3583A06B623D3CC602A7B /* libPods-weToExplore.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -86,9 +143,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4CFF430F1D4C5650000CA3C5 /* Build configuration list for PBXNativeTarget "weToExplore" */;
 			buildPhases = (
+				3EA1135FB1CB355F7DD343FF /* [CP] Check Pods Manifest.lock */,
 				4CFF42F41D4C564F000CA3C5 /* Sources */,
 				4CFF42F51D4C564F000CA3C5 /* Frameworks */,
 				4CFF42F61D4C564F000CA3C5 /* Resources */,
+				FC26C7DE910259A3EA39898F /* [CP] Embed Pods Frameworks */,
+				5A90121D4D4384122364DE3D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -105,6 +165,7 @@
 		4CFF42F01D4C564F000CA3C5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = WE;
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = Gnodnate;
 				TargetAttributes = {
@@ -144,13 +205,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3EA1135FB1CB355F7DD343FF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5A90121D4D4384122364DE3D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-weToExplore/Pods-weToExplore-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FC26C7DE910259A3EA39898F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-weToExplore/Pods-weToExplore-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4CFF42F41D4C564F000CA3C5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CFF43031D4C564F000CA3C5 /* ViewController.m in Sources */,
+				4CFF43031D4C564F000CA3C5 /* WERootViewController.m in Sources */,
 				4CFF43001D4C564F000CA3C5 /* AppDelegate.m in Sources */,
+				4CBEB7FC1D4C85FD0068E3E1 /* WETopicDetail.m in Sources */,
+				4CBEB7F31D4C5F970068E3E1 /* WEDataManager.m in Sources */,
+				4CBEB7F81D4C7C680068E3E1 /* WETopicCell.m in Sources */,
 				4CFF42FD1D4C564F000CA3C5 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -162,6 +274,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				4CFF43051D4C564F000CA3C5 /* Base */,
+				4CD5E2E01D4CD1C900CA0110 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -170,6 +283,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				4CFF430A1D4C5650000CA3C5 /* Base */,
+				4CD5E2E11D4CD1C900CA0110 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -261,6 +375,7 @@
 		};
 		4CFF43101D4C5650000CA3C5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3CA1ACDF3ECBDEEE5DB0A2CB /* Pods-weToExplore.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = weToExplore/Info.plist;
@@ -272,6 +387,7 @@
 		};
 		4CFF43111D4C5650000CA3C5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 743EAD76CC1703ECC33DAC32 /* Pods-weToExplore.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = weToExplore/Info.plist;
@@ -300,6 +416,7 @@
 				4CFF43111D4C5650000CA3C5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

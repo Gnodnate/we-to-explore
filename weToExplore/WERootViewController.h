@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface WERootViewController : UITableViewController<UITableViewDataSource, UITableViewDelegate>
 
 
 @end

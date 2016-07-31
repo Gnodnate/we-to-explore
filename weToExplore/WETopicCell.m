@@ -34,15 +34,15 @@
     
     if (timeInterval/60 < 1) {
         
-        result = _L(@"Latest reply: few seconds earlier", @"few seconds earlier");
+        result = _L(@"Latest reply: few seconds ago", @"few seconds ago");
     }
     
     else if((temp = timeInterval/60) <60){
         
         if (temp < 2) {
-            result = _L(@"Latest reply: one minute earlier", @"1 Minute earlier");
+            result = _L(@"Latest reply: one minute ago", @"1 Minute ago");
         } else {
-            result = [NSString stringWithFormat:_L(@"Latest reply: %ld minutes earlier", @"few minute earlier"),temp];
+            result = [NSString stringWithFormat:_L(@"Latest reply: %ld minutes ago", @"few minute ago"),temp];
         }
         
     }
@@ -50,18 +50,18 @@
     else if((temp = temp/60) <24){
         
         if (temp < 2) {
-            result = _L(@"Latest reply: one hour earlier", @"1 Minute earlier");
+            result = _L(@"Latest reply: one hour ago", @"1 Minute ago");
         } else {
-            result = [NSString stringWithFormat:_L(@"Latest reply: %ld hours earlier", @"few Hours earlier"),temp];
+            result = [NSString stringWithFormat:_L(@"Latest reply: %ld hours ago", @"few Hours ago"),temp];
         }
         
     }
     
     else if((temp = temp/24) <30){
         if (temp < 2) {
-            result = _L(@"Latest reply: one day earlier", @"1 Minute earlier");
+            result = _L(@"Latest reply: one day ago", @"1 Minute ago");
         } else {
-            result = [NSString stringWithFormat:_L(@"Latest reply: %ld days earlier", @"few Days earlier"),temp];
+            result = [NSString stringWithFormat:_L(@"Latest reply: %ld days ago", @"few Days ago"),temp];
         }
     }
     
@@ -74,7 +74,7 @@
 @interface WETopicCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *userImageView;
 @property (weak, nonatomic) IBOutlet UILabel *userName;
-@property (weak, nonatomic) IBOutlet UILabel *topicTime;
+@property (weak, nonatomic) IBOutlet UILabel *topicReplies;
 @property (weak, nonatomic) IBOutlet UILabel *topicTitle;
 @property (weak, nonatomic) IBOutlet UILabel *nodeName;
 
@@ -96,7 +96,7 @@
         }];
 
         self.userName.text = [NSString stringWithFormat:_L(@"by %@", @"the blog is from who"), [topicDetail.memberInfo objectForKey:@"username"]];
-        self.topicTime.text = [NSString humanFriendlyDate:[NSDate dateWithTimeIntervalSince1970:topicDetail.createTime.integerValue]];
+        self.topicReplies.text = [NSString stringWithFormat:_L(@"reply: %@", "replies"), topicDetail.topicReplies];
         self.nodeName.text  = [topicDetail.nodeInfo objectForKey:@"title"];
         self.topicTitle.text = topicDetail.topicTitle;
     }

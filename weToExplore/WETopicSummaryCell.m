@@ -6,7 +6,7 @@
 //  Copyright © 2016 Gnodnate. All rights reserved.
 //
 
-#import "WETopicCell.h"
+#import "WETopicSummaryCell.h"
 #import "WETopicDetail.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
@@ -69,7 +69,7 @@
 @end
 
 
-@interface WETopicCell ()
+@interface WETopicSummaryCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *userImageView;
 @property (weak, nonatomic) IBOutlet UILabel *userName;
 @property (weak, nonatomic) IBOutlet UILabel *topicReplies;
@@ -78,20 +78,18 @@
 
 @end
 
-@implementation WETopicCell
+@implementation WETopicSummaryCell
 
 - (void)setTopicDetail:(WETopicDetail *)topicDetail
 {
     if (![_topicDetail isEqual:topicDetail]) {
+        _topicDetail = topicDetail;
+        
         NSString *memberIconURLString = [topicDetail.memberInfo objectForKey:@"avatar_normal"];
-        __block WETopicCell *weakself = self;
         if ([memberIconURLString hasPrefix:@"//"]){
             memberIconURLString = [NSString stringWithFormat:@"https:%@", memberIconURLString];
         }
-        _topicDetail = topicDetail;
-        [weakself.userImageView  sd_setImageWithURL:[NSURL URLWithString: memberIconURLString] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-            [[SDWebImageManager sharedManager].imageCache storeImage:image forKey:memberIconURLString];
-        }];
+        [self.userImageView  sd_setImageWithURL:[NSURL URLWithString: memberIconURLString]];
 
         self.userName.text = [NSString stringWithFormat:_L(@"by %@", @"the blog is from who"), [topicDetail.memberInfo objectForKey:@"username"]];
         self.topicReplies.text = [NSString stringWithFormat:_L(@"reply: %@", "replies"), topicDetail.topicReplies];

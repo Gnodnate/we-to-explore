@@ -7,7 +7,7 @@
 //
 
 #import "WERootViewController.h"
-#import "WETopicCell.h"
+#import "WETopicSummaryCell.h"
 #import "WEDataManager.h"
 #import "objc/Runtime.h"
 #import "weToExplore-Swift.h"
@@ -26,6 +26,8 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 60;
     
     // Refersh
     self.refreshIndicator = [[RefreshActivityIndicator alloc] init];
@@ -39,13 +41,10 @@
     // dataManager
     self.dataManager = [[WEDataManager alloc] init];
     [self registerAsObserverForDataManager:self.dataManager];
-
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
+    
     [self.refreshIndicator startActivityIndicator:self.view];
     [self.dataManager getTopics];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -99,10 +98,10 @@
 #pragma mark - tableview delegate
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    WETopicCell *cell = [tableView dequeueReusableCellWithIdentifier:TopicCellID];
+    WETopicSummaryCell *cell = [tableView dequeueReusableCellWithIdentifier:TopicCellID];
     
     if (!cell) {
-        cell = [[WETopicCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TopicCellID];
+        cell = [[WETopicSummaryCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TopicCellID];
     }
     
     if (indexPath.row < self.dataManager.topicArray.count) {
@@ -115,5 +114,15 @@
     return self.dataManager.topicArray.count;
 }
 
+#pragma mark - Segue
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue
+                 sender:(id)sender {
+
+    if ([sender isKindOfClass:[WETopicSummaryCell class]]) {
+        WETopicTableViewController *destnation = segue.destinationViewController;
+        [destnation setTopicDetail:((WETopicSummaryCell*)sender).topicDetail];
+    }
+}
 
 @end

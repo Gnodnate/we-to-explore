@@ -7,7 +7,7 @@
 //
 
 #import "WEDataManager.h"
-#import <AFNetworking.h>
+#import "AFNetworking.h"
 #import "WETopicDetail.h"
 
 #define BaseURL @"https://www.v2ex.com/api/"

@@ -13,7 +13,7 @@
 
 @class WETopicDetail;
 
-@interface WETopicCell : UITableViewCell
+@interface WETopicSummaryCell : UITableViewCell
 
 @property (nonatomic, strong) WETopicDetail *topicDetail;
 

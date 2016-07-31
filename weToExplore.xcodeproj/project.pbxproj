@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		4CA77E531D4E0D20008A3A65 /* RefreshActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA77E521D4E0D20008A3A65 /* RefreshActivityIndicator.swift */; };
+		4CA77E571D4E1E31008A3A65 /* WETopicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA77E561D4E1E31008A3A65 /* WETopicTableViewController.swift */; };
+		4CA77E591D4E2082008A3A65 /* WETopicMainBodyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA77E581D4E2082008A3A65 /* WETopicMainBodyTableViewCell.swift */; };
 		4CBEB7F31D4C5F970068E3E1 /* WEDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBEB7F21D4C5F960068E3E1 /* WEDataManager.m */; };
-		4CBEB7F81D4C7C680068E3E1 /* WETopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBEB7F71D4C7C680068E3E1 /* WETopicCell.m */; };
+		4CBEB7F81D4C7C680068E3E1 /* WETopicSummaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBEB7F71D4C7C680068E3E1 /* WETopicSummaryCell.m */; };
 		4CBEB7FC1D4C85FD0068E3E1 /* WETopicDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBEB7FB1D4C85FD0068E3E1 /* WETopicDetail.m */; };
 		4CFF42FD1D4C564F000CA3C5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF42FC1D4C564F000CA3C5 /* main.m */; };
 		4CFF43001D4C564F000CA3C5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF42FF1D4C564F000CA3C5 /* AppDelegate.m */; };
@@ -17,17 +19,20 @@
 		4CFF43061D4C564F000CA3C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CFF43041D4C564F000CA3C5 /* Main.storyboard */; };
 		4CFF43081D4C5650000CA3C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CFF43071D4C5650000CA3C5 /* Assets.xcassets */; };
 		4CFF430B1D4C5650000CA3C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CFF43091D4C5650000CA3C5 /* LaunchScreen.storyboard */; };
-		7641F8E10532E36250B71040 /* libPods-weToExplore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA3583A06B623D3CC602A7B /* libPods-weToExplore.a */; };
+		F92DA37F419F42DF7644633E /* Pods_weToExplore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 285ADCED69BC27ED679B550E /* Pods_weToExplore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		285ADCED69BC27ED679B550E /* Pods_weToExplore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_weToExplore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CA1ACDF3ECBDEEE5DB0A2CB /* Pods-weToExplore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weToExplore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-weToExplore/Pods-weToExplore.debug.xcconfig"; sourceTree = "<group>"; };
 		4CA77E511D4E0D20008A3A65 /* weToExplore-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "weToExplore-Bridging-Header.h"; sourceTree = "<group>"; };
 		4CA77E521D4E0D20008A3A65 /* RefreshActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshActivityIndicator.swift; sourceTree = "<group>"; };
+		4CA77E561D4E1E31008A3A65 /* WETopicTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WETopicTableViewController.swift; sourceTree = "<group>"; };
+		4CA77E581D4E2082008A3A65 /* WETopicMainBodyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WETopicMainBodyTableViewCell.swift; sourceTree = "<group>"; };
 		4CBEB7F11D4C5F960068E3E1 /* WEDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WEDataManager.h; sourceTree = "<group>"; };
 		4CBEB7F21D4C5F960068E3E1 /* WEDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WEDataManager.m; sourceTree = "<group>"; };
-		4CBEB7F61D4C7C680068E3E1 /* WETopicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WETopicCell.h; sourceTree = "<group>"; };
-		4CBEB7F71D4C7C680068E3E1 /* WETopicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WETopicCell.m; sourceTree = "<group>"; };
+		4CBEB7F61D4C7C680068E3E1 /* WETopicSummaryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WETopicSummaryCell.h; sourceTree = "<group>"; };
+		4CBEB7F71D4C7C680068E3E1 /* WETopicSummaryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WETopicSummaryCell.m; sourceTree = "<group>"; };
 		4CBEB7FA1D4C85FD0068E3E1 /* WETopicDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WETopicDetail.h; sourceTree = "<group>"; };
 		4CBEB7FB1D4C85FD0068E3E1 /* WETopicDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WETopicDetail.m; sourceTree = "<group>"; };
 		4CD5E2E01D4CD1C900CA0110 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
@@ -43,7 +48,6 @@
 		4CFF430A1D4C5650000CA3C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CFF430C1D4C5650000CA3C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		743EAD76CC1703ECC33DAC32 /* Pods-weToExplore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weToExplore.release.xcconfig"; path = "Pods/Target Support Files/Pods-weToExplore/Pods-weToExplore.release.xcconfig"; sourceTree = "<group>"; };
-		BCA3583A06B623D3CC602A7B /* libPods-weToExplore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-weToExplore.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7641F8E10532E36250B71040 /* libPods-weToExplore.a in Frameworks */,
+				F92DA37F419F42DF7644633E /* Pods_weToExplore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,9 +86,10 @@
 			isa = PBXGroup;
 			children = (
 				4CA77E521D4E0D20008A3A65 /* RefreshActivityIndicator.swift */,
-				4CBEB7F61D4C7C680068E3E1 /* WETopicCell.h */,
-				4CBEB7F71D4C7C680068E3E1 /* WETopicCell.m */,
+				4CBEB7F61D4C7C680068E3E1 /* WETopicSummaryCell.h */,
+				4CBEB7F71D4C7C680068E3E1 /* WETopicSummaryCell.m */,
 				4CA77E511D4E0D20008A3A65 /* weToExplore-Bridging-Header.h */,
+				4CA77E581D4E2082008A3A65 /* WETopicMainBodyTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -112,6 +117,7 @@
 			children = (
 				4CFF43011D4C564F000CA3C5 /* WERootViewController.h */,
 				4CFF43021D4C564F000CA3C5 /* WERootViewController.m */,
+				4CA77E561D4E1E31008A3A65 /* WETopicTableViewController.swift */,
 				4CFF43041D4C564F000CA3C5 /* Main.storyboard */,
 				4CFF42FB1D4C564F000CA3C5 /* Supporting Files */,
 				4CBEB7F51D4C7AB50068E3E1 /* Model */,
@@ -136,7 +142,7 @@
 		68F0125053A0A6E37AD01CA3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BCA3583A06B623D3CC602A7B /* libPods-weToExplore.a */,
+				285ADCED69BC27ED679B550E /* Pods_weToExplore.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -265,10 +271,12 @@
 			files = (
 				4CFF43031D4C564F000CA3C5 /* WERootViewController.m in Sources */,
 				4CFF43001D4C564F000CA3C5 /* AppDelegate.m in Sources */,
+				4CA77E591D4E2082008A3A65 /* WETopicMainBodyTableViewCell.swift in Sources */,
+				4CA77E571D4E1E31008A3A65 /* WETopicTableViewController.swift in Sources */,
 				4CBEB7FC1D4C85FD0068E3E1 /* WETopicDetail.m in Sources */,
 				4CBEB7F31D4C5F970068E3E1 /* WEDataManager.m in Sources */,
 				4CA77E531D4E0D20008A3A65 /* RefreshActivityIndicator.swift in Sources */,
-				4CBEB7F81D4C7C680068E3E1 /* WETopicCell.m in Sources */,
+				4CBEB7F81D4C7C680068E3E1 /* WETopicSummaryCell.m in Sources */,
 				4CFF42FD1D4C564F000CA3C5 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+#define _L(word, description) NSLocalizedString(word, description)
+
+
 @class WETopicDetail;
 
 @interface WETopicCell : UITableViewCell

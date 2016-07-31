@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4CA77E531D4E0D20008A3A65 /* RefreshActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA77E521D4E0D20008A3A65 /* RefreshActivityIndicator.swift */; };
 		4CBEB7F31D4C5F970068E3E1 /* WEDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBEB7F21D4C5F960068E3E1 /* WEDataManager.m */; };
 		4CBEB7F81D4C7C680068E3E1 /* WETopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBEB7F71D4C7C680068E3E1 /* WETopicCell.m */; };
 		4CBEB7FC1D4C85FD0068E3E1 /* WETopicDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBEB7FB1D4C85FD0068E3E1 /* WETopicDetail.m */; };
@@ -21,6 +22,8 @@
 
 /* Begin PBXFileReference section */
 		3CA1ACDF3ECBDEEE5DB0A2CB /* Pods-weToExplore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weToExplore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-weToExplore/Pods-weToExplore.debug.xcconfig"; sourceTree = "<group>"; };
+		4CA77E511D4E0D20008A3A65 /* weToExplore-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "weToExplore-Bridging-Header.h"; sourceTree = "<group>"; };
+		4CA77E521D4E0D20008A3A65 /* RefreshActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshActivityIndicator.swift; sourceTree = "<group>"; };
 		4CBEB7F11D4C5F960068E3E1 /* WEDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WEDataManager.h; sourceTree = "<group>"; };
 		4CBEB7F21D4C5F960068E3E1 /* WEDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WEDataManager.m; sourceTree = "<group>"; };
 		4CBEB7F61D4C7C680068E3E1 /* WETopicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WETopicCell.h; sourceTree = "<group>"; };
@@ -78,8 +81,10 @@
 		4CBEB7F91D4C7C6E0068E3E1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4CA77E521D4E0D20008A3A65 /* RefreshActivityIndicator.swift */,
 				4CBEB7F61D4C7C680068E3E1 /* WETopicCell.h */,
 				4CBEB7F71D4C7C680068E3E1 /* WETopicCell.m */,
+				4CA77E511D4E0D20008A3A65 /* weToExplore-Bridging-Header.h */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -262,6 +267,7 @@
 				4CFF43001D4C564F000CA3C5 /* AppDelegate.m in Sources */,
 				4CBEB7FC1D4C85FD0068E3E1 /* WETopicDetail.m in Sources */,
 				4CBEB7F31D4C5F970068E3E1 /* WEDataManager.m in Sources */,
+				4CA77E531D4E0D20008A3A65 /* RefreshActivityIndicator.swift in Sources */,
 				4CBEB7F81D4C7C680068E3E1 /* WETopicCell.m in Sources */,
 				4CFF42FD1D4C564F000CA3C5 /* main.m in Sources */,
 			);
@@ -378,10 +384,13 @@
 			baseConfigurationReference = 3CA1ACDF3ECBDEEE5DB0A2CB /* Pods-weToExplore.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = weToExplore/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gnodnate.weToExplore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "weToExplore/weToExplore-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -390,10 +399,12 @@
 			baseConfigurationReference = 743EAD76CC1703ECC33DAC32 /* Pods-weToExplore.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = weToExplore/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gnodnate.weToExplore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "weToExplore/weToExplore-Bridging-Header.h";
 			};
 			name = Release;
 		};

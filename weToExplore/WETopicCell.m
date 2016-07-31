@@ -10,8 +10,6 @@
 #import "WETopicDetail.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
-#define _L(word, description) NSLocalizedString(word, description)
-
 @interface NSString (friendlyDate)
 
 + (NSString *) humanFriendlyDate:(NSDate*)timeDate;

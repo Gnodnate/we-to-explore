@@ -10,26 +10,42 @@
 #import "WETopicCell.h"
 #import "WEDataManager.h"
 #import "objc/Runtime.h"
+#import "weToExplore-Swift.h"
 
 #define TopicCellID  @"TopicCellID"
 
 @interface WERootViewController ()
 @property (nonatomic, strong) WEDataManager *dataManager;
+@property (nonatomic, strong) RefreshActivityIndicator *refreshIndicator;
 @end
 
 @implementation WERootViewController
 
-- (void)awakeFromNib {
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    self.dataManager = [[WEDataManager alloc] init];
-    [self registerAsObserverForDataManager:self.dataManager];
-    [self.dataManager getTopics];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    
+    // Refersh
+    self.refreshIndicator = [[RefreshActivityIndicator alloc] init];
+    
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:_L(@"Refreshing...", @"Refreshing")];
+    [refreshControl addTarget:self action:@selector(pullToRefresh:) forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = refreshControl;
+    
+    
+    // dataManager
+    self.dataManager = [[WEDataManager alloc] init];
+    [self registerAsObserverForDataManager:self.dataManager];
 
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.refreshIndicator startActivityIndicator:self.view];
+    [self.dataManager getTopics];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,7 +54,15 @@
 }
 
 
-#pragma KVO for dataManager
+#pragma mark - Pull to refresh
+
+- (IBAction)pullToRefresh:(id)sender {
+    
+    [self.dataManager getTopics];
+    
+}
+
+#pragma mark - KVO for dataManager
 
 - (void)registerAsObserverForDataManager:(WEDataManager*)dataManager {
     unsigned int propertyCount = 0;
@@ -49,10 +73,6 @@
                          options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld)
                          context:nil];
     }
-//    [dataManager addObserver:self
-//                  forKeyPath:@"topicArray"
-//                     options:(NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew)
-//                     context:nil];
 }
 
 - (void)removeObserverForDataManager:(WEDataManager*)dataManager {
@@ -66,13 +86,17 @@
     if ([object isEqual:self.dataManager]) {
         if ([keyPath isEqualToString:@"topicArray"]) {
             [self.tableView reloadData];
+            if ([self.refreshControl isRefreshing]) {
+                [self.refreshControl endRefreshing];
+            }
+            [self.refreshIndicator stopActivityIndicator:self.view];
         }
     }
 }
 
 
 
-#pragma mark tableview delegate
+#pragma mark - tableview delegate
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     WETopicCell *cell = [tableView dequeueReusableCellWithIdentifier:TopicCellID];
@@ -90,5 +114,6 @@
  numberOfRowsInSection:(NSInteger)section {
     return self.dataManager.topicArray.count;
 }
+
 
 @end

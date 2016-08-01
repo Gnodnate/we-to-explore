@@ -13,6 +13,10 @@
 		4CBEB7F31D4C5F970068E3E1 /* WEDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBEB7F21D4C5F960068E3E1 /* WEDataManager.m */; };
 		4CBEB7F81D4C7C680068E3E1 /* WETopicSummaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBEB7F71D4C7C680068E3E1 /* WETopicSummaryCell.m */; };
 		4CBEB7FC1D4C85FD0068E3E1 /* WETopicDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBEB7FB1D4C85FD0068E3E1 /* WETopicDetail.m */; };
+		4CE9F3C11D4F91AE0088E940 /* WETopicReplyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE9F3C01D4F91AE0088E940 /* WETopicReplyTableViewCell.swift */; };
+		4CE9F3C31D4F95810088E940 /* WEReplyDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE9F3C21D4F95810088E940 /* WEReplyDetail.swift */; };
+		4CE9F3C51D4F9B100088E940 /* WEUserDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE9F3C41D4F9B100088E940 /* WEUserDetail.swift */; };
+		4CE9F3CB1D4FAA170088E940 /* NSString+HumanFriendlyDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE9F3CA1D4FAA170088E940 /* NSString+HumanFriendlyDate.m */; };
 		4CFF42FD1D4C564F000CA3C5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF42FC1D4C564F000CA3C5 /* main.m */; };
 		4CFF43001D4C564F000CA3C5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF42FF1D4C564F000CA3C5 /* AppDelegate.m */; };
 		4CFF43031D4C564F000CA3C5 /* WERootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF43021D4C564F000CA3C5 /* WERootViewController.m */; };
@@ -37,6 +41,11 @@
 		4CBEB7FB1D4C85FD0068E3E1 /* WETopicDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WETopicDetail.m; sourceTree = "<group>"; };
 		4CD5E2E01D4CD1C900CA0110 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		4CD5E2E11D4CD1C900CA0110 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		4CE9F3C01D4F91AE0088E940 /* WETopicReplyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WETopicReplyTableViewCell.swift; sourceTree = "<group>"; };
+		4CE9F3C21D4F95810088E940 /* WEReplyDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WEReplyDetail.swift; sourceTree = "<group>"; };
+		4CE9F3C41D4F9B100088E940 /* WEUserDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WEUserDetail.swift; sourceTree = "<group>"; };
+		4CE9F3C91D4FAA170088E940 /* NSString+HumanFriendlyDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HumanFriendlyDate.h"; sourceTree = "<group>"; };
+		4CE9F3CA1D4FAA170088E940 /* NSString+HumanFriendlyDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HumanFriendlyDate.m"; sourceTree = "<group>"; };
 		4CFF42F81D4C564F000CA3C5 /* weToExplore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weToExplore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CFF42FC1D4C564F000CA3C5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4CFF42FE1D4C564F000CA3C5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -78,6 +87,8 @@
 				4CBEB7FB1D4C85FD0068E3E1 /* WETopicDetail.m */,
 				4CBEB7F11D4C5F960068E3E1 /* WEDataManager.h */,
 				4CBEB7F21D4C5F960068E3E1 /* WEDataManager.m */,
+				4CE9F3C21D4F95810088E940 /* WEReplyDetail.swift */,
+				4CE9F3C41D4F9B100088E940 /* WEUserDetail.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -90,6 +101,7 @@
 				4CBEB7F71D4C7C680068E3E1 /* WETopicSummaryCell.m */,
 				4CA77E511D4E0D20008A3A65 /* weToExplore-Bridging-Header.h */,
 				4CA77E581D4E2082008A3A65 /* WETopicMainBodyTableViewCell.swift */,
+				4CE9F3C01D4F91AE0088E940 /* WETopicReplyTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -115,6 +127,8 @@
 		4CFF42FA1D4C564F000CA3C5 /* weToExplore */ = {
 			isa = PBXGroup;
 			children = (
+				4CE9F3C91D4FAA170088E940 /* NSString+HumanFriendlyDate.h */,
+				4CE9F3CA1D4FAA170088E940 /* NSString+HumanFriendlyDate.m */,
 				4CFF43011D4C564F000CA3C5 /* WERootViewController.h */,
 				4CFF43021D4C564F000CA3C5 /* WERootViewController.m */,
 				4CA77E561D4E1E31008A3A65 /* WETopicTableViewController.swift */,
@@ -182,6 +196,7 @@
 				TargetAttributes = {
 					4CFF42F71D4C564F000CA3C5 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 4S8GPRL5N3;
 					};
 				};
 			};
@@ -271,13 +286,17 @@
 			files = (
 				4CFF43031D4C564F000CA3C5 /* WERootViewController.m in Sources */,
 				4CFF43001D4C564F000CA3C5 /* AppDelegate.m in Sources */,
+				4CE9F3CB1D4FAA170088E940 /* NSString+HumanFriendlyDate.m in Sources */,
 				4CA77E591D4E2082008A3A65 /* WETopicMainBodyTableViewCell.swift in Sources */,
 				4CA77E571D4E1E31008A3A65 /* WETopicTableViewController.swift in Sources */,
+				4CE9F3C11D4F91AE0088E940 /* WETopicReplyTableViewCell.swift in Sources */,
 				4CBEB7FC1D4C85FD0068E3E1 /* WETopicDetail.m in Sources */,
 				4CBEB7F31D4C5F970068E3E1 /* WEDataManager.m in Sources */,
 				4CA77E531D4E0D20008A3A65 /* RefreshActivityIndicator.swift in Sources */,
 				4CBEB7F81D4C7C680068E3E1 /* WETopicSummaryCell.m in Sources */,
+				4CE9F3C31D4F95810088E940 /* WEReplyDetail.swift in Sources */,
 				4CFF42FD1D4C564F000CA3C5 /* main.m in Sources */,
+				4CE9F3C51D4F9B100088E940 /* WEUserDetail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,10 +412,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = weToExplore/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gnodnate.weToExplore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "weToExplore/weToExplore-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -408,10 +430,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = weToExplore/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gnodnate.weToExplore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "weToExplore/weToExplore-Bridging-Header.h";
 			};
 			name = Release;

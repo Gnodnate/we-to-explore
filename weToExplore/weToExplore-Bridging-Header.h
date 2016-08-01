@@ -4,3 +4,5 @@
 
 #import "WETopicDetail.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "WEDataManager.h"
+#import "NSString+HumanFriendlyDate.h"

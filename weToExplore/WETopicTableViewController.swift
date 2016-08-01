@@ -10,9 +10,16 @@ import UIKit
 
 class WETopicTableViewController: UITableViewController {
     
-    var topicDetail = WETopicDetail()
+    var topicDetail = WETopicDetail() {
+        didSet {
+            topicReplies = self.dataManager.getReplieForTopic(topicDetail.topicID)
+        }
+        
+    }
+    let dataManager = WEDataManager()
     
-
+    var topicReplies = NSArray()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.rowHeight = UITableViewAutomaticDimension
@@ -33,19 +40,27 @@ class WETopicTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 2
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        if section == 0 {
+            return 1
+        } else if section == 1 {
+            return self.topicReplies.count
+        }
+        return 0
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "normal");
-        if indexPath.row == 0 {
+        if indexPath.section == 0 {
             cell = tableView.dequeueReusableCellWithIdentifier("TopicManBody", forIndexPath: indexPath)
             (cell as! WETopicMainBodyTableViewCell).topicDetail = self.topicDetail
+        } else {
+            cell = tableView.dequeueReusableCellWithIdentifier("TopicReply", forIndexPath: indexPath)
+            
         }
 
         return cell
@@ -91,7 +106,7 @@ class WETopicTableViewController: UITableViewController {
         if indexPath.row == 0 {
             return 100
         }
-        return 60;
+        return 50;
     }
     
     /*

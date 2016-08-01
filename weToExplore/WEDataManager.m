@@ -12,7 +12,9 @@
 
 #define BaseURL @"https://www.v2ex.com/api/"
 #define HotTitle @"topics/hot.json"
-#define LatestTitle @"topics/latest.json"
+NSString *LatestTitleShortURL = @"topics/latest.json";
+NSString *repliesShortURL = @"api/replies/show.json";
+NSString *userDetailShortURL = @"/api/members/show.json";
 #define PointInfo
 
 @interface WEDataManager ()
@@ -35,6 +37,7 @@
 
 
 - (NSURLSessionDataTask*) parseURLString:(NSString*)url
+                          withParameters:(id)parameters
                 success:(void (^)(NSURLSessionDataTask *dataTask, id responseObject))success
                 failure:(void (^)(NSError *error))failure  {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
@@ -53,14 +56,44 @@
 }
 
 - (void)getTopics {
-    [self parseURLString:LatestTitle success:^(NSURLSessionDataTask *dataTask, id responseObject) {
+    [self parseURLString:LatestTitleShortURL
+          withParameters:nil
+                 success:^(NSURLSessionDataTask *dataTask, id responseObject) {
         NSMutableArray *mutableTopicArray = [[NSMutableArray alloc] init];
         for (NSDictionary *dic in responseObject) {
             [mutableTopicArray addObject:[[WETopicDetail alloc] initWithDictionary:dic]];
         }
         self.topicArray = mutableTopicArray;
-    } failure:^(NSError *error) {
+                 } failure:^(NSError *error) {
         NSLog(@"%@", error);
     }];
+}
+
+- (NSArray *)getReplieForTopic:(NSNumber *)topicID {
+    NSDictionary *parameters =  @{
+                                  @"topic_id": topicID
+                                  };
+    __block NSMutableArray *replies = [[NSMutableArray alloc] init];
+    [self parseURLString:repliesShortURL
+          withParameters:parameters
+                 success:^(NSURLSessionDataTask *dataTask, id responseObject) {
+                     replies = [NSMutableArray arrayWithArray:responseObject];
+                 } failure:^(NSError *error) {
+                     NSLog(@"%@", error);
+                 }];
+    return replies;
+}
+
+- (void)getDetailofUser:(NSNumber *)userID
+                success:(void (^)(NSDictionary *dic))success
+                 failed:(void (^)(NSError *error))failed {
+    NSDictionary *parameters = @{ @"id" : userID };
+    [self parseURLString:userDetailShortURL
+          withParameters:parameters
+                 success:^(NSURLSessionDataTask *dataTask, id responseObject) {
+                     success(responseObject);
+                 } failure:^(NSError *error) {
+                     failed(error);
+                 }];
 }
 @end

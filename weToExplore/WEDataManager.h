@@ -14,4 +14,10 @@
 
 - (void)getTopics;
 
+- (NSArray *)getReplieForTopic:(NSNumber *)topic;
+
+- (void)getDetailofUser:(NSNumber *)userID
+                success:(void (^)(NSDictionary *dic))success
+                 failed:(void (^)(NSError *error))failed;
+
 @end

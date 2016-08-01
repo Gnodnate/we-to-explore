@@ -11,6 +11,7 @@
 #import "WEDataManager.h"
 #import "objc/Runtime.h"
 #import "weToExplore-Swift.h"
+#import "NSString+HumanFriendlyDate.h"
 
 #define TopicCellID  @"TopicCellID"
 

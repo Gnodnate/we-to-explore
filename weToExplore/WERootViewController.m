@@ -48,7 +48,7 @@
     self.dataManager = [[WEDataManager alloc] init];
     [self registerAsObserverForDataManager:self.dataManager];
     
-    [self.refreshIndicator startActivityIndicator:self.tableView];
+    [self.refreshIndicator startActivityIndicator:self.view];
     [self.dataManager getTopics];
 
 }

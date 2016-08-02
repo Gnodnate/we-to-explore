@@ -80,6 +80,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		4C41B4011D50CB3C00C53C03 /* HelpfulFunction */ = {
+			isa = PBXGroup;
+			children = (
+				4CE9F3C91D4FAA170088E940 /* NSString+HumanFriendlyDate.h */,
+				4CE9F3CA1D4FAA170088E940 /* NSString+HumanFriendlyDate.m */,
+			);
+			name = HelpfulFunction;
+			sourceTree = "<group>";
+		};
 		4CBEB7F51D4C7AB50068E3E1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -127,8 +136,7 @@
 		4CFF42FA1D4C564F000CA3C5 /* weToExplore */ = {
 			isa = PBXGroup;
 			children = (
-				4CE9F3C91D4FAA170088E940 /* NSString+HumanFriendlyDate.h */,
-				4CE9F3CA1D4FAA170088E940 /* NSString+HumanFriendlyDate.m */,
+				4C41B4011D50CB3C00C53C03 /* HelpfulFunction */,
 				4CFF43011D4C564F000CA3C5 /* WERootViewController.h */,
 				4CFF43021D4C564F000CA3C5 /* WERootViewController.m */,
 				4CA77E561D4E1E31008A3A65 /* WETopicTableViewController.swift */,

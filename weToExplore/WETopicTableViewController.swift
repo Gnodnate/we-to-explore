@@ -75,6 +75,8 @@ class WETopicTableViewController: UITableViewController {
             
         }
 
+        cell.selectionStyle = UITableViewCellSelectionStyle.None
+        
         return cell
     }
 

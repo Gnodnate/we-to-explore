@@ -112,6 +112,8 @@
     if (indexPath.row < self.dataManager.topicArray.count) {
         [cell setTopicDetail:self.dataManager.topicArray[indexPath.row]];
     }
+    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return  cell;
 }
 - (NSInteger)tableView:(UITableView *)tableView

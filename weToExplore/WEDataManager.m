@@ -11,8 +11,8 @@
 #import "WETopicDetail.h"
 
 #define BaseURL @"https://www.v2ex.com/api/"
-#define HotTitle @"topics/hot.json"
-NSString *LatestTitleShortURL = @"topics/latest.json";
+NSString *HotTitle = @"topics/hot.json";
+//NSString *LatestTitleShortURL = @"topics/latest.json";
 NSString *repliesShortURL = @"replies/show.json";
 NSString *userDetailShortURL = @"members/show.json";
 #define PointInfo
@@ -60,7 +60,7 @@ NSString *userDetailShortURL = @"members/show.json";
 }
 
 - (void)getTopics {
-    [self parseURLString:LatestTitleShortURL
+    [self parseURLString:HotTitle
           withParameters:nil
                  success:^(NSURLSessionDataTask *dataTask, id responseObject) {
         NSMutableArray *mutableTopicArray = [[NSMutableArray alloc] init];

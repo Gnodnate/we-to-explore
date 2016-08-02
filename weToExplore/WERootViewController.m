@@ -100,8 +100,6 @@
     }
 }
 
-
-
 #pragma mark - tableview delegate
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {

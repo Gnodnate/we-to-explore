@@ -13,8 +13,8 @@
 #define BaseURL @"https://www.v2ex.com/api/"
 #define HotTitle @"topics/hot.json"
 NSString *LatestTitleShortURL = @"topics/latest.json";
-NSString *repliesShortURL = @"api/replies/show.json";
-NSString *userDetailShortURL = @"/api/members/show.json";
+NSString *repliesShortURL = @"replies/show.json";
+NSString *userDetailShortURL = @"members/show.json";
 #define PointInfo
 
 @interface WEDataManager ()
@@ -43,7 +43,11 @@ NSString *userDetailShortURL = @"/api/members/show.json";
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     
     self.sessionManager.responseSerializer = [AFJSONResponseSerializer serializer];
-    NSURLSessionDataTask *task = [self.sessionManager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    NSURLSessionDataTask *task = [self.sessionManager
+                                  GET:url
+                                  parameters:parameters
+                                  progress:nil
+                                  success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         success(task, responseObject);
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -69,19 +73,19 @@ NSString *userDetailShortURL = @"/api/members/show.json";
     }];
 }
 
-- (NSArray *)getReplieForTopic:(NSNumber *)topicID {
+- (void)getRepliesForTopic:(NSNumber *)topicID
+                   success:(void (^)(NSArray *array))success
+                    failed:(void (^)(NSError *error))failed {
     NSDictionary *parameters =  @{
                                   @"topic_id": topicID
                                   };
-    __block NSMutableArray *replies = [[NSMutableArray alloc] init];
     [self parseURLString:repliesShortURL
           withParameters:parameters
                  success:^(NSURLSessionDataTask *dataTask, id responseObject) {
-                     replies = [NSMutableArray arrayWithArray:responseObject];
+                     success(responseObject);
                  } failure:^(NSError *error) {
                      NSLog(@"%@", error);
                  }];
-    return replies;
 }
 
 - (void)getDetailofUser:(NSNumber *)userID

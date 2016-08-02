@@ -16,19 +16,11 @@ class WETopicReplyTableViewCell: UITableViewCell {
     @IBOutlet weak var replyText: UILabel!
     
     
-    var replyDetail = WEReplyDetail(["":""]) {
+    var replyDetail = WEReplyDetail() {
         didSet {
-            let dataManager = WEDataManager()
-            var userDetail = WEUserDetail(["":""])
-            dataManager.getDetailofUser(replyDetail.replierID,
-                                        success: { (dic:[NSObject:AnyObject]!) in
-                                            userDetail = WEUserDetail(dic as! Dictionary<String, AnyObject>)
-            }) { (error:NSError!) in
-                    NSLog("%@", [error])
-            }
-            replierImage.sd_setImageWithURL(NSURL(string: userDetail.avatar))
-            replyTime.text = userDetail.createTime
-            replierName.text = NSString.humanFriendlyDate(NSDate(timeIntervalSince1970: replyDetail.replyTime.doubleValue))
+            replierImage.sd_setImageWithURL(NSURL(string: replyDetail.replierImageURLString))
+            replierName.text = replyDetail.replierName
+            replyTime.text = NSString.humanFriendlyDate(NSDate(timeIntervalSince1970: replyDetail.replyTime.doubleValue))
             replyText.text = replyDetail.replyText
 
         }

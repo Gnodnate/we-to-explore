@@ -12,13 +12,19 @@ class WETopicTableViewController: UITableViewController {
     
     var topicDetail = WETopicDetail() {
         didSet {
-            topicReplies = self.dataManager.getReplieForTopic(topicDetail.topicID)
+            self.dataManager.getRepliesForTopic(topicDetail.topicID,
+                                                success: { (replies:[AnyObject]!) in
+                                                    self.topicReplies = replies
+                                                    self.tableView.reloadData()
+            }) { (error:NSError!) in
+                NSLog("%@", [error])
+            }
         }
         
     }
     let dataManager = WEDataManager()
     
-    var topicReplies = NSArray()
+    var topicReplies = [AnyObject]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +66,7 @@ class WETopicTableViewController: UITableViewController {
             (cell as! WETopicMainBodyTableViewCell).topicDetail = self.topicDetail
         } else {
             cell = tableView.dequeueReusableCellWithIdentifier("TopicReply", forIndexPath: indexPath)
+            (cell as! WETopicReplyTableViewCell).replyDetail = WEReplyDetail(self.topicReplies[indexPath.row] as! Dictionary)
             
         }
 

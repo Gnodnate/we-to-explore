@@ -14,7 +14,9 @@
 
 - (void)getTopics;
 
-- (NSArray *)getReplieForTopic:(NSNumber *)topic;
+- (void)getRepliesForTopic:(NSNumber *)topic
+                   success:(void (^)(NSArray *array))success
+                    failed:(void (^)(NSError *error))failed;
 
 - (void)getDetailofUser:(NSNumber *)userID
                 success:(void (^)(NSDictionary *dic))success

@@ -40,6 +40,9 @@ class WEUserDetail: NSObject {
     var avatar     = String()
     var createTime = String()
     
+    override init() {
+    }
+    
     init(_ dic:Dictionary<String, AnyObject>) {
         identity = dic["id"] as! NSNumber
         url      = dic["url"] as! String

@@ -43,7 +43,7 @@
     self.dataManager = [[WEDataManager alloc] init];
     [self registerAsObserverForDataManager:self.dataManager];
     
-    [self.refreshIndicator startActivityIndicator:self.view];
+    [self.refreshIndicator startActivityIndicator:self.tableView];
     [self.dataManager getTopics];
 
 }
@@ -89,7 +89,8 @@
             if ([self.refreshControl isRefreshing]) {
                 [self.refreshControl endRefreshing];
             }
-            [self.refreshIndicator stopActivityIndicator:self.view];
+            
+            [self.refreshIndicator stopActivityIndicator:self.tableView];
         }
     }
 }

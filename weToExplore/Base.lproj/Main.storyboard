@@ -153,16 +153,7 @@
                         </prototypes>
                     </tableView>
                     <navigationItem key="navigationItem" id="X3F-Ms-M6c">
-                        <barButtonItem key="leftBarButtonItem" id="xNp-YM-4Pn">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2Gx-5b-NDR">
-                                <rect key="frame" x="20" y="5" width="53" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Nodes">
-                                    <color key="titleColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
-                                </state>
-                            </button>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" image="ist-icon" id="xNp-YM-4Pn"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -447,4 +438,7 @@ Testst</string>
             <point key="canvasLocation" x="351" y="389"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ist-icon" width="32" height="26"/>
+    </resources>
 </document>

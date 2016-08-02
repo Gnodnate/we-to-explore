@@ -133,9 +133,9 @@
 				4CFF43021D4C564F000CA3C5 /* WERootViewController.m */,
 				4CA77E561D4E1E31008A3A65 /* WETopicTableViewController.swift */,
 				4CFF43041D4C564F000CA3C5 /* Main.storyboard */,
-				4CFF42FB1D4C564F000CA3C5 /* Supporting Files */,
 				4CBEB7F51D4C7AB50068E3E1 /* Model */,
 				4CBEB7F91D4C7C6E0068E3E1 /* View */,
+				4CFF42FB1D4C564F000CA3C5 /* Supporting Files */,
 			);
 			path = weToExplore;
 			sourceTree = "<group>";

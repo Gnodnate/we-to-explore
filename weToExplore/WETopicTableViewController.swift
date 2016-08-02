@@ -30,8 +30,13 @@ class WETopicTableViewController: UITableViewController {
         super.viewDidLoad()
         self.tableView.rowHeight = UITableViewAutomaticDimension
 
+        // Hide unsed cell line
+        let view = UIView()
+        view.backgroundColor = UIColor.clearColor()
+        self.tableView.tableFooterView = view
+        
         // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+         self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()

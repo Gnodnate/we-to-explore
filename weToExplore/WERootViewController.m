@@ -30,6 +30,11 @@
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 60;
     
+    // Hide unsed cell
+    UIView *view =[ [UIView alloc]init];
+    view.backgroundColor = [UIColor clearColor];
+    [self.tableView setTableFooterView:view];
+    
     // Refersh
     self.refreshIndicator = [[RefreshActivityIndicator alloc] init];
     

@@ -36,7 +36,7 @@ class WEReplyDetail: NSObject {
     override init() {
         
     }
-    init(_ dic:Dictionary<String, AnyObject>) {
+    required init(_ dic:Dictionary<String, AnyObject>) {
         member      = dic["member"] as! Dictionary
         replierName = member["username"] as! String
         replierID   = member["id"] as! NSNumber

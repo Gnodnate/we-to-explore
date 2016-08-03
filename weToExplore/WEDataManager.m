@@ -10,11 +10,12 @@
 #import "AFNetworking.h"
 #import "WETopicDetail.h"
 
-#define BaseURL @"https://www.v2ex.com/api/"
-NSString *HotTitle = @"topics/hot.json";
-//NSString *LatestTitleShortURL = @"topics/latest.json";
-NSString *repliesShortURL = @"replies/show.json";
-NSString *userDetailShortURL = @"members/show.json";
+NSString *BaseURL             = @"https://www.v2ex.com/api/";
+NSString *HotTitleShortURl    = @"topics/hot.json";
+NSString *LatestTitleShortURL = @"topics/latest.json";
+NSString *repliesShortURL     = @"replies/show.json";
+NSString *userDetailShortURL  = @"members/show.json";
+NSString *allNodeShortURL     = @"/api/nodes/all.json";
 #define PointInfo
 
 @interface WEDataManager ()
@@ -59,8 +60,19 @@ NSString *userDetailShortURL = @"members/show.json";
 
 }
 
-- (void)getTopics {
-    [self parseURLString:HotTitle
+- (NSURLSessionDataTask *)getAllNodeSuccess:(void (^)(NSArray *array))success
+                                     failed:(void (^)(NSError *error))failed {
+    return [self parseURLString:allNodeShortURL
+                 withParameters:nil
+                        success:^(NSURLSessionDataTask *dataTask, id responseObject) {
+                            success(responseObject);
+                        } failure:^(NSError *error) {
+                            failed(error);
+                        }];
+}
+
+- (NSURLSessionDataTask *)getTopics {
+   return [self parseURLString:LatestTitleShortURL
           withParameters:nil
                  success:^(NSURLSessionDataTask *dataTask, id responseObject) {
         NSMutableArray *mutableTopicArray = [[NSMutableArray alloc] init];
@@ -73,13 +85,13 @@ NSString *userDetailShortURL = @"members/show.json";
     }];
 }
 
-- (void)getRepliesForTopic:(NSNumber *)topicID
+- (NSURLSessionDataTask *)getRepliesForTopic:(NSNumber *)topicID
                    success:(void (^)(NSArray *array))success
                     failed:(void (^)(NSError *error))failed {
     NSDictionary *parameters =  @{
                                   @"topic_id": topicID
                                   };
-    [self parseURLString:repliesShortURL
+    return [self parseURLString:repliesShortURL
           withParameters:parameters
                  success:^(NSURLSessionDataTask *dataTask, id responseObject) {
                      success(responseObject);
@@ -88,11 +100,11 @@ NSString *userDetailShortURL = @"members/show.json";
                  }];
 }
 
-- (void)getDetailofUser:(NSNumber *)userID
+- (NSURLSessionDataTask *)getDetailofUser:(NSNumber *)userID
                 success:(void (^)(NSDictionary *dic))success
                  failed:(void (^)(NSError *error))failed {
     NSDictionary *parameters = @{ @"id" : userID };
-    [self parseURLString:userDetailShortURL
+    return [self parseURLString:userDetailShortURL
           withParameters:parameters
                  success:^(NSURLSessionDataTask *dataTask, id responseObject) {
                      success(responseObject);

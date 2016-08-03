@@ -17,7 +17,7 @@
 
 @interface WERootViewController ()
 @property (nonatomic, strong) WEDataManager *dataManager;
-@property (nonatomic, strong) RefreshActivityIndicator *refreshIndicator;
+
 @end
 
 @implementation WERootViewController
@@ -30,14 +30,13 @@
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 60;
     
+    
     // Hide unsed cell
     UIView *view =[ [UIView alloc]init];
     view.backgroundColor = [UIColor clearColor];
     [self.tableView setTableFooterView:view];
     
-    // Refersh
-    self.refreshIndicator = [[RefreshActivityIndicator alloc] init];
-    
+
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:_L(@"Refreshing...", @"Refreshing")];
     [refreshControl addTarget:self action:@selector(pullToRefresh:) forControlEvents:UIControlEventValueChanged];
@@ -48,7 +47,7 @@
     self.dataManager = [[WEDataManager alloc] init];
     [self registerAsObserverForDataManager:self.dataManager];
     
-    [self.refreshIndicator startActivityIndicator:self.view];
+    [self.refreshControl beginRefreshing];
     [self.dataManager getTopics];
 
 }
@@ -94,8 +93,6 @@
             if ([self.refreshControl isRefreshing]) {
                 [self.refreshControl endRefreshing];
             }
-            
-            [self.refreshIndicator stopActivityIndicator:self.tableView];
         }
     }
 }

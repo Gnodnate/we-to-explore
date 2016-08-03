@@ -43,7 +43,7 @@ class WEUserDetail: NSObject {
     override init() {
     }
     
-    init(_ dic:Dictionary<String, AnyObject>) {
+    required init(_ dic:Dictionary<String, AnyObject>) {
         identity = dic["id"] as! NSNumber
         url      = dic["url"] as! String
         name     = dic["username"] as! String

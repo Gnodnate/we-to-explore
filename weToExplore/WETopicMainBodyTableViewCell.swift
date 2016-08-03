@@ -14,15 +14,15 @@ class WETopicMainBodyTableViewCell: UITableViewCell {
     @IBOutlet weak var mainBodyText: UILabel!
     @IBOutlet weak var userImageView: UIImageView!
     
-    var topicDetail = WETopicDetail() {
+    var topicDetail:WETopicDetail? {
         didSet {
-            var memberIconURLString = topicDetail.memberInfo["avatar_normal"] as! String
+            var memberIconURLString = topicDetail!.memberInfo["avatar_normal"] as! String
             if memberIconURLString.hasPrefix("//") {
                 memberIconURLString = String.localizedStringWithFormat("https:%@", memberIconURLString)
             }
             self.userImageView.sd_setImageWithURL(NSURL(string:memberIconURLString))
-            self.userName.text = topicDetail.memberInfo["username"] as? String
-            self.mainBodyText.text = topicDetail.topicContent
+            self.userName.text = topicDetail!.memberInfo["username"] as? String
+            self.mainBodyText.text = topicDetail!.topicContent
         }
     }
 

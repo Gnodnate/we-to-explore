@@ -11,14 +11,16 @@
 
 @property (strong, nonatomic) NSArray *topicArray;
 
+- (NSURLSessionDataTask *)getAllNodeSuccess:(void (^)(NSArray *array))success
+                                     failed:(void (^)(NSError *error))failed;
 
-- (void)getTopics;
+- (NSURLSessionDataTask *)getTopics;
 
-- (void)getRepliesForTopic:(NSNumber *)topic
+- (NSURLSessionDataTask *)getRepliesForTopic:(NSNumber *)topic
                    success:(void (^)(NSArray *array))success
                     failed:(void (^)(NSError *error))failed;
 
-- (void)getDetailofUser:(NSNumber *)userID
+- (NSURLSessionDataTask *)getDetailofUser:(NSNumber *)userID
                 success:(void (^)(NSDictionary *dic))success
                  failed:(void (^)(NSError *error))failed;
 

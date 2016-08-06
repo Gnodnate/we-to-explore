@@ -10,6 +10,9 @@
 		4CA77E531D4E0D20008A3A65 /* RefreshActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA77E521D4E0D20008A3A65 /* RefreshActivityIndicator.swift */; };
 		4CA77E571D4E1E31008A3A65 /* WETopicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA77E561D4E1E31008A3A65 /* WETopicTableViewController.swift */; };
 		4CA77E591D4E2082008A3A65 /* WETopicMainBodyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA77E581D4E2082008A3A65 /* WETopicMainBodyTableViewCell.swift */; };
+		4CB8FDB31D55A0F700EC08DB /* WERootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8FDB21D55A0F700EC08DB /* WERootViewController.m */; };
+		4CB8FDB51D55A35200EC08DB /* WERootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8FDB41D55A35200EC08DB /* WERootViewModel.swift */; };
+		4CB8FDB71D55A3A300EC08DB /* WETopicTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8FDB61D55A3A300EC08DB /* WETopicTableViewModel.swift */; };
 		4CBEB7F31D4C5F970068E3E1 /* WEDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBEB7F21D4C5F960068E3E1 /* WEDataManager.m */; };
 		4CBEB7F81D4C7C680068E3E1 /* WETopicSummaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBEB7F71D4C7C680068E3E1 /* WETopicSummaryCell.m */; };
 		4CBEB7FC1D4C85FD0068E3E1 /* WETopicDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBEB7FB1D4C85FD0068E3E1 /* WETopicDetail.m */; };
@@ -19,7 +22,6 @@
 		4CE9F3CB1D4FAA170088E940 /* NSString+HumanFriendlyDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE9F3CA1D4FAA170088E940 /* NSString+HumanFriendlyDate.m */; };
 		4CFF42FD1D4C564F000CA3C5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF42FC1D4C564F000CA3C5 /* main.m */; };
 		4CFF43001D4C564F000CA3C5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF42FF1D4C564F000CA3C5 /* AppDelegate.m */; };
-		4CFF43031D4C564F000CA3C5 /* WERootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF43021D4C564F000CA3C5 /* WERootViewController.m */; };
 		4CFF43061D4C564F000CA3C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CFF43041D4C564F000CA3C5 /* Main.storyboard */; };
 		4CFF43081D4C5650000CA3C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CFF43071D4C5650000CA3C5 /* Assets.xcassets */; };
 		4CFF430B1D4C5650000CA3C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CFF43091D4C5650000CA3C5 /* LaunchScreen.storyboard */; };
@@ -33,6 +35,10 @@
 		4CA77E521D4E0D20008A3A65 /* RefreshActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshActivityIndicator.swift; sourceTree = "<group>"; };
 		4CA77E561D4E1E31008A3A65 /* WETopicTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WETopicTableViewController.swift; sourceTree = "<group>"; };
 		4CA77E581D4E2082008A3A65 /* WETopicMainBodyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WETopicMainBodyTableViewCell.swift; sourceTree = "<group>"; };
+		4CB8FDB11D55A0F700EC08DB /* WERootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WERootViewController.h; sourceTree = "<group>"; };
+		4CB8FDB21D55A0F700EC08DB /* WERootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WERootViewController.m; sourceTree = "<group>"; };
+		4CB8FDB41D55A35200EC08DB /* WERootViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WERootViewModel.swift; sourceTree = "<group>"; };
+		4CB8FDB61D55A3A300EC08DB /* WETopicTableViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WETopicTableViewModel.swift; sourceTree = "<group>"; };
 		4CBEB7F11D4C5F960068E3E1 /* WEDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WEDataManager.h; sourceTree = "<group>"; };
 		4CBEB7F21D4C5F960068E3E1 /* WEDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WEDataManager.m; sourceTree = "<group>"; };
 		4CBEB7F61D4C7C680068E3E1 /* WETopicSummaryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WETopicSummaryCell.h; sourceTree = "<group>"; };
@@ -50,8 +56,6 @@
 		4CFF42FC1D4C564F000CA3C5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4CFF42FE1D4C564F000CA3C5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4CFF42FF1D4C564F000CA3C5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		4CFF43011D4C564F000CA3C5 /* WERootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WERootViewController.h; sourceTree = "<group>"; };
-		4CFF43021D4C564F000CA3C5 /* WERootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WERootViewController.m; sourceTree = "<group>"; };
 		4CFF43051D4C564F000CA3C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4CFF43071D4C5650000CA3C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4CFF430A1D4C5650000CA3C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -108,7 +112,6 @@
 				4CA77E521D4E0D20008A3A65 /* RefreshActivityIndicator.swift */,
 				4CBEB7F61D4C7C680068E3E1 /* WETopicSummaryCell.h */,
 				4CBEB7F71D4C7C680068E3E1 /* WETopicSummaryCell.m */,
-				4CA77E511D4E0D20008A3A65 /* weToExplore-Bridging-Header.h */,
 				4CA77E581D4E2082008A3A65 /* WETopicMainBodyTableViewCell.swift */,
 				4CE9F3C01D4F91AE0088E940 /* WETopicReplyTableViewCell.swift */,
 			);
@@ -137,9 +140,11 @@
 			isa = PBXGroup;
 			children = (
 				4C41B4011D50CB3C00C53C03 /* HelpfulFunction */,
-				4CFF43011D4C564F000CA3C5 /* WERootViewController.h */,
-				4CFF43021D4C564F000CA3C5 /* WERootViewController.m */,
+				4CB8FDB11D55A0F700EC08DB /* WERootViewController.h */,
+				4CB8FDB21D55A0F700EC08DB /* WERootViewController.m */,
+				4CB8FDB41D55A35200EC08DB /* WERootViewModel.swift */,
 				4CA77E561D4E1E31008A3A65 /* WETopicTableViewController.swift */,
+				4CB8FDB61D55A3A300EC08DB /* WETopicTableViewModel.swift */,
 				4CFF43041D4C564F000CA3C5 /* Main.storyboard */,
 				4CBEB7F51D4C7AB50068E3E1 /* Model */,
 				4CBEB7F91D4C7C6E0068E3E1 /* View */,
@@ -151,6 +156,7 @@
 		4CFF42FB1D4C564F000CA3C5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4CA77E511D4E0D20008A3A65 /* weToExplore-Bridging-Header.h */,
 				4CFF430C1D4C5650000CA3C5 /* Info.plist */,
 				4CFF42FE1D4C564F000CA3C5 /* AppDelegate.h */,
 				4CFF42FF1D4C564F000CA3C5 /* AppDelegate.m */,
@@ -292,7 +298,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CFF43031D4C564F000CA3C5 /* WERootViewController.m in Sources */,
+				4CB8FDB71D55A3A300EC08DB /* WETopicTableViewModel.swift in Sources */,
+				4CB8FDB31D55A0F700EC08DB /* WERootViewController.m in Sources */,
 				4CFF43001D4C564F000CA3C5 /* AppDelegate.m in Sources */,
 				4CE9F3CB1D4FAA170088E940 /* NSString+HumanFriendlyDate.m in Sources */,
 				4CA77E591D4E2082008A3A65 /* WETopicMainBodyTableViewCell.swift in Sources */,
@@ -300,6 +307,7 @@
 				4CE9F3C11D4F91AE0088E940 /* WETopicReplyTableViewCell.swift in Sources */,
 				4CBEB7FC1D4C85FD0068E3E1 /* WETopicDetail.m in Sources */,
 				4CBEB7F31D4C5F970068E3E1 /* WEDataManager.m in Sources */,
+				4CB8FDB51D55A35200EC08DB /* WERootViewModel.swift in Sources */,
 				4CA77E531D4E0D20008A3A65 /* RefreshActivityIndicator.swift in Sources */,
 				4CBEB7F81D4C7C680068E3E1 /* WETopicSummaryCell.m in Sources */,
 				4CE9F3C31D4F95810088E940 /* WEReplyDetail.swift in Sources */,

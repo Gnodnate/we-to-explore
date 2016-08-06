@@ -9,12 +9,12 @@
 #import <Foundation/Foundation.h>
 @interface WEDataManager : NSObject
 
-@property (strong, nonatomic) NSArray *topicArray;
-
 - (NSURLSessionDataTask *)getAllNodeSuccess:(void (^)(NSArray *array))success
                                      failed:(void (^)(NSError *error))failed;
 
-- (NSURLSessionDataTask *)getTopics;
+- (NSURLSessionDataTask *)getTopicsSucess:(void (^)(NSArray *topics))sucess
+                                 progress:(void (^)(NSProgress *progress))Progress
+                                   failed:(void (^)(NSError *error))failed;
 
 - (NSURLSessionDataTask *)getRepliesForTopic:(NSNumber *)topic
                    success:(void (^)(NSArray *array))success

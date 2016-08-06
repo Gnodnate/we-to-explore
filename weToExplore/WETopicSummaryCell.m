@@ -27,7 +27,7 @@
     if (![_topicDetail isEqual:topicDetail]) {
         _topicDetail = topicDetail;
         
-        NSString *memberIconURLString = [topicDetail.memberInfo objectForKey:@"avatar_normal"];
+        NSString *memberIconURLString = [topicDetail.memberInfo objectForKey:@"avatar_mini"];
         if ([memberIconURLString hasPrefix:@"//"]){
             memberIconURLString = [NSString stringWithFormat:@"https:%@", memberIconURLString];
         }

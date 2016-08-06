@@ -39,8 +39,9 @@ NSString *allNodeShortURL     = @"/api/nodes/all.json";
 
 - (NSURLSessionDataTask*) parseURLString:(NSString*)url
                           withParameters:(id)parameters
-                success:(void (^)(NSURLSessionDataTask *dataTask, id responseObject))success
-                failure:(void (^)(NSError *error))failure  {
+                                 success:(void (^)(NSURLSessionDataTask *dataTask, id responseObject))success
+                                progress:(void (^)(NSProgress * _Nonnull))downloadProgress
+                                 failure:(void (^)(NSError *error))failure  {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     
     self.sessionManager.responseSerializer = [AFJSONResponseSerializer serializer];
@@ -66,23 +67,24 @@ NSString *allNodeShortURL     = @"/api/nodes/all.json";
                  withParameters:nil
                         success:^(NSURLSessionDataTask *dataTask, id responseObject) {
                             success(responseObject);
+                        } progress:^(NSProgress * _Nonnull progress) {
                         } failure:^(NSError *error) {
                             failed(error);
                         }];
 }
 
-- (NSURLSessionDataTask *)getTopics {
-   return [self parseURLString:LatestTitleShortURL
-          withParameters:nil
-                 success:^(NSURLSessionDataTask *dataTask, id responseObject) {
-        NSMutableArray *mutableTopicArray = [[NSMutableArray alloc] init];
-        for (NSDictionary *dic in responseObject) {
-            [mutableTopicArray addObject:[[WETopicDetail alloc] initWithDictionary:dic]];
-        }
-        self.topicArray = mutableTopicArray;
-                 } failure:^(NSError *error) {
-        NSLog(@"%@", error);
-    }];
+- (NSURLSessionDataTask *)getTopicsSucess:(void (^)(NSArray *topics))sucess
+                                 progress:(void (^)(NSProgress * progress))Progress
+                                   failed:(void (^)(NSError *))failed {
+    return [self parseURLString:LatestTitleShortURL
+                 withParameters:nil
+                        success:^(NSURLSessionDataTask *dataTask, id responseObject) {
+                            sucess(responseObject);
+                        } progress:^(NSProgress * _Nonnull progress) {
+                            Progress(progress);
+                        } failure:^(NSError *error) {
+                            NSLog(@"%@", error);
+                        }];
 }
 
 - (NSURLSessionDataTask *)getRepliesForTopic:(NSNumber *)topicID
@@ -95,6 +97,7 @@ NSString *allNodeShortURL     = @"/api/nodes/all.json";
           withParameters:parameters
                  success:^(NSURLSessionDataTask *dataTask, id responseObject) {
                      success(responseObject);
+                 } progress:^(NSProgress * _Nonnull progress) {
                  } failure:^(NSError *error) {
                      NSLog(@"%@", error);
                  }];
@@ -108,6 +111,7 @@ NSString *allNodeShortURL     = @"/api/nodes/all.json";
           withParameters:parameters
                  success:^(NSURLSessionDataTask *dataTask, id responseObject) {
                      success(responseObject);
+                 } progress:^(NSProgress * _Nonnull progress) {
                  } failure:^(NSError *error) {
                      failed(error);
                  }];

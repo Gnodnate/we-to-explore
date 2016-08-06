@@ -10,6 +10,5 @@
 
 @interface WERootViewController : UITableViewController<UITableViewDataSource, UITableViewDelegate>
 
-
 @end
 

@@ -25,20 +25,8 @@
 
 @implementation WERootViewController
 
-- (instancetype)initWithCoder:(NSCoder *)aDecoder {
-    self = [super initWithCoder:aDecoder];
-    
-    
-    return  self;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-//    [self addObserver:self
-//           forKeyPath:NSStringFromSelector(@selector(viewModel))
-//              options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld
-//              context:nil];
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -52,6 +40,8 @@
     [self.tableView setTableFooterView:view];
     
 
+    self.refreshIndicator = [[RefreshActivityIndicator alloc] init];
+    
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
 //    refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:_L(@"Refreshing...", @"Refreshing")];
     [refreshControl addTarget:self action:@selector(pullToRefresh:) forControlEvents:UIControlEventValueChanged];
@@ -65,15 +55,15 @@
     self.viewModel.topicsDidChange = ^(id <WERootViewModelProtocol> viewModel) {
         weakSelf.topicDetails = viewModel.topics;
         [weakSelf.refreshControl endRefreshing];
+        [weakSelf.refreshIndicator stopActivityIndicator];
         [weakSelf.tableView reloadData];
     };
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [self.refreshControl beginRefreshing];
+    [super viewDidAppear:animated];
     
-
-    [self.viewModel showTopics];
+    [self pullToRefresh:nil];
     
 }
 
@@ -85,6 +75,7 @@
 #pragma mark - Pull to refresh
 
 - (IBAction)pullToRefresh:(id)sender {
+    [self.refreshIndicator startActivityIndicator:[UIApplication sharedApplication].keyWindow];
     [self.viewModel showTopics];
 
 }

@@ -27,7 +27,7 @@ class RefreshActivityIndicator: UIViewController {
         }
     }
     
-    func stopActivityIndicator(uiView: UIView) {
+    func stopActivityIndicator() {
         if activityIndicator.isAnimating() {
             activityIndicator.stopAnimating()
             container.removeFromSuperview()

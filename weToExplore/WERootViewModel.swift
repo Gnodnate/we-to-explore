@@ -19,6 +19,7 @@ import UIKit
 /// Root View Model
 class WERootViewModel: NSObject,WERootViewModelProtocol  {
     let dataManager:WEDataManager
+    var lastSessionTask:NSURLSessionTask?
     var topics: [WETopicDetail]?{
         didSet {
             self.topicsDidChange?(self)
@@ -30,7 +31,8 @@ class WERootViewModel: NSObject,WERootViewModelProtocol  {
         self.dataManager = dataManager
     }
     func showTopics() {
-        self.dataManager.getTopicsSucess({ (topics:[AnyObject]!) in
+        self.lastSessionTask?.cancel();
+        self.lastSessionTask = self.dataManager.getTopicsSucess({ (topics:[AnyObject]!) in
             var topicDetails = [WETopicDetail]()
             for detail in topics {
                 let topicDetail:WETopicDetail = WETopicDetail(dictionary: detail as! Dictionary)

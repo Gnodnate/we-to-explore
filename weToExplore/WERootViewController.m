@@ -58,13 +58,7 @@
         [weakSelf.refreshIndicator stopActivityIndicator];
         [weakSelf.tableView reloadData];
     };
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    
     [self pullToRefresh:nil];
-    
 }
 
 - (void)didReceiveMemoryWarning {

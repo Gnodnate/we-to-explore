@@ -83,7 +83,7 @@ NSString *allNodeShortURL     = @"/api/nodes/all.json";
                         } progress:^(NSProgress * _Nonnull progress) {
                             Progress(progress);
                         } failure:^(NSError *error) {
-                            NSLog(@"%@", error);
+                            failed(error);
                         }];
 }
 
@@ -99,7 +99,7 @@ NSString *allNodeShortURL     = @"/api/nodes/all.json";
                      success(responseObject);
                  } progress:^(NSProgress * _Nonnull progress) {
                  } failure:^(NSError *error) {
-                     NSLog(@"%@", error);
+                     failed(error);
                  }];
 }
 

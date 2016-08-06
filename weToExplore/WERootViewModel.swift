@@ -42,7 +42,7 @@ class WERootViewModel: NSObject,WERootViewModelProtocol  {
             }, progress: { (progress:NSProgress!) in
                 NSLog("Progress: %@", progress.localizedDescription)
             },failed: { (error:NSError!) in
-                NSLog("%@", error)
+                self.topics = nil
         })
     }
     

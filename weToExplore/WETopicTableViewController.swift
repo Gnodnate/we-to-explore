@@ -10,12 +10,16 @@ import UIKit
 
 class WETopicTableViewController: UITableViewController {
     
+    let refreshActivityIndicator = RefreshActivityIndicator()
+    
     var topicDetail = WETopicDetail() {
         didSet {
+            refreshActivityIndicator.startActivityIndicator(self.tableView)
             self.dataManager.getRepliesForTopic(topicDetail.topicID,
                                                 success: { (replies:[AnyObject]!) in
                                                     self.topicReplies = replies
                                                     self.tableView.reloadData()
+                                                    self.refreshActivityIndicator.stopActivityIndicator()
             }) { (error:NSError!) in
                 NSLog("%@", [error])
             }

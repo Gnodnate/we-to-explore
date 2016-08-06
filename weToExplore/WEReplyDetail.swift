@@ -40,7 +40,7 @@ class WEReplyDetail: NSObject {
         member      = dic["member"] as! Dictionary
         replierName = member["username"] as! String
         replierID   = member["id"] as! NSNumber
-        replierImageURLString = member["avatar_normal"] as! String
+        replierImageURLString = member["avatar_mini"] as! String
         if replierImageURLString.hasPrefix("//") {
             replierImageURLString = String(format:"https:%@", replierImageURLString)
         }

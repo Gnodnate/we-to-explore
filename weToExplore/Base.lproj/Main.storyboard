@@ -33,6 +33,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="39" height="39"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="Rd3-At-b85" secondAttribute="height" id="F8B-eY-MXm"/>
+                                                                <constraint firstAttribute="width" constant="39" id="Nbw-Mb-hRL"/>
                                                                 <constraint firstAttribute="height" constant="60" id="Q8c-EU-08y"/>
                                                                 <constraint firstAttribute="width" constant="60" id="tYz-4z-933"/>
                                                             </constraints>
@@ -43,7 +44,17 @@
                                                                 </mask>
                                                             </variation>
                                                         </imageView>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E6a-8L-mkR">
+                                                            <rect key="frame" x="0.0" y="39" width="39" height="0.0"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </view>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="E6a-8L-mkR" secondAttribute="trailing" id="8wr-9U-qcZ"/>
+                                                        <constraint firstItem="E6a-8L-mkR" firstAttribute="leading" secondItem="yLo-6n-7QT" secondAttribute="leading" id="N4J-aM-k4K"/>
+                                                        <constraint firstItem="E6a-8L-mkR" firstAttribute="top" secondItem="Rd3-At-b85" secondAttribute="bottom" id="aZH-fN-wRi"/>
+                                                        <constraint firstAttribute="bottom" secondItem="E6a-8L-mkR" secondAttribute="bottom" id="hRp-w9-Tp6"/>
+                                                    </constraints>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="J6u-wU-paF">
                                                     <rect key="frame" x="39" y="0.0" width="545" height="39"/>
@@ -58,7 +69,7 @@
                                                                         <constraint firstAttribute="width" constant="10" id="mPw-y7-fEQ"/>
                                                                     </constraints>
                                                                 </view>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="258" verticalCompressionResistancePriority="754" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uR6-MW-H1r">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="258" verticalCompressionResistancePriority="754" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uR6-MW-H1r">
                                                                     <rect key="frame" x="10" y="0.0" width="535" height="14"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

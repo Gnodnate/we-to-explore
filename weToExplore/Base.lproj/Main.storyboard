@@ -190,11 +190,17 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="KKU-dN-kJP">
                                             <rect key="frame" x="8" y="8" width="584" height="185"/>
                                             <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSd-BN-fUL">
+                                                    <rect key="frame" x="0.0" y="0.0" width="584" height="26"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iMz-LO-b4N">
-                                                    <rect key="frame" x="0.0" y="0.0" width="584" height="134"/>
+                                                    <rect key="frame" x="0.0" y="26" width="584" height="108"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cmx-v7-bAs">
-                                                            <rect key="frame" x="0.0" y="0.0" width="134" height="134"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="108" height="108"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="20" id="5XP-qV-pYl"/>
                                                                 <constraint firstAttribute="width" secondItem="Cmx-v7-bAs" secondAttribute="height" id="XFY-BD-WfL"/>
@@ -206,14 +212,14 @@
                                                             </variation>
                                                         </imageView>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G7f-Ag-0br">
-                                                            <rect key="frame" x="134" y="0.0" width="10" height="134"/>
+                                                            <rect key="frame" x="108" y="0.0" width="10" height="108"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="10" id="Kn2-bb-XRB"/>
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4dF-4C-sOy">
-                                                            <rect key="frame" x="144" y="0.0" width="440" height="134"/>
+                                                            <rect key="frame" x="118" y="0.0" width="466" height="108"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -265,13 +271,21 @@ Testst</string>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="hSd-BN-fUL" secondAttribute="trailing" id="6da-K9-4Jg"/>
                                                 <constraint firstItem="iMz-LO-b4N" firstAttribute="top" secondItem="KKU-dN-kJP" secondAttribute="top" id="73F-dd-doQ"/>
+                                                <constraint firstItem="hSd-BN-fUL" firstAttribute="top" secondItem="KKU-dN-kJP" secondAttribute="top" id="DY2-Nr-bLF"/>
                                                 <constraint firstAttribute="trailing" secondItem="iMz-LO-b4N" secondAttribute="trailing" id="I6I-Up-ead"/>
+                                                <constraint firstItem="hSd-BN-fUL" firstAttribute="leading" secondItem="KKU-dN-kJP" secondAttribute="leading" id="KN2-O1-jHJ"/>
+                                                <constraint firstItem="iMz-LO-b4N" firstAttribute="top" secondItem="hSd-BN-fUL" secondAttribute="bottom" constant="10" id="Z42-Q1-qTp"/>
                                                 <constraint firstItem="Iw6-gn-yGM" firstAttribute="top" secondItem="iMz-LO-b4N" secondAttribute="bottom" constant="8" id="bIe-OI-4Wr"/>
+                                                <constraint firstItem="iMz-LO-b4N" firstAttribute="top" secondItem="hSd-BN-fUL" secondAttribute="bottom" constant="10" id="dYD-OI-AxB"/>
                                                 <constraint firstItem="iMz-LO-b4N" firstAttribute="leading" secondItem="KKU-dN-kJP" secondAttribute="leading" id="kA5-Wx-9tW"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
+                                                    <exclude reference="73F-dd-doQ"/>
+                                                    <exclude reference="Z42-Q1-qTp"/>
+                                                    <exclude reference="dYD-OI-AxB"/>
                                                     <exclude reference="bIe-OI-4Wr"/>
                                                 </mask>
                                             </variation>
@@ -286,6 +300,7 @@ Testst</string>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="mainBodyText" destination="jpB-6w-U5x" id="vKu-lC-i1P"/>
+                                    <outlet property="tilte" destination="hSd-BN-fUL" id="n3K-HU-96x"/>
                                     <outlet property="userImageView" destination="Cmx-v7-bAs" id="ZWG-Je-3Yn"/>
                                     <outlet property="userName" destination="4dF-4C-sOy" id="7mE-5V-Em4"/>
                                 </connections>

@@ -10,12 +10,15 @@ import UIKit
 
 class WETopicMainBodyTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var tilte: UILabel!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var mainBodyText: UILabel!
     @IBOutlet weak var userImageView: UIImageView!
     
     var topicDetail:WETopicDetail? {
         didSet {
+            self.tilte.text = topicDetail?.topicTitle
+            
             var memberIconURLString = topicDetail!.memberInfo["avatar_normal"] as! String
             if memberIconURLString.hasPrefix("//") {
                 memberIconURLString = String.localizedStringWithFormat("https:%@", memberIconURLString)

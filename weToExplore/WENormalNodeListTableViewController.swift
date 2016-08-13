@@ -14,6 +14,10 @@ class WENormalNodeListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         dataSource = WENormalNodeTableDataSource(tableview: self.tableView)
+        // Hide unsed cell
+        let view = UIView()
+        view.backgroundColor = UIColor.clearColor()
+        self.tableView.tableFooterView = view
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

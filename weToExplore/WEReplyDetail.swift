@@ -33,10 +33,8 @@ class WEReplyDetail: NSObject {
     var replyText = String()
     var replyTime = NSNumber()
     var member = [String: AnyObject]()
-    override init() {
-        
-    }
     required init(_ dic:Dictionary<String, AnyObject>) {
+        super.init()
         member      = dic["member"] as! Dictionary
         replierName = member["username"] as! String
         replierID   = member["id"] as! NSNumber

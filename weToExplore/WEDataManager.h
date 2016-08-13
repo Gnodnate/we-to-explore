@@ -7,10 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+
+typedef enum : NSUInteger {
+    HTTPGET,
+    HTTPPOST,
+    JSON,
+} URLMethod;
+
 @interface WEDataManager : NSObject
 
 - (NSURLSessionDataTask *)getAllNodeSuccess:(void (^)(NSArray *array))success
                                      failed:(void (^)(NSError *error))failed;
+
+- (NSURLSessionDataTask *)getCommonNodeSuccess:(void (^)(NSString *string))success
+                                        failed:(void (^)(NSError *error))failed;
 
 - (NSURLSessionDataTask *)getTopicsSucess:(void (^)(NSArray *topics))sucess
                                  progress:(void (^)(NSProgress *progress))Progress

@@ -15,13 +15,12 @@ class WETopicReplyTableViewCell: UITableViewCell {
     @IBOutlet weak var replyTime: UILabel!
     @IBOutlet weak var replyText: UILabel!
     
-    
-    var replyDetail = WEReplyDetail() {
+    var replyDetail:WEReplyDetail? {
         didSet {
-            replierImage.sd_setImageWithURL(NSURL(string: replyDetail.replierImageURLString))
-            replierName.text = replyDetail.replierName
-            replyTime.text = NSString.humanFriendlyDate(NSDate(timeIntervalSince1970: replyDetail.replyTime.doubleValue))
-            replyText.text = replyDetail.replyText
+            replierImage.sd_setImageWithURL(NSURL(string: replyDetail!.replierImageURLString))
+            replierName.text = replyDetail!.replierName
+            replyTime.text = NSString.humanFriendlyDate(NSDate(timeIntervalSince1970: replyDetail!.replyTime.doubleValue))
+            replyText.text = replyDetail!.replyText
 
         }
     }

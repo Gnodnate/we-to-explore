@@ -10,12 +10,12 @@
 #import "AFNetworking.h"
 #import "WETopicDetail.h"
 
-NSString *BaseURL             = @"https://www.v2ex.com/api/";
-NSString *HotTitleShortURl    = @"topics/hot.json";
-NSString *LatestTitleShortURL = @"topics/latest.json";
-NSString *repliesShortURL     = @"replies/show.json";
-NSString *userDetailShortURL  = @"members/show.json";
-NSString *allNodeShortURL     = @"/api/nodes/all.json";
+NSString *BaseURL             = @"https://www.v2ex.com/";
+NSString *HotTitleShortURl    = @"api/topics/hot.json";
+NSString *LatestTitleShortURL = @"api/topics/latest.json";
+NSString *repliesShortURL     = @"api/replies/show.json";
+NSString *userDetailShortURL  = @"api/members/show.json";
+NSString *allNodeShortURL     = @"api/nodes/all.json";
 #define PointInfo
 
 @interface WEDataManager ()
@@ -38,24 +38,39 @@ NSString *allNodeShortURL     = @"/api/nodes/all.json";
 
 
 - (NSURLSessionDataTask*) parseURLString:(NSString*)url
+                              withMethod:(URLMethod)method
                           withParameters:(id)parameters
                                  success:(void (^)(NSURLSessionDataTask *dataTask, id responseObject))success
                                 progress:(void (^)(NSProgress * _Nonnull))downloadProgress
                                  failure:(void (^)(NSError *error))failure  {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    
-    self.sessionManager.responseSerializer = [AFJSONResponseSerializer serializer];
-    NSURLSessionDataTask *task = [self.sessionManager
-                                  GET:url
-                                  parameters:parameters
-                                  progress:nil
-                                  success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        success(task, responseObject);
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        failure(error);
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-    }];
+    NSURLSessionDataTask *task = nil;
+    switch (method) {
+        case HTTPGET:
+        case JSON:
+        {
+            if (method == HTTPGET) {
+                self.sessionManager.responseSerializer = [AFHTTPResponseSerializer serializer];
+            } else {
+                self.sessionManager.responseSerializer = [AFJSONResponseSerializer serializer];
+            }
+            task = [self.sessionManager
+                    GET:url
+                    parameters:parameters
+                    progress:nil
+                    success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                        success(task, responseObject);
+                        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+                    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                        failure(error);
+                        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+                    }];
+            break;
+        }
+        case HTTPPOST:
+        default:
+            break;
+    }
 
     return  task;
 
@@ -64,6 +79,7 @@ NSString *allNodeShortURL     = @"/api/nodes/all.json";
 - (NSURLSessionDataTask *)getAllNodeSuccess:(void (^)(NSArray *array))success
                                      failed:(void (^)(NSError *error))failed {
     return [self parseURLString:allNodeShortURL
+                     withMethod:JSON
                  withParameters:nil
                         success:^(NSURLSessionDataTask *dataTask, id responseObject) {
                             success(responseObject);
@@ -77,6 +93,7 @@ NSString *allNodeShortURL     = @"/api/nodes/all.json";
                                  progress:(void (^)(NSProgress * progress))Progress
                                    failed:(void (^)(NSError *))failed {
     return [self parseURLString:LatestTitleShortURL
+                     withMethod:JSON
                  withParameters:nil
                         success:^(NSURLSessionDataTask *dataTask, id responseObject) {
                             sucess(responseObject);
@@ -94,7 +111,8 @@ NSString *allNodeShortURL     = @"/api/nodes/all.json";
                                   @"topic_id": topicID
                                   };
     return [self parseURLString:repliesShortURL
-          withParameters:parameters
+                     withMethod:JSON
+                 withParameters:parameters
                  success:^(NSURLSessionDataTask *dataTask, id responseObject) {
                      success(responseObject);
                  } progress:^(NSProgress * _Nonnull progress) {
@@ -108,10 +126,23 @@ NSString *allNodeShortURL     = @"/api/nodes/all.json";
                  failed:(void (^)(NSError *error))failed {
     NSDictionary *parameters = @{ @"id" : userID };
     return [self parseURLString:userDetailShortURL
-          withParameters:parameters
+                     withMethod:JSON
+                 withParameters:parameters
                  success:^(NSURLSessionDataTask *dataTask, id responseObject) {
                      success(responseObject);
                  } progress:^(NSProgress * _Nonnull progress) {
+                 } failure:^(NSError *error) {
+                     failed(error);
+                 }];
+}
+- (NSURLSessionDataTask *)getCommonNodeSuccess:(void (^)(NSString *string))success
+                                        failed:(void (^)(NSError *error))failed {
+    NSDictionary *parameters = @{ @"tab" : @"nodes"};
+    return [self parseURLString:@""
+                     withMethod:HTTPGET
+                 withParameters:parameters success:^(NSURLSessionDataTask *dataTask, id responseObject) {
+                     success(responseObject);
+                 } progress:^(NSProgress * progress) {
                  } failure:^(NSError *error) {
                      failed(error);
                  }];

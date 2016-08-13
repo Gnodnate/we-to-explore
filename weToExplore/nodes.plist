@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>游戏</key>
+	<dict>
+		<key>Steam</key>
+		<string>steam</string>
+		<key>Battlefield 3</key>
+		<string>bf3</string>
+		<key>StarCraft 2</key>
+		<string>sc2</string>
+	</dict>
+	<key>Geek</key>
+	<dict>
+		<key>程序员</key>
+		<string>programmer</string>
+		<key>Python</key>
+		<string>python</string>
+		<key>Android</key>
+		<string>android</string>
+		<key>Linux</key>
+		<string>linux</string>
+		<key>宽带症候群</key>
+		<string>bb</string>
+		<key>云计算</key>
+		<string>cloud</string>
+		<key>PHP</key>
+		<string>php</string>
+		<key>自然语言处理</key>
+		<string>nlp</string>
+	</dict>
+	<key>iOS</key>
+	<dict>
+		<key>iDev</key>
+		<string>idev</string>
+		<key>iCode</key>
+		<string>icode</string>
+		<key>iMarketing</key>
+		<string>imarketing</string>
+	</dict>
+	<key>分享与探索</key>
+	<dict>
+		<key>问与答</key>
+		<string>qna</string>
+		<key>分享发现</key>
+		<string>share</string>
+		<key>分享创造</key>
+		<string>create</string>
+		<key>分享邀请码 </key>
+		<string>in</string>
+		<key>自言自语</key>
+		<string>autistic</string>
+		<key>奇思妙想</key>
+		<string>ideas</string>
+		<key>随想</key>
+		<string>random</string>
+		<key>设计</key>
+		<string>design</string>
+		<key>Blog</key>
+		<string>blog</string>
+	</dict>
+	<key>V2EX</key>
+	<dict>
+		<key>V2EX</key>
+		<string>v2ex</string>
+		<key>DNS</key>
+		<string>dns</string>
+		<key>反馈</key>
+		<string>feedback</string>
+		<key>使用指南</key>
+		<string>guide</string>
+	</dict>
+</dict>
+</plist>

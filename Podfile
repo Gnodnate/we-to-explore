@@ -10,5 +10,7 @@ target 'weToExplore' do
   pod 'AFNetworking', '~> 3.1.0'
   pod 'SDWebImage', '~> 3.8.0'
   pod 'SnapKit', '~> 0.30.0.beta2'
+  pod 'Ono', '~> 1.2.2'
+
 
 end

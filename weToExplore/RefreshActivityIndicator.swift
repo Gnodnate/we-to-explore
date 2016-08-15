@@ -9,9 +9,9 @@ class RefreshActivityIndicator: UIViewController {
     // start activity indicator
     func startActivityIndicator(uiView: UIView) {
         if !activityIndicator.isAnimating() {
-//            container.frame = uiView.frame
-//            container.center = uiView.center
-//            container.backgroundColor = UIColorFromHex(0xffffff, alpha: 0.3)
+            container.frame = uiView.frame
+            container.center = uiView.center
+            container.backgroundColor = UIColorFromHex(0xffffff, alpha: 0.3)
             loadingView.frame = CGRectMake(0, 0, 80, 80)
             loadingView.center = uiView.center
             loadingView.backgroundColor = UIColorFromHex(0x444444, alpha: 0.7)
@@ -21,9 +21,9 @@ class RefreshActivityIndicator: UIViewController {
             activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
             activityIndicator.center = CGPointMake(loadingView.frame.size.width / 2, loadingView.frame.size.height / 2);
             loadingView.addSubview(activityIndicator)
-//            container.addSubview(loadingView)
-//            uiView.addSubview(container)
-            uiView.addSubview(loadingView)
+            container.addSubview(loadingView)
+            uiView.addSubview(container)
+//            uiView.addSubview(loadingView)
             activityIndicator.startAnimating()
         }
     }
@@ -31,7 +31,7 @@ class RefreshActivityIndicator: UIViewController {
     func stopActivityIndicator() {
         if activityIndicator.isAnimating() {
             activityIndicator.stopAnimating()
-//            container.removeFromSuperview()
+            container.removeFromSuperview()
             loadingView.removeFromSuperview()
         }
     }

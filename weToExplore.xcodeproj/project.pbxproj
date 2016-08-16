@@ -66,7 +66,7 @@
 		4CE9F3C41D4F9B100088E940 /* WEUserDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WEUserDetail.swift; sourceTree = "<group>"; };
 		4CE9F3C91D4FAA170088E940 /* NSString+HumanFriendlyDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HumanFriendlyDate.h"; sourceTree = "<group>"; };
 		4CE9F3CA1D4FAA170088E940 /* NSString+HumanFriendlyDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HumanFriendlyDate.m"; sourceTree = "<group>"; };
-		4CFF42F81D4C564F000CA3C5 /* weToExplore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weToExplore.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CFF42F81D4C564F000CA3C5 /* WeToExplore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeToExplore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CFF42FC1D4C564F000CA3C5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4CFF42FE1D4C564F000CA3C5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4CFF42FF1D4C564F000CA3C5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -148,7 +148,7 @@
 		4CFF42F91D4C564F000CA3C5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4CFF42F81D4C564F000CA3C5 /* weToExplore.app */,
+				4CFF42F81D4C564F000CA3C5 /* WeToExplore.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -199,9 +199,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4CFF42F71D4C564F000CA3C5 /* weToExplore */ = {
+		4CFF42F71D4C564F000CA3C5 /* WeToExplore */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4CFF430F1D4C5650000CA3C5 /* Build configuration list for PBXNativeTarget "weToExplore" */;
+			buildConfigurationList = 4CFF430F1D4C5650000CA3C5 /* Build configuration list for PBXNativeTarget "WeToExplore" */;
 			buildPhases = (
 				3EA1135FB1CB355F7DD343FF /* [CP] Check Pods Manifest.lock */,
 				4CFF42F41D4C564F000CA3C5 /* Sources */,
@@ -214,9 +214,9 @@
 			);
 			dependencies = (
 			);
-			name = weToExplore;
+			name = WeToExplore;
 			productName = weToExplore;
-			productReference = 4CFF42F81D4C564F000CA3C5 /* weToExplore.app */;
+			productReference = 4CFF42F81D4C564F000CA3C5 /* WeToExplore.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -248,7 +248,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4CFF42F71D4C564F000CA3C5 /* weToExplore */,
+				4CFF42F71D4C564F000CA3C5 /* WeToExplore */,
 			);
 		};
 /* End PBXProject section */
@@ -497,7 +497,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4CFF430F1D4C5650000CA3C5 /* Build configuration list for PBXNativeTarget "weToExplore" */ = {
+		4CFF430F1D4C5650000CA3C5 /* Build configuration list for PBXNativeTarget "WeToExplore" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4CFF43101D4C5650000CA3C5 /* Debug */,

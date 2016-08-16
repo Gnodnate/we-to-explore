@@ -17,7 +17,7 @@ class WETopicReplyTableViewCell: UITableViewCell {
     
     var replyDetail:WEReplyDetail? {
         didSet {
-            replierImage.sd_setImageWithURL(NSURL(string: replyDetail!.replierImageURLString))
+            replierImage.sd_setImageWithURL(NSURL(string: replyDetail!.replierImageURLString),placeholderImage: UIImage(named: "default"))
             replierName.text = replyDetail!.replierName
             replyTime.text = NSString.humanFriendlyDate(NSDate(timeIntervalSince1970: replyDetail!.replyTime.doubleValue))
             replyText.text = replyDetail!.replyText

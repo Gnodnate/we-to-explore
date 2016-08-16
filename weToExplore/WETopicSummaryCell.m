@@ -31,7 +31,7 @@
         if ([memberIconURLString hasPrefix:@"//"]){
             memberIconURLString = [NSString stringWithFormat:@"https:%@", memberIconURLString];
         }
-        [self.userImageView  sd_setImageWithURL:[NSURL URLWithString: memberIconURLString]];
+        [self.userImageView sd_setImageWithURL:[NSURL URLWithString: memberIconURLString] placeholderImage:[UIImage imageNamed:@"default"]];
 
         self.userName.text = [NSString stringWithFormat:_L(@"by %@", @"the blog is from who"), [topicDetail.memberInfo objectForKey:@"username"]];
         self.topicReplies.text = [NSString stringWithFormat:_L(@"reply: %@", "replies"), topicDetail.topicReplies];

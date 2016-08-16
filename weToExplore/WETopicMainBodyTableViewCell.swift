@@ -23,7 +23,7 @@ class WETopicMainBodyTableViewCell: UITableViewCell {
             if memberIconURLString.hasPrefix("//") {
                 memberIconURLString = String.localizedStringWithFormat("https:%@", memberIconURLString)
             }
-            self.userImageView.sd_setImageWithURL(NSURL(string:memberIconURLString))
+            self.userImageView.sd_setImageWithURL(NSURL(string:memberIconURLString), placeholderImage: UIImage(named: "default"))
             self.userName.text = topicDetail!.memberInfo["username"] as? String
             self.mainBodyText.text = topicDetail!.topicContent
         }

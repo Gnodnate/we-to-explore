@@ -16,11 +16,15 @@ NSString *LatestTitleShortURL = @"api/topics/latest.json";
 NSString *repliesShortURL     = @"api/replies/show.json";
 NSString *userDetailShortURL  = @"api/members/show.json";
 NSString *allNodeShortURL     = @"api/nodes/all.json";
-#define PointInfo
+NSString *showNodeShortURL    = @"api/nodes/show.json";
+NSString *showTopicShortURL   = @"api/topics/show.json";
+
+
 
 @interface WEDataManager ()
 
 @property (nonatomic, strong) AFHTTPSessionManager *sessionManager;
+@property (nonatomic, copy) NSString *nodeName;
 
 @end
 
@@ -89,14 +93,25 @@ NSString *allNodeShortURL     = @"api/nodes/all.json";
                         }];
 }
 
-- (NSURLSessionDataTask *)getTopicsSucess:(void (^)(NSArray *topics))sucess
+- (NSURLSessionDataTask *)getTopicsInNode:(NSString*)nodeName
+                                   Success:(void (^)(NSArray *topics))success
                                  progress:(void (^)(NSProgress * progress))Progress
                                    failed:(void (^)(NSError *))failed {
-    return [self parseURLString:LatestTitleShortURL
+    
+    NSString *shortURL = LatestTitleShortURL;
+    NSDictionary *parameters = nil;
+    if (nil != nodeName) {
+        parameters = @ {
+            @"node_name": nodeName,
+            @"p":@"0"
+        };
+        shortURL = showTopicShortURL;
+    }
+    return [self parseURLString:shortURL
                      withMethod:JSON
-                 withParameters:nil
+                 withParameters:parameters
                         success:^(NSURLSessionDataTask *dataTask, id responseObject) {
-                            sucess(responseObject);
+                            success(responseObject);
                         } progress:^(NSProgress * _Nonnull progress) {
                             Progress(progress);
                         } failure:^(NSError *error) {

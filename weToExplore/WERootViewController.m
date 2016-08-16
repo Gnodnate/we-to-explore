@@ -53,6 +53,7 @@
     _viewModel = [[WERootViewModel alloc] initWithDataManager:_dataManager];
     __weak WERootViewController* weakSelf = self;
     self.viewModel.topicsDidChange = ^(id <WERootViewModelProtocol> viewModel) {
+        weakSelf.title = viewModel.nodeTile;
         weakSelf.topicDetails = viewModel.topics;
         [weakSelf.refreshControl endRefreshing];
         [weakSelf.refreshIndicator stopActivityIndicator];

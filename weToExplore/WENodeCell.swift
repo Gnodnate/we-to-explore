@@ -14,15 +14,18 @@ let FontSize:CGFloat = 18
 
 class WENodeCell: UITableViewCell {
     
+    weak var exitSegue:UIStoryboardSegue?
+    
     var nodeButtonArray = [UIButton]()
-    var nodeNameArray = [String]() {
+    var nodeInfo:[String:String]! {
         didSet {
-            for nodeName in nodeNameArray {
+            for node in nodeInfo {
                 let button = UIButton()
-                button.setTile(nodeName, font: UIFont.systemFontOfSize(FontSize))
+                button.nodeInfo = [node.0:node.1]
+                button.setTile(node.0, font: UIFont.systemFontOfSize(FontSize))
                 button.addTarget(self, action: #selector(showTopicInNode(_:)), forControlEvents: UIControlEvents.TouchDown)
                 button.addTarget(self, action: #selector(buttonTouchUpInside(_:)), forControlEvents: .TouchUpInside)
-                button.addTarget(self, action: #selector(buttonTouchUpInside(_:)), forControlEvents: .TouchUpOutside)
+                button.addTarget(self, action: #selector(buttonTouchUpOutside(_:)), forControlEvents: .TouchUpOutside)
                 nodeButtonArray.append(button)
             }
             
@@ -31,7 +34,6 @@ class WENodeCell: UITableViewCell {
     }
     
     // MARK: - init
-    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.selectionStyle = UITableViewCellSelectionStyle.None
@@ -41,10 +43,16 @@ class WENodeCell: UITableViewCell {
     
     func showTopicInNode(nodeButton:UIButton) {
         nodeButton.backgroundColor = UIColor.blueColor()
-        print("%@", nodeButton.titleLabel?.text)
     }
     
     func buttonTouchUpInside(nodeButton:UIButton) {
+        nodeButton.backgroundColor = UIColor.whiteColor()
+//        NSNotificationCenter.defaultCenter().postNotificationName("NODENAMECHANGE", object: nodeButton.nodeName)
+        NSUserDefaults.standardUserDefaults().setObject(nodeButton.nodeInfo, forKey: DefaultNodeName)
+        NSUserDefaults.standardUserDefaults().synchronize()
+        self.exitSegue?.perform()
+    }
+    func buttonTouchUpOutside(nodeButton:UIButton) {
         nodeButton.backgroundColor = UIColor.whiteColor()
     }
 
@@ -67,6 +75,7 @@ class WENodeCell: UITableViewCell {
 }
 
 // MARK: - UIButton extension
+private var nodeID:Int8 = 0
 private extension UIButton {
     func setTile(title:String, font:UIFont) -> Void {
         self.titleLabel?.font = font
@@ -79,6 +88,15 @@ private extension UIButton {
                                                             attributes: [NSFontAttributeName:UIFont.systemFontOfSize(FontSize)],
                                                             context: nil)
         self.frame.size = CGSizeMake(CGRectGetWidth(rect)+10, ButtonHeight);
+    }
+    
+    var nodeInfo:[String:String]! {
+        get {
+            return objc_getAssociatedObject(self, &nodeID) as? [String:String]
+        }
+        set {
+            objc_setAssociatedObject(self, &nodeID, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_COPY_NONATOMIC)
+        }
     }
 }
 

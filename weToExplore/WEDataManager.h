@@ -14,6 +14,8 @@ typedef enum : NSUInteger {
     JSON,
 } URLMethod;
 
+#define DefaultNodeName @"DefaultNodeName"
+
 @interface WEDataManager : NSObject
 
 - (NSURLSessionDataTask *)getAllNodeSuccess:(void (^)(NSArray *array))success
@@ -22,7 +24,8 @@ typedef enum : NSUInteger {
 - (NSURLSessionDataTask *)getCommonNodeSuccess:(void (^)(NSString *string))success
                                         failed:(void (^)(NSError *error))failed;
 
-- (NSURLSessionDataTask *)getTopicsSucess:(void (^)(NSArray *topics))sucess
+- (NSURLSessionDataTask *)getTopicsInNode:(NSString*)nodeName
+                                   Success:(void (^)(NSArray *topics))sucess
                                  progress:(void (^)(NSProgress *progress))Progress
                                    failed:(void (^)(NSError *error))failed;
 

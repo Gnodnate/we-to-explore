@@ -7,4 +7,4 @@
 #import "WEDataManager.h"
 #import "NSString+HumanFriendlyDate.h"
 #import "WETopicDetail.h"
-
+#import "WERootViewController.h"

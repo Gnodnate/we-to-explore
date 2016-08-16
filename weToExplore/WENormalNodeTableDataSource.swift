@@ -9,7 +9,9 @@
 import UIKit
 
 class WENormalNodeTableDataSource: NSObject, UITableViewDataSource {
-    private weak var tableView:UITableView?
+//    private weak var tableView:UITableView?
+    
+    var exitSegue:UIStoryboardSegue?
     
     lazy var dataManager = {
         return WEDataManager()
@@ -22,16 +24,16 @@ class WENormalNodeTableDataSource: NSObject, UITableViewDataSource {
         }
     }
 
-    required init(tableview:UITableView) {
-        super.init()
-        self.tableView = tableview
-        self.tableView?.dataSource = self
-    }
+//    required init(exitSegue:UIStoryboardSegue) {
+//        super.init()
+//        self.exitSegue = exitSegue
+//    }
     
     // MARK: - Config the cell
     func configureCell(cell:WENodeCell, withIndexPath indexPath:NSIndexPath) -> Void {
         let key = nodeDic.allKeys[indexPath.section] as! String
-        cell.nodeNameArray = (nodeDic[key] as? NSDictionary)?.allKeys as! [String]
+        cell.nodeInfo = (nodeDic[key] as! [String:String])
+        cell.exitSegue = self.exitSegue
         
     }
     // MARK: - Table view data source

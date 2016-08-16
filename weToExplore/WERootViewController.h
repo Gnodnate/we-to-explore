@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface WERootViewController : UITableViewController<UITableViewDataSource, UITableViewDelegate>
-
+- (IBAction)pullToRefresh:(id)sender;
 @end
 

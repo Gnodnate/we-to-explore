@@ -21,6 +21,7 @@ class WENormalNodeListTableViewController: UITableViewController {
     var dataSource:WENormalNodeTableDataSource! {
         didSet {
             self.tableView.dataSource = dataSource
+            self.tableView.delegate = dataSource
         }
     }
     override func viewDidLoad() {
@@ -61,5 +62,4 @@ class WENormalNodeListTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
         print("%@", segue.identifier)
     }
-
 }

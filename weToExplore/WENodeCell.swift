@@ -8,8 +8,8 @@
 
 import UIKit
 
-let ButtonHeight:CGFloat = 24
-let FontSize:CGFloat = 14
+let NodeButtonHeight:CGFloat = 24
+let NodeButtonFontSize:CGFloat = 14
 
 
 class WENodeCell: UITableViewCell {
@@ -22,7 +22,7 @@ class WENodeCell: UITableViewCell {
             for node in nodeInfo {
                 let button = UIButton()
                 button.nodeInfo = [node.0:node.1]
-                button.setTile(node.0, font: UIFont.systemFontOfSize(FontSize))
+                button.setTile(node.0, font: UIFont.systemFontOfSize(NodeButtonFontSize))
                 button.addTarget(self, action: #selector(showTopicInNode(_:)), forControlEvents: UIControlEvents.TouchDown)
                 button.addTarget(self, action: #selector(buttonTouchUpInside(_:)), forControlEvents: .TouchUpInside)
                 button.addTarget(self, action: #selector(buttonTouchUpOutside(_:)), forControlEvents: .TouchUpOutside)
@@ -65,7 +65,7 @@ class WENodeCell: UITableViewCell {
             if button.frame.size.width + 10 + originX < UIScreen.mainScreen().bounds.size.width {
                 button.frame.origin = CGPointMake(originX, originY)
             } else {
-                button.frame.origin = CGPointMake(10, originY+5+ButtonHeight)
+                button.frame.origin = CGPointMake(10, originY+5+NodeButtonHeight)
             }
             originX = button.frame.origin.x + 10 + button.frame.size.width
             originY = button.frame.origin.y
@@ -76,18 +76,22 @@ class WENodeCell: UITableViewCell {
 
 // MARK: - UIButton extension
 private var nodeID:Int8 = 0
-private extension UIButton {
+extension UIButton {
     func setTile(title:String, font:UIFont) -> Void {
         self.titleLabel?.font = font
         self.setTitleColor(UIColor.blueColor(), forState: .Normal)
         self.setTitleColor(UIColor.whiteColor(), forState: .Selected)
         self.setTitleColor(UIColor.whiteColor(), forState: .Highlighted)
         self.setTitle(title, forState: .Normal)
+        self.frame.size = CGSizeMake(UIButton.widthWithTitle(title, andFont: font)+10, NodeButtonHeight);
+    }
+    
+    static func widthWithTitle(title:String, andFont:UIFont) ->CGFloat {
         let rect = (title as NSString).boundingRectWithSize(CGSizeMake(CGFloat.max, CGFloat.max),
                                                             options:.UsesLineFragmentOrigin,
-                                                            attributes: [NSFontAttributeName:UIFont.systemFontOfSize(FontSize)],
+                                                            attributes: [NSFontAttributeName:UIFont.systemFontOfSize(NodeButtonFontSize)],
                                                             context: nil)
-        self.frame.size = CGSizeMake(CGRectGetWidth(rect)+10, ButtonHeight);
+        return CGRectGetWidth(rect)
     }
     
     var nodeInfo:[String:String]! {

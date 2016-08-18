@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WENormalNodeTableDataSource: NSObject, UITableViewDataSource {
+class WENormalNodeTableDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
 //    private weak var tableView:UITableView?
     
     var exitSegue:UIStoryboardSegue?
@@ -57,5 +57,24 @@ class WENormalNodeTableDataSource: NSObject, UITableViewDataSource {
 
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return nodeDic.allKeys[section] as? String
+    }
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        var originX:CGFloat = 10
+        var originY:CGFloat = 10
+        
+        let key = nodeDic.allKeys[indexPath.section] as! String
+        let nodeInfoDic = nodeDic.objectForKey(key) as! [String:String]
+        for nodeInfo in nodeInfoDic {
+            let buttonWidth = UIButton.widthWithTitle(nodeInfo.1, andFont: UIFont.systemFontOfSize(NodeButtonFontSize))
+            if buttonWidth+10+originX < UIScreen.mainScreen().bounds.size.width {
+                originX += buttonWidth+10
+            } else {
+                originX = 10
+                originY += 5+NodeButtonHeight
+            }
+            print("%@ %@ originX = %f", key, nodeInfo.0, originX)
+        }
+        
+        return originY+NodeButtonHeight+5
     }
 }

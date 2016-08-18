@@ -43,7 +43,7 @@
     self.refreshIndicator = [[RefreshActivityIndicator alloc] init];
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-//    refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:_L(@"Refreshing...", @"Refreshing")];
+    refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:_L(@"Refreshing...", @"Refreshing")];
     [refreshControl addTarget:self action:@selector(pullToRefresh:) forControlEvents:UIControlEventValueChanged];
     self.refreshControl = refreshControl;
     
@@ -70,7 +70,7 @@
 #pragma mark - Pull to refresh
 
 - (IBAction)pullToRefresh:(id)sender {
-    [self.refreshIndicator startActivityIndicator:[UIApplication sharedApplication].keyWindow];
+    [self.refreshIndicator startActivityIndicator:self.tableView];
     [self.viewModel showTopics];
 
 }
@@ -106,6 +106,9 @@
     if ([sender isKindOfClass:[WETopicSummaryCell class]]) {
         WETopicTableViewController *destnation = segue.destinationViewController;
         [destnation setTopicDetail:((WETopicSummaryCell*)sender).topicDetail];
+    } else if ([segue.identifier isEqualToString: @"showNodeList"]) {
+        WENormalNodeListTableViewController *destnation = segue.destinationViewController;
+        destnation.preViewController = self;
     }
 }
 

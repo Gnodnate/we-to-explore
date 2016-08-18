@@ -8,8 +8,8 @@
 
 import UIKit
 
-let ButtonHeight:CGFloat = 28
-let FontSize:CGFloat = 18
+let ButtonHeight:CGFloat = 24
+let FontSize:CGFloat = 14
 
 
 class WENodeCell: UITableViewCell {

@@ -7,82 +7,111 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4C0F99041D5DD1C0004A8B73 /* WENormalNodeListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0F99031D5DD1C0004A8B73 /* WENormalNodeListTableViewController.swift */; };
+		084DE8F9C4D94C4D0E96FB30 /* Pods_WeToExplore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF86A76A94F3F7947FA8C93E /* Pods_WeToExplore.framework */; };
 		4C0F99061D5DD1FD004A8B73 /* nodes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C0F99051D5DD1FD004A8B73 /* nodes.plist */; };
+		4C2030F61D68A7D2004B9BBA /* WETopicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2030F51D68A7D2004B9BBA /* WETopicTableViewCell.swift */; };
+		4C2030F81D68B02C004B9BBA /* WEMemberInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2030F71D68B02C004B9BBA /* WEMemberInfo.swift */; };
+		4C2030FA1D68B29F004B9BBA /* WENodeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2030F91D68B29F004B9BBA /* WENodeInfo.swift */; };
+		4C2030FE1D69C7F4004B9BBA /* WEContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2030FD1D69C7F4004B9BBA /* WEContainerViewController.swift */; };
+		4C2031011D69CAE1004B9BBA /* WENodeListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2031001D69CAE1004B9BBA /* WENodeListTableViewController.swift */; };
+		4C45AE261D66A43A00263D16 /* WENodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C45AE251D66A43A00263D16 /* WENodeModel.swift */; };
 		4C52FDE81D5DE5FF00EC0B9C /* node.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C52FDE61D5DE5FF00EC0B9C /* node.xcdatamodeld */; };
 		4C52FDEB1D5DE65B00EC0B9C /* Node+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C52FDE91D5DE65B00EC0B9C /* Node+CoreDataProperties.swift */; };
 		4C52FDEC1D5DE65B00EC0B9C /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C52FDEA1D5DE65B00EC0B9C /* Node.swift */; };
 		4C52FDEE1D5DEF9A00EC0B9C /* WENodeCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C52FDED1D5DEF9A00EC0B9C /* WENodeCoreData.swift */; };
 		4C52FDF01D5EA41F00EC0B9C /* WENormalNodeTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C52FDEF1D5EA41F00EC0B9C /* WENormalNodeTableDataSource.swift */; };
 		4C52FDF21D5EC36500EC0B9C /* WENodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C52FDF11D5EC36500EC0B9C /* WENodeCell.swift */; };
+		4C9593721D66FD7A002AE1E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9593711D66FD7A002AE1E5 /* AppDelegate.swift */; };
+		4C9593771D670048002AE1E5 /* WETopicDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9593761D670048002AE1E5 /* WETopicDetail.swift */; };
+		4C95937B1D670604002AE1E5 /* WETwoScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C95937A1D670604002AE1E5 /* WETwoScrollViewController.swift */; };
+		4C95937D1D6707CD002AE1E5 /* WEDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C95937C1D6707CD002AE1E5 /* WEDataManager.swift */; };
+		4C9593931D671AA1002AE1E5 /* WeToExploreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9593921D671AA1002AE1E5 /* WeToExploreTests.swift */; };
+		4C9726D01D6AE75C0003017E /* WETopicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9726CF1D6AE75C0003017E /* WETopicTableViewController.swift */; };
 		4CA77E531D4E0D20008A3A65 /* RefreshActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA77E521D4E0D20008A3A65 /* RefreshActivityIndicator.swift */; };
-		4CA77E571D4E1E31008A3A65 /* WETopicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA77E561D4E1E31008A3A65 /* WETopicTableViewController.swift */; };
 		4CA77E591D4E2082008A3A65 /* WETopicMainBodyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA77E581D4E2082008A3A65 /* WETopicMainBodyTableViewCell.swift */; };
-		4CB8FDB31D55A0F700EC08DB /* WERootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8FDB21D55A0F700EC08DB /* WERootViewController.m */; };
-		4CB8FDB51D55A35200EC08DB /* WERootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8FDB41D55A35200EC08DB /* WERootViewModel.swift */; };
-		4CBEB7F31D4C5F970068E3E1 /* WEDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBEB7F21D4C5F960068E3E1 /* WEDataManager.m */; };
-		4CBEB7F81D4C7C680068E3E1 /* WETopicSummaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBEB7F71D4C7C680068E3E1 /* WETopicSummaryCell.m */; };
-		4CBEB7FC1D4C85FD0068E3E1 /* WETopicDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBEB7FB1D4C85FD0068E3E1 /* WETopicDetail.m */; };
+		4CA783271D67555D00C46AF9 /* WENodeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA783261D67555D00C46AF9 /* WENodeButton.swift */; };
+		4CA7832B1D67561700C46AF9 /* WEDefaultNodeScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA7832A1D67561700C46AF9 /* WEDefaultNodeScrollView.swift */; };
+		4CA783321D6815F900C46AF9 /* WETopicListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA783301D6815F900C46AF9 /* WETopicListTableViewController.swift */; };
+		4CB8FDB51D55A35200EC08DB /* WETopicListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8FDB41D55A35200EC08DB /* WETopicListViewModel.swift */; };
 		4CE9F3C11D4F91AE0088E940 /* WETopicReplyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE9F3C01D4F91AE0088E940 /* WETopicReplyTableViewCell.swift */; };
 		4CE9F3C31D4F95810088E940 /* WEReplyDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE9F3C21D4F95810088E940 /* WEReplyDetail.swift */; };
 		4CE9F3C51D4F9B100088E940 /* WEUserDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE9F3C41D4F9B100088E940 /* WEUserDetail.swift */; };
-		4CE9F3CB1D4FAA170088E940 /* NSString+HumanFriendlyDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE9F3CA1D4FAA170088E940 /* NSString+HumanFriendlyDate.m */; };
-		4CFF42FD1D4C564F000CA3C5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF42FC1D4C564F000CA3C5 /* main.m */; };
-		4CFF43001D4C564F000CA3C5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF42FF1D4C564F000CA3C5 /* AppDelegate.m */; };
 		4CFF43061D4C564F000CA3C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CFF43041D4C564F000CA3C5 /* Main.storyboard */; };
 		4CFF43081D4C5650000CA3C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CFF43071D4C5650000CA3C5 /* Assets.xcassets */; };
 		4CFF430B1D4C5650000CA3C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CFF43091D4C5650000CA3C5 /* LaunchScreen.storyboard */; };
 		F92DA37F419F42DF7644633E /* Pods_weToExplore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 285ADCED69BC27ED679B550E /* Pods_weToExplore.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		4C9593951D671AA1002AE1E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4CFF42F01D4C564F000CA3C5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4CFF42F71D4C564F000CA3C5;
+			remoteInfo = WeToExplore;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		285ADCED69BC27ED679B550E /* Pods_weToExplore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_weToExplore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CA1ACDF3ECBDEEE5DB0A2CB /* Pods-weToExplore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weToExplore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-weToExplore/Pods-weToExplore.debug.xcconfig"; sourceTree = "<group>"; };
-		4C0F99031D5DD1C0004A8B73 /* WENormalNodeListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WENormalNodeListTableViewController.swift; sourceTree = "<group>"; };
+		3D2D99A9CC7FDBCA5F8067D9 /* Pods-WeToExplore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeToExplore.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeToExplore/Pods-WeToExplore.release.xcconfig"; sourceTree = "<group>"; };
 		4C0F99051D5DD1FD004A8B73 /* nodes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = nodes.plist; sourceTree = "<group>"; };
+		4C2030F51D68A7D2004B9BBA /* WETopicTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WETopicTableViewCell.swift; sourceTree = "<group>"; };
+		4C2030F71D68B02C004B9BBA /* WEMemberInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WEMemberInfo.swift; sourceTree = "<group>"; };
+		4C2030F91D68B29F004B9BBA /* WENodeInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WENodeInfo.swift; sourceTree = "<group>"; };
+		4C2030FD1D69C7F4004B9BBA /* WEContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WEContainerViewController.swift; sourceTree = "<group>"; };
+		4C2031001D69CAE1004B9BBA /* WENodeListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WENodeListTableViewController.swift; sourceTree = "<group>"; };
+		4C45AE251D66A43A00263D16 /* WENodeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WENodeModel.swift; sourceTree = "<group>"; };
 		4C52FDE71D5DE5FF00EC0B9C /* node.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = node.xcdatamodel; sourceTree = "<group>"; };
 		4C52FDE91D5DE65B00EC0B9C /* Node+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Node+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4C52FDEA1D5DE65B00EC0B9C /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		4C52FDED1D5DEF9A00EC0B9C /* WENodeCoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WENodeCoreData.swift; sourceTree = "<group>"; };
 		4C52FDEF1D5EA41F00EC0B9C /* WENormalNodeTableDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WENormalNodeTableDataSource.swift; sourceTree = "<group>"; };
 		4C52FDF11D5EC36500EC0B9C /* WENodeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WENodeCell.swift; sourceTree = "<group>"; };
-		4CA77E511D4E0D20008A3A65 /* weToExplore-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "weToExplore-Bridging-Header.h"; sourceTree = "<group>"; };
+		4C9593711D66FD7A002AE1E5 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4C9593761D670048002AE1E5 /* WETopicDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WETopicDetail.swift; sourceTree = "<group>"; };
+		4C95937A1D670604002AE1E5 /* WETwoScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WETwoScrollViewController.swift; sourceTree = "<group>"; };
+		4C95937C1D6707CD002AE1E5 /* WEDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WEDataManager.swift; sourceTree = "<group>"; };
+		4C9593901D671AA1002AE1E5 /* WeToExploreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeToExploreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C9593921D671AA1002AE1E5 /* WeToExploreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeToExploreTests.swift; sourceTree = "<group>"; };
+		4C9593941D671AA1002AE1E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C9726CF1D6AE75C0003017E /* WETopicTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WETopicTableViewController.swift; sourceTree = "<group>"; };
 		4CA77E521D4E0D20008A3A65 /* RefreshActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshActivityIndicator.swift; sourceTree = "<group>"; };
-		4CA77E561D4E1E31008A3A65 /* WETopicTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WETopicTableViewController.swift; sourceTree = "<group>"; };
 		4CA77E581D4E2082008A3A65 /* WETopicMainBodyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WETopicMainBodyTableViewCell.swift; sourceTree = "<group>"; };
-		4CB8FDB11D55A0F700EC08DB /* WERootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WERootViewController.h; sourceTree = "<group>"; };
-		4CB8FDB21D55A0F700EC08DB /* WERootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WERootViewController.m; sourceTree = "<group>"; };
-		4CB8FDB41D55A35200EC08DB /* WERootViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WERootViewModel.swift; sourceTree = "<group>"; };
-		4CBEB7F11D4C5F960068E3E1 /* WEDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WEDataManager.h; sourceTree = "<group>"; };
-		4CBEB7F21D4C5F960068E3E1 /* WEDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WEDataManager.m; sourceTree = "<group>"; };
-		4CBEB7F61D4C7C680068E3E1 /* WETopicSummaryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WETopicSummaryCell.h; sourceTree = "<group>"; };
-		4CBEB7F71D4C7C680068E3E1 /* WETopicSummaryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WETopicSummaryCell.m; sourceTree = "<group>"; };
-		4CBEB7FA1D4C85FD0068E3E1 /* WETopicDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WETopicDetail.h; sourceTree = "<group>"; };
-		4CBEB7FB1D4C85FD0068E3E1 /* WETopicDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WETopicDetail.m; sourceTree = "<group>"; };
+		4CA783261D67555D00C46AF9 /* WENodeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WENodeButton.swift; sourceTree = "<group>"; };
+		4CA7832A1D67561700C46AF9 /* WEDefaultNodeScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WEDefaultNodeScrollView.swift; sourceTree = "<group>"; };
+		4CA783301D6815F900C46AF9 /* WETopicListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WETopicListTableViewController.swift; sourceTree = "<group>"; };
+		4CB8FDB41D55A35200EC08DB /* WETopicListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WETopicListViewModel.swift; sourceTree = "<group>"; };
 		4CD5E2E01D4CD1C900CA0110 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		4CD5E2E11D4CD1C900CA0110 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		4CE9F3C01D4F91AE0088E940 /* WETopicReplyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WETopicReplyTableViewCell.swift; sourceTree = "<group>"; };
 		4CE9F3C21D4F95810088E940 /* WEReplyDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WEReplyDetail.swift; sourceTree = "<group>"; };
 		4CE9F3C41D4F9B100088E940 /* WEUserDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WEUserDetail.swift; sourceTree = "<group>"; };
-		4CE9F3C91D4FAA170088E940 /* NSString+HumanFriendlyDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HumanFriendlyDate.h"; sourceTree = "<group>"; };
-		4CE9F3CA1D4FAA170088E940 /* NSString+HumanFriendlyDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HumanFriendlyDate.m"; sourceTree = "<group>"; };
 		4CFF42F81D4C564F000CA3C5 /* WeToExplore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeToExplore.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4CFF42FC1D4C564F000CA3C5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4CFF42FE1D4C564F000CA3C5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		4CFF42FF1D4C564F000CA3C5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4CFF43051D4C564F000CA3C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4CFF43071D4C5650000CA3C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4CFF430A1D4C5650000CA3C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CFF430C1D4C5650000CA3C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		53ACA6B0FAA67C740936C9F2 /* Pods-WeToExplore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeToExplore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeToExplore/Pods-WeToExplore.debug.xcconfig"; sourceTree = "<group>"; };
 		743EAD76CC1703ECC33DAC32 /* Pods-weToExplore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weToExplore.release.xcconfig"; path = "Pods/Target Support Files/Pods-weToExplore/Pods-weToExplore.release.xcconfig"; sourceTree = "<group>"; };
+		AF86A76A94F3F7947FA8C93E /* Pods_WeToExplore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeToExplore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4C95938D1D671AA1002AE1E5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4CFF42F51D4C564F000CA3C5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				F92DA37F419F42DF7644633E /* Pods_weToExplore.framework in Frameworks */,
+				084DE8F9C4D94C4D0E96FB30 /* Pods_WeToExplore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,30 +123,46 @@
 			children = (
 				3CA1ACDF3ECBDEEE5DB0A2CB /* Pods-weToExplore.debug.xcconfig */,
 				743EAD76CC1703ECC33DAC32 /* Pods-weToExplore.release.xcconfig */,
+				3D2D99A9CC7FDBCA5F8067D9 /* Pods-WeToExplore.release.xcconfig */,
+				53ACA6B0FAA67C740936C9F2 /* Pods-WeToExplore.debug.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		4C41B4011D50CB3C00C53C03 /* HelpfulFunction */ = {
+		4C2030FF1D69CAAF004B9BBA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				4CE9F3C91D4FAA170088E940 /* NSString+HumanFriendlyDate.h */,
-				4CE9F3CA1D4FAA170088E940 /* NSString+HumanFriendlyDate.m */,
+				4C95937A1D670604002AE1E5 /* WETwoScrollViewController.swift */,
+				4CA783301D6815F900C46AF9 /* WETopicListTableViewController.swift */,
+				4C2030FD1D69C7F4004B9BBA /* WEContainerViewController.swift */,
+				4C2031001D69CAE1004B9BBA /* WENodeListTableViewController.swift */,
+				4C9726CF1D6AE75C0003017E /* WETopicTableViewController.swift */,
 			);
-			name = HelpfulFunction;
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		4C9593911D671AA1002AE1E5 /* WeToExploreTests */ = {
+			isa = PBXGroup;
+			children = (
+				4C9593921D671AA1002AE1E5 /* WeToExploreTests.swift */,
+				4C9593941D671AA1002AE1E5 /* Info.plist */,
+			);
+			path = WeToExploreTests;
 			sourceTree = "<group>";
 		};
 		4CBEB7F51D4C7AB50068E3E1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4CBEB7FA1D4C85FD0068E3E1 /* WETopicDetail.h */,
-				4CBEB7FB1D4C85FD0068E3E1 /* WETopicDetail.m */,
-				4CBEB7F11D4C5F960068E3E1 /* WEDataManager.h */,
-				4CBEB7F21D4C5F960068E3E1 /* WEDataManager.m */,
+				4CB8FDB41D55A35200EC08DB /* WETopicListViewModel.swift */,
 				4CE9F3C21D4F95810088E940 /* WEReplyDetail.swift */,
 				4CE9F3C41D4F9B100088E940 /* WEUserDetail.swift */,
 				4C52FDED1D5DEF9A00EC0B9C /* WENodeCoreData.swift */,
 				4C52FDEF1D5EA41F00EC0B9C /* WENormalNodeTableDataSource.swift */,
+				4C45AE251D66A43A00263D16 /* WENodeModel.swift */,
+				4C9593761D670048002AE1E5 /* WETopicDetail.swift */,
+				4C95937C1D6707CD002AE1E5 /* WEDataManager.swift */,
+				4C2030F71D68B02C004B9BBA /* WEMemberInfo.swift */,
+				4C2030F91D68B29F004B9BBA /* WENodeInfo.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -126,11 +171,12 @@
 			isa = PBXGroup;
 			children = (
 				4CA77E521D4E0D20008A3A65 /* RefreshActivityIndicator.swift */,
-				4CBEB7F61D4C7C680068E3E1 /* WETopicSummaryCell.h */,
-				4CBEB7F71D4C7C680068E3E1 /* WETopicSummaryCell.m */,
 				4CA77E581D4E2082008A3A65 /* WETopicMainBodyTableViewCell.swift */,
 				4CE9F3C01D4F91AE0088E940 /* WETopicReplyTableViewCell.swift */,
 				4C52FDF11D5EC36500EC0B9C /* WENodeCell.swift */,
+				4CA783261D67555D00C46AF9 /* WENodeButton.swift */,
+				4CA7832A1D67561700C46AF9 /* WEDefaultNodeScrollView.swift */,
+				4C2030F51D68A7D2004B9BBA /* WETopicTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -139,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				4CFF42FA1D4C564F000CA3C5 /* weToExplore */,
+				4C9593911D671AA1002AE1E5 /* WeToExploreTests */,
 				4CFF42F91D4C564F000CA3C5 /* Products */,
 				3332E5609C43BE1D1F88A2FC /* Pods */,
 				68F0125053A0A6E37AD01CA3 /* Frameworks */,
@@ -149,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				4CFF42F81D4C564F000CA3C5 /* WeToExplore.app */,
+				4C9593901D671AA1002AE1E5 /* WeToExploreTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -156,15 +204,10 @@
 		4CFF42FA1D4C564F000CA3C5 /* weToExplore */ = {
 			isa = PBXGroup;
 			children = (
-				4C41B4011D50CB3C00C53C03 /* HelpfulFunction */,
-				4CB8FDB11D55A0F700EC08DB /* WERootViewController.h */,
-				4CB8FDB21D55A0F700EC08DB /* WERootViewController.m */,
-				4CB8FDB41D55A35200EC08DB /* WERootViewModel.swift */,
-				4CA77E561D4E1E31008A3A65 /* WETopicTableViewController.swift */,
 				4CFF43041D4C564F000CA3C5 /* Main.storyboard */,
-				4C0F99031D5DD1C0004A8B73 /* WENormalNodeListTableViewController.swift */,
 				4CBEB7F51D4C7AB50068E3E1 /* Model */,
 				4CBEB7F91D4C7C6E0068E3E1 /* View */,
+				4C2030FF1D69CAAF004B9BBA /* Controller */,
 				4CFF42FB1D4C564F000CA3C5 /* Supporting Files */,
 			);
 			path = weToExplore;
@@ -173,16 +216,13 @@
 		4CFF42FB1D4C564F000CA3C5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4C9593711D66FD7A002AE1E5 /* AppDelegate.swift */,
 				4C52FDE61D5DE5FF00EC0B9C /* node.xcdatamodeld */,
 				4C52FDE91D5DE65B00EC0B9C /* Node+CoreDataProperties.swift */,
 				4C52FDEA1D5DE65B00EC0B9C /* Node.swift */,
-				4CA77E511D4E0D20008A3A65 /* weToExplore-Bridging-Header.h */,
 				4CFF430C1D4C5650000CA3C5 /* Info.plist */,
-				4CFF42FE1D4C564F000CA3C5 /* AppDelegate.h */,
-				4CFF42FF1D4C564F000CA3C5 /* AppDelegate.m */,
 				4CFF43071D4C5650000CA3C5 /* Assets.xcassets */,
 				4CFF43091D4C5650000CA3C5 /* LaunchScreen.storyboard */,
-				4CFF42FC1D4C564F000CA3C5 /* main.m */,
 				4C0F99051D5DD1FD004A8B73 /* nodes.plist */,
 			);
 			name = "Supporting Files";
@@ -192,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				285ADCED69BC27ED679B550E /* Pods_weToExplore.framework */,
+				AF86A76A94F3F7947FA8C93E /* Pods_WeToExplore.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -199,6 +240,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		4C95938F1D671AA1002AE1E5 /* WeToExploreTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4C9593971D671AA1002AE1E5 /* Build configuration list for PBXNativeTarget "WeToExploreTests" */;
+			buildPhases = (
+				4C95938C1D671AA1002AE1E5 /* Sources */,
+				4C95938D1D671AA1002AE1E5 /* Frameworks */,
+				4C95938E1D671AA1002AE1E5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4C9593961D671AA1002AE1E5 /* PBXTargetDependency */,
+			);
+			name = WeToExploreTests;
+			productName = WeToExploreTests;
+			productReference = 4C9593901D671AA1002AE1E5 /* WeToExploreTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		4CFF42F71D4C564F000CA3C5 /* WeToExplore */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4CFF430F1D4C5650000CA3C5 /* Build configuration list for PBXNativeTarget "WeToExplore" */;
@@ -226,9 +285,14 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = WE;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = Gnodnate;
 				TargetAttributes = {
+					4C95938F1D671AA1002AE1E5 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 4CFF42F71D4C564F000CA3C5;
+					};
 					4CFF42F71D4C564F000CA3C5 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 4S8GPRL5N3;
@@ -249,11 +313,19 @@
 			projectRoot = "";
 			targets = (
 				4CFF42F71D4C564F000CA3C5 /* WeToExplore */,
+				4C95938F1D671AA1002AE1E5 /* WeToExploreTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4C95938E1D671AA1002AE1E5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4CFF42F61D4C564F000CA3C5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -295,7 +367,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-weToExplore/Pods-weToExplore-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeToExplore/Pods-WeToExplore-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FC26C7DE910259A3EA39898F /* [CP] Embed Pods Frameworks */ = {
@@ -310,41 +382,62 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-weToExplore/Pods-weToExplore-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeToExplore/Pods-WeToExplore-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4C95938C1D671AA1002AE1E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C9593931D671AA1002AE1E5 /* WeToExploreTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4CFF42F41D4C564F000CA3C5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CB8FDB31D55A0F700EC08DB /* WERootViewController.m in Sources */,
-				4CFF43001D4C564F000CA3C5 /* AppDelegate.m in Sources */,
 				4C52FDF21D5EC36500EC0B9C /* WENodeCell.swift in Sources */,
-				4CE9F3CB1D4FAA170088E940 /* NSString+HumanFriendlyDate.m in Sources */,
 				4CA77E591D4E2082008A3A65 /* WETopicMainBodyTableViewCell.swift in Sources */,
-				4CA77E571D4E1E31008A3A65 /* WETopicTableViewController.swift in Sources */,
+				4C9593771D670048002AE1E5 /* WETopicDetail.swift in Sources */,
+				4C2030FA1D68B29F004B9BBA /* WENodeInfo.swift in Sources */,
 				4CE9F3C11D4F91AE0088E940 /* WETopicReplyTableViewCell.swift in Sources */,
+				4CA783321D6815F900C46AF9 /* WETopicListTableViewController.swift in Sources */,
 				4C52FDEC1D5DE65B00EC0B9C /* Node.swift in Sources */,
+				4CA7832B1D67561700C46AF9 /* WEDefaultNodeScrollView.swift in Sources */,
 				4C52FDEE1D5DEF9A00EC0B9C /* WENodeCoreData.swift in Sources */,
-				4CBEB7FC1D4C85FD0068E3E1 /* WETopicDetail.m in Sources */,
-				4CBEB7F31D4C5F970068E3E1 /* WEDataManager.m in Sources */,
 				4C52FDF01D5EA41F00EC0B9C /* WENormalNodeTableDataSource.swift in Sources */,
-				4CB8FDB51D55A35200EC08DB /* WERootViewModel.swift in Sources */,
+				4C2030F81D68B02C004B9BBA /* WEMemberInfo.swift in Sources */,
+				4C95937B1D670604002AE1E5 /* WETwoScrollViewController.swift in Sources */,
+				4C9726D01D6AE75C0003017E /* WETopicTableViewController.swift in Sources */,
+				4CB8FDB51D55A35200EC08DB /* WETopicListViewModel.swift in Sources */,
 				4CA77E531D4E0D20008A3A65 /* RefreshActivityIndicator.swift in Sources */,
-				4C0F99041D5DD1C0004A8B73 /* WENormalNodeListTableViewController.swift in Sources */,
-				4CBEB7F81D4C7C680068E3E1 /* WETopicSummaryCell.m in Sources */,
 				4C52FDE81D5DE5FF00EC0B9C /* node.xcdatamodeld in Sources */,
+				4C95937D1D6707CD002AE1E5 /* WEDataManager.swift in Sources */,
+				4C2030FE1D69C7F4004B9BBA /* WEContainerViewController.swift in Sources */,
 				4CE9F3C31D4F95810088E940 /* WEReplyDetail.swift in Sources */,
-				4CFF42FD1D4C564F000CA3C5 /* main.m in Sources */,
 				4CE9F3C51D4F9B100088E940 /* WEUserDetail.swift in Sources */,
+				4C2030F61D68A7D2004B9BBA /* WETopicTableViewCell.swift in Sources */,
+				4C9593721D66FD7A002AE1E5 /* AppDelegate.swift in Sources */,
+				4CA783271D67555D00C46AF9 /* WENodeButton.swift in Sources */,
 				4C52FDEB1D5DE65B00EC0B9C /* Node+CoreDataProperties.swift in Sources */,
+				4C2031011D69CAE1004B9BBA /* WENodeListTableViewController.swift in Sources */,
+				4C45AE261D66A43A00263D16 /* WENodeModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4C9593961D671AA1002AE1E5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4CFF42F71D4C564F000CA3C5 /* WeToExplore */;
+			targetProxy = 4C9593951D671AA1002AE1E5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		4CFF43041D4C564F000CA3C5 /* Main.storyboard */ = {
@@ -368,6 +461,31 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		4C9593981D671AA1002AE1E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = WeToExploreTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gnodnate.WeToExploreTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WeToExplore.app/WeToExplore";
+			};
+			name = Debug;
+		};
+		4C9593991D671AA1002AE1E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = WeToExploreTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gnodnate.WeToExploreTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WeToExplore.app/WeToExplore";
+			};
+			name = Release;
+		};
 		4CFF430D1D4C5650000CA3C5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -452,7 +570,7 @@
 		};
 		4CFF43101D4C5650000CA3C5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3CA1ACDF3ECBDEEE5DB0A2CB /* Pods-weToExplore.debug.xcconfig */;
+			baseConfigurationReference = 53ACA6B0FAA67C740936C9F2 /* Pods-WeToExplore.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -464,14 +582,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gnodnate.weToExplore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "weToExplore/weToExplore-Bridging-Header.h";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		4CFF43111D4C5650000CA3C5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 743EAD76CC1703ECC33DAC32 /* Pods-weToExplore.release.xcconfig */;
+			baseConfigurationReference = 3D2D99A9CC7FDBCA5F8067D9 /* Pods-WeToExplore.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -483,13 +601,22 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gnodnate.weToExplore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "weToExplore/weToExplore-Bridging-Header.h";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4C9593971D671AA1002AE1E5 /* Build configuration list for PBXNativeTarget "WeToExploreTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4C9593981D671AA1002AE1E5 /* Debug */,
+				4C9593991D671AA1002AE1E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4CFF42F31D4C564F000CA3C5 /* Build configuration list for PBXProject "weToExplore" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -48,7 +48,7 @@ class WENodeCell: UITableViewCell {
     func buttonTouchUpInside(nodeButton:UIButton) {
         nodeButton.backgroundColor = UIColor.whiteColor()
 //        NSNotificationCenter.defaultCenter().postNotificationName("NODENAMECHANGE", object: nodeButton.nodeName)
-        NSUserDefaults.standardUserDefaults().setObject(nodeButton.nodeInfo, forKey: DefaultNodeName)
+//        NSUserDefaults.standardUserDefaults().setObject(nodeButton.nodeInfo, forKey: DefaultNodeName)
         NSUserDefaults.standardUserDefaults().synchronize()
         self.exitSegue?.perform()
     }

@@ -17,15 +17,11 @@ class WETopicMainBodyTableViewCell: UITableViewCell {
     
     var topicDetail:WETopicDetail? {
         didSet {
-            self.tilte.text = topicDetail?.topicTitle
+            self.tilte.text = topicDetail?.title
             
-            var memberIconURLString = topicDetail!.memberInfo["avatar_normal"] as! String
-            if memberIconURLString.hasPrefix("//") {
-                memberIconURLString = String.localizedStringWithFormat("https:%@", memberIconURLString)
-            }
-            self.userImageView.sd_setImageWithURL(NSURL(string:memberIconURLString), placeholderImage: UIImage(named: "default"))
-            self.userName.text = topicDetail!.memberInfo["username"] as? String
-            self.mainBodyText.text = topicDetail!.topicContent
+            self.userImageView.sd_setImageWithURL(topicDetail?.avaterImageURL, placeholderImage: UIImage(named: "default"))
+            self.userName.text = topicDetail!.memberInfo?.name
+            self.mainBodyText.text = topicDetail!.content
         }
     }
 

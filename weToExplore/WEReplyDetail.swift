@@ -29,7 +29,7 @@ class WEReplyDetail: NSObject {
     
     var replierID = NSNumber()
     var replierName = String()
-    var replierImageURLString = String()
+    var replierImageURL:NSURL?
     var replyText = String()
     var replyTime = NSNumber()
     var member = [String: AnyObject]()
@@ -38,10 +38,7 @@ class WEReplyDetail: NSObject {
         member      = dic["member"] as! Dictionary
         replierName = member["username"] as! String
         replierID   = member["id"] as! NSNumber
-        replierImageURLString = member["avatar_normal"] as! String
-        if replierImageURLString.hasPrefix("//") {
-            replierImageURLString = String(format:"https:%@", replierImageURLString)
-        }
+        replierImageURL = (member["avatar_normal"] as! String).URLByAddHTTPS()
         replyText   = dic["content"] as! String
         replyTime   = dic["created"] as! NSNumber
     }

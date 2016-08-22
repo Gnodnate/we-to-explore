@@ -1,13 +1,13 @@
 //
-//  WETopicCellDetail.m
+//  WETopicDetail.swift
 //  weToExplore
 //
-//  Created by Daniel Tan on 7/30/16.
+//  Created by Daniel Tan on 8/19/16.
 //  Copyright © 2016 Gnodnate. All rights reserved.
 //
 
-#import "WETopicDetail.h"
-
+import UIKit
+import Ji
 //{
 //    "id" : 295993,
 //    "title" : "炒股到那家开户好？",
@@ -39,21 +39,77 @@
 //    "last_touched" : 1469861192
 //},
 
-@implementation WETopicDetail
 
-- (instancetype)initWithDictionary:(NSDictionary *)dic
-{
-    self = [super init];
-    self.topicID = [dic objectForKey:@"id"];
-    self.topicTitle = [dic objectForKey:@"title"];
-    self.topicContent = [dic objectForKey:@"content"];
-    self.topicReplies = [dic objectForKey:@"replies"];
-    self.memberInfo = [dic objectForKey:@"member"];
-    self.nodeInfo = [dic objectForKey:@"node"];
-    self.createTime = [dic objectForKey:@"created"];
-    self.replyTime = [dic objectForKey:@"last_touched"];
-    
-    return self;
+extension String {
+    func URLByAddHTTPS() -> NSURL? {
+        var url:NSURL? = nil
+        if self.hasPrefix("//") {
+            let convertString = String.localizedStringWithFormat("https:%@", self)
+            url = NSURL(string: convertString)
+        }
+        return url
+    }
 }
 
-@end
+class WETopicDetail: NSObject {
+    
+    var ID:Int?
+    var shortURL:String?
+    var title:String?
+    var content:String?
+    var replies:Int = 0
+    var avaterImageURL:NSURL?
+    var avaterName:String?
+    var nodeName:String?
+    
+    
+    var memberInfo:WEMemberInfo?
+    var nodeInfo:WENodeInfo?
+    var createTime:NSNumber?
+    var replyTime:NSNumber?
+    
+
+    required init(dic:[String:AnyObject]) {
+        ID = dic["id"] as? Int
+        title = dic["title"] as? String
+        content = dic["content"] as? String;
+        replies = dic["replies"] as! Int
+        memberInfo = WEMemberInfo(dic: dic["member"] as! [String:AnyObject])
+        avaterImageURL = memberInfo?.avatar_normal
+        avaterName = memberInfo?.name
+        nodeInfo = WENodeInfo(dic: dic["node"] as! [String:AnyObject])
+        createTime = dic["created"] as? NSNumber
+        replyTime = dic["last_touched"] as? NSNumber
+    }
+    
+    required init(jiNode:JiNode) {
+        if let avaterNode = jiNode.xPath("./td[1]/a").first {
+            if let name = avaterNode.attributes["href"] {
+                if let index =  name.rangeOfString("/member/")?.endIndex {
+                    avaterName = name.substringFromIndex(index)
+                }
+                
+            }
+            if let url = avaterNode.xPath("./img").first?.attributes["src"] {
+                avaterImageURL = url.URLByAddHTTPS()
+            }
+        }
+        if let nodeNode = jiNode.xPath("./td[3]/span[1]/a").first {
+            nodeName = nodeNode.content
+        }
+        
+        if let titleNode = jiNode.xPath("./td[3]/span[2]/a").first {
+            title = titleNode.content
+            if let urlString = titleNode.attributes["href"] { // "/t/300916#reply29"
+                if let prefixRange = urlString.rangeOfString("/t/") {
+                    if let suffRange = urlString.rangeOfString("#reply") {
+                        let range = Range(prefixRange.endIndex ..< suffRange.startIndex)
+                        ID = Int(urlString.substringWithRange(range))
+                    } else {
+                        ID = Int(urlString.substringFromIndex(prefixRange.endIndex))
+                    }
+                }
+            }
+        }
+    }
+}

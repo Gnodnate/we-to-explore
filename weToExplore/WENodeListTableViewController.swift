@@ -1,40 +1,20 @@
 //
-//  WETopicTableViewController.swift
+//  WENodeListTableViewController.swift
 //  weToExplore
 //
-//  Created by Daniel Tan on 8/22/16.
+//  Created by Daniel Tan on 8/21/16.
 //  Copyright © 2016 Gnodnate. All rights reserved.
 //
 
 import UIKit
 
-class WETopicTableViewController: UITableViewController {
-    
-    var topicDetail:WETopicDetail?
-    var topicReplies:[WEReplyDetail]?
-    
-    var topicID:Int?
+class WENodeListTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.tableView.tableFooterView = UIView()
 
-        WEDataManager.getJSON("api/topics/show.json",
-                              parameters: ["id" : topicID!],
-                              block: true) { (responeData) in
-                                self.topicDetail = WETopicDetail(dic: responeData.first!)
-                                self.tableView.reloadData()
-        }
-        WEDataManager.getJSON("api/replies/show.json",
-                              parameters: ["topic_id" : topicID!],
-                              block: true) { (responeData) in
-                                self.topicReplies = [WEReplyDetail]()
-                                for reply in responeData {
-                                    self.topicReplies?.append(WEReplyDetail(reply))
-                                }
-                                self.tableView.reloadData()
-        }
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -51,34 +31,19 @@ class WETopicTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 2
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return self.topicDetail != nil ? 1 : 0
-        } else {
-            return self.topicReplies?.count ?? 0
-        }
+        // #warning Incomplete implementation, return the number of rows
+        return 10
     }
 
-
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var returnCell:UITableViewCell? = nil
-        if indexPath.section == 0 {
-            if let cell = tableView.dequeueReusableCellWithIdentifier("TopicManBody")  as? WETopicMainBodyTableViewCell {
-                if self.topicDetail != nil {
-                    cell.topicDetail = self.topicDetail
-                }
-                returnCell = cell
-            }
-        } else {
-            if let cell = tableView.dequeueReusableCellWithIdentifier("TopicReply")  as? WETopicReplyTableViewCell {
-                cell.replyDetail = self.topicReplies![indexPath.row]
-                returnCell = cell
-            }
-        }
-        return returnCell!
+        let cell = tableView.dequeueReusableCellWithIdentifier("NodeListCell", forIndexPath: indexPath)
+        cell.textLabel?.text = "\(indexPath.row)"
+
+        return cell
     }
 
 

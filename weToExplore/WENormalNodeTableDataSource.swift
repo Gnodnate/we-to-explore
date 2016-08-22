@@ -13,10 +13,6 @@ class WENormalNodeTableDataSource: NSObject, UITableViewDataSource, UITableViewD
     
     var exitSegue:UIStoryboardSegue?
     
-    lazy var dataManager = {
-        return WEDataManager()
-    }()
-    
     var nodeDic:NSDictionary {
         get {
             let infoPath = NSBundle.mainBundle().pathForResource("nodes", ofType: "plist", inDirectory: nil, forLocalization: nil)
@@ -72,7 +68,6 @@ class WENormalNodeTableDataSource: NSObject, UITableViewDataSource, UITableViewD
                 originX = 10
                 originY += 5+NodeButtonHeight
             }
-            print("%@ %@ originX = %f", key, nodeInfo.0, originX)
         }
         
         return originY+NodeButtonHeight+5

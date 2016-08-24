@@ -28,7 +28,9 @@ public class WEDataManager: NSObject {
             .responseJSON(queue: block ? nil : dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0),
                           options: .AllowFragments,
                           completionHandler: { response in
-                            complete((response.result.value) as! [[String:AnyObject]])
+                            if response.result.isSuccess {
+                                complete((response.result.value) as! [[String:AnyObject]])
+                            }
         })
     }
     class func getHTML(shortURL:String="",

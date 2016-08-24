@@ -39,7 +39,12 @@ class WETopicListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // hide the footer
         self.tableView.tableFooterView = UIView()
+        
+        // auto height
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 50.0
 
         let pullRefreshController = UIRefreshControl()
         pullRefreshController.addTarget(self, action: #selector(pullRefresh), forControlEvents: UIControlEvents.ValueChanged)

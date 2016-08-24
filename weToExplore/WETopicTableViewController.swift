@@ -18,7 +18,12 @@ class WETopicTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // hide footer
         self.tableView.tableFooterView = UIView()
+        
+        // 
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        
 
         WEDataManager.getJSON("api/topics/show.json",
                               parameters: ["id" : topicID!],
@@ -81,6 +86,12 @@ class WETopicTableViewController: UITableViewController {
         return returnCell!
     }
 
+    override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if 0 == indexPath.section {
+            return 100
+        }
+        return 50
+    }
 
     /*
     // Override to support conditional editing of the table view.

@@ -18,8 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="siA-vx-Nu5">
-                                <rect key="frame" x="289" y="289" width="22" height="22"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="QR" translatesAutoresizingMaskIntoConstraints="NO" id="siA-vx-Nu5">
+                                <rect key="frame" x="160" y="160" width="280" height="280"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bmh-z0-paE" customClass="WEDefaultNodeScrollView" customModule="WeToExplore" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="600" height="40"/>
@@ -559,7 +559,7 @@ tisdsf</string>
         </scene>
     </scenes>
     <resources>
-        <image name="default" width="22" height="22"/>
+        <image name="QR" width="280" height="280"/>
         <image name="ist-icon" width="22" height="18"/>
     </resources>
 </document>

@@ -47,53 +47,45 @@ class WETwoScrollViewController: UIViewController, UIScrollViewDelegate {
         return height
     }
     
+
     override func viewDidLoad() {
         nodesScrollView.delegate = self;
         nodesScrollView.nodeArray = defaultNodes
         nodesScrollView.nodeSelectChanged = {[unowned self] nodeID in
+            var index:CGFloat = 0.0
             for topicCV in self.childViewControllers {
                 if let topicListCV = topicCV as? WETopicListTableViewController {
                     if topicListCV.nodeID == nodeID {
+                        let offSetY = self.topicListScrolView.bounds.origin.y
+                        let offSetX = index*screenWidth
+                        topicListCV.view.frame = CGRect(origin: CGPoint(x: offSetX, y: offSetY), size: CGSize(width: screenWidth, height: self.topicListHeight))
+                        self.topicListContainerView.addSubview(topicListCV.view)
                         self.topicListScrolView.setContentOffset(topicListCV.view.frame.origin, animated: true)
                     }
                 }
+                index += 1
             }
         }
         
         topicListScrolView.delegate = self;
         
-        var lastestTV:UIView? = nil
         for  (nodeID, _) in defaultNodes {
             if let newTC = storyboard?.instantiateViewControllerWithIdentifier("TopListTableViewController") as? WETopicListTableViewController {
-                self.addChildViewController(newTC)
                 newTC.nodeID = nodeID
-
-                topicListContainerView.addSubview(newTC.view)
-                newTC.view.snp_makeConstraints(closure: { (make) in
-                    make.top.bottom.equalTo(topicListContainerView)
-                    make.width.equalTo(screenWidth)
-                })
-                if let ltv = lastestTV {
-                    newTC.view.snp_makeConstraints(closure: { (make) in
-                        make.leading.equalTo(ltv.snp_trailing)
-                    })
-                } else {
-                    newTC.view.snp_makeConstraints(closure: { (make) in
-                        make.leading.equalTo(topicListContainerView)
-                    })
-                }
-                lastestTV = newTC.view
+                
+                self.addChildViewController(newTC)
             }
         }
-        lastestTV?.snp_makeConstraints(closure: { (make) in
-            make.trailing.equalTo(topicListContainerView)
-        })
-        var contentViewSize = topicListContainerView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
-        contentViewSize.height = topicListHeight
+        var contentViewSize = CGSize(width: screenWidth * CGFloat(defaultNodes.count), height: topicListHeight)
         topicListContainerView.frame = CGRect(origin: CGPointZero, size: contentViewSize)
         topicListScrolView.addSubview(topicListContainerView)
         contentViewSize.height = 0
         topicListScrolView.contentSize = contentViewSize
+        
+        if let firestVC = self.childViewControllers.first {
+            firestVC.view.frame  = CGRect(origin: CGPointZero, size: CGSize(width: screenWidth, height: self.topicListHeight))
+            topicListContainerView.addSubview(firestVC.view)
+        }
     }
     
     // MARK: -scroll view delegate
@@ -103,6 +95,13 @@ class WETwoScrollViewController: UIViewController, UIScrollViewDelegate {
             if index < 0 {
                 index = 0
             }
+            let childVC = self.childViewControllers[index]
+            childVC.view.frame = scrollView.bounds
+            if nil == childVC.view.superview {
+//                scrollView.addSubview(childVC.view)
+                topicListContainerView.addSubview(childVC.view)
+            }
+            
             nodesScrollView.hightlightNode(Index: index)
         }
     }

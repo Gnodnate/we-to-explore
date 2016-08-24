@@ -80,7 +80,7 @@ class WETwoScrollViewController: UIViewController, UIScrollViewDelegate {
             make.trailing.equalTo(topicListContainerView)
         })
         var contentViewSize = topicListContainerView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
-        contentViewSize.height = topicListScrolView.bounds.height
+        contentViewSize.height = topicListHeight
         topicListContainerView.frame = CGRect(origin: CGPointZero, size: contentViewSize)
         topicListScrolView.addSubview(topicListContainerView)
         contentViewSize.height = 0

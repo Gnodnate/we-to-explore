@@ -14,12 +14,13 @@ class WETopicMainBodyTableViewCell: UITableViewCell {
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var mainBodyText: UILabel!
     @IBOutlet weak var userImageView: UIImageView!
+    @IBOutlet weak var lastModTime: UILabel!
     
     var topicDetail:WETopicDetail? {
         didSet {
             self.tilte.text = topicDetail?.title
-            
             self.userImageView.sd_setImageWithURL(topicDetail?.avaterImageURL, placeholderImage: UIImage(named: "default"))
+            self.lastModTime.text = topicDetail?.lastModTime
             self.userName.text = topicDetail!.memberInfo?.name
             self.mainBodyText.text = topicDetail!.content
         }

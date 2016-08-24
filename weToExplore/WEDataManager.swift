@@ -14,9 +14,11 @@ private let USER_AGENT = "Mozilla/5.0 (iPhone; CPU iPhone OS 9_0 like Mac OS X) 
 private let MOBILE_CLIENT_HEADERS = ["user-agent" : USER_AGENT]
 
 public class WEDataManager: NSObject {
-    
-    static let shareManager = WEDataManager()
-    
+    private static let shareManager = WEDataManager()
+
+    private override init() {
+        super.init()
+    }
     class func getJSON(shortURL:String="",
                  parameters:[String:AnyObject]? = nil,
                  block:Bool = false,

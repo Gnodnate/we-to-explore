@@ -65,8 +65,9 @@ class WETopicDetail: NSObject {
     
     var memberInfo:WEMemberInfo?
     var nodeInfo:WENodeInfo?
-    var createTime:NSNumber?
-    var replyTime:NSNumber?
+    var createTime:NSDate?
+    var lastModTime:String?
+    var lastTouchTime:String?
     
 
     required init(dic:[String:AnyObject]) {
@@ -78,8 +79,9 @@ class WETopicDetail: NSObject {
         avaterImageURL = memberInfo?.avatar_normal
         avaterName = memberInfo?.name
         nodeInfo = WENodeInfo(dic: dic["node"] as! [String:AnyObject])
-        createTime = dic["created"] as? NSNumber
-        replyTime = dic["last_touched"] as? NSNumber
+        createTime = NSDate(timeIntervalSince1970: dic["created"] as? Double ?? 0)
+        lastModTime = NSDate(timeIntervalSince1970: dic["last_modified"] as? Double ?? 0).humanReadableDate()
+        lastTouchTime = NSDate(timeIntervalSince1970: dic["last_touched"] as? Double ?? 0).humanReadableDate()
     }
     
     required init(jiNode:JiNode) {
@@ -105,6 +107,7 @@ class WETopicDetail: NSObject {
                     if let suffRange = urlString.rangeOfString("#reply") {
                         let range = Range(prefixRange.endIndex ..< suffRange.startIndex)
                         ID = Int(urlString.substringWithRange(range))
+                        replies = Int(urlString.substringFromIndex(suffRange.endIndex)) ?? 0
                     } else {
                         ID = Int(urlString.substringFromIndex(prefixRange.endIndex))
                     }

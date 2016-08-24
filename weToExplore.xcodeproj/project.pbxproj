@@ -33,6 +33,7 @@
 		4CA7832B1D67561700C46AF9 /* WEDefaultNodeScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA7832A1D67561700C46AF9 /* WEDefaultNodeScrollView.swift */; };
 		4CA783321D6815F900C46AF9 /* WETopicListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA783301D6815F900C46AF9 /* WETopicListTableViewController.swift */; };
 		4CB8FDB51D55A35200EC08DB /* WETopicListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8FDB41D55A35200EC08DB /* WETopicListViewModel.swift */; };
+		4CD1CD5F1D6D9F2D00A90565 /* NSDate-HumanFriendlyDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD1CD5E1D6D9F2D00A90565 /* NSDate-HumanFriendlyDate.swift */; };
 		4CE9F3C11D4F91AE0088E940 /* WETopicReplyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE9F3C01D4F91AE0088E940 /* WETopicReplyTableViewCell.swift */; };
 		4CE9F3C31D4F95810088E940 /* WEReplyDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE9F3C21D4F95810088E940 /* WEReplyDetail.swift */; };
 		4CE9F3C51D4F9B100088E940 /* WEUserDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE9F3C41D4F9B100088E940 /* WEUserDetail.swift */; };
@@ -83,6 +84,7 @@
 		4CA7832A1D67561700C46AF9 /* WEDefaultNodeScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WEDefaultNodeScrollView.swift; sourceTree = "<group>"; };
 		4CA783301D6815F900C46AF9 /* WETopicListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WETopicListTableViewController.swift; sourceTree = "<group>"; };
 		4CB8FDB41D55A35200EC08DB /* WETopicListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WETopicListViewModel.swift; sourceTree = "<group>"; };
+		4CD1CD5E1D6D9F2D00A90565 /* NSDate-HumanFriendlyDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate-HumanFriendlyDate.swift"; sourceTree = "<group>"; };
 		4CD5E2E01D4CD1C900CA0110 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		4CD5E2E11D4CD1C900CA0110 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		4CE9F3C01D4F91AE0088E940 /* WETopicReplyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WETopicReplyTableViewCell.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				4CFF43071D4C5650000CA3C5 /* Assets.xcassets */,
 				4CFF43091D4C5650000CA3C5 /* LaunchScreen.storyboard */,
 				4C0F99051D5DD1FD004A8B73 /* nodes.plist */,
+				4CD1CD5E1D6D9F2D00A90565 /* NSDate-HumanFriendlyDate.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 				4C52FDEC1D5DE65B00EC0B9C /* Node.swift in Sources */,
 				4CA7832B1D67561700C46AF9 /* WEDefaultNodeScrollView.swift in Sources */,
 				4C52FDEE1D5DEF9A00EC0B9C /* WENodeCoreData.swift in Sources */,
+				4CD1CD5F1D6D9F2D00A90565 /* NSDate-HumanFriendlyDate.swift in Sources */,
 				4C52FDF01D5EA41F00EC0B9C /* WENormalNodeTableDataSource.swift in Sources */,
 				4C2030F81D68B02C004B9BBA /* WEMemberInfo.swift in Sources */,
 				4C95937B1D670604002AE1E5 /* WETwoScrollViewController.swift in Sources */,

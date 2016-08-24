@@ -301,6 +301,7 @@ Testst</string>
                                     </variation>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="lastModTime" destination="cnG-yM-eCb" id="hRS-NY-w0G"/>
                                     <outlet property="mainBodyText" destination="jpB-6w-U5x" id="vKu-lC-i1P"/>
                                     <outlet property="tilte" destination="hSd-BN-fUL" id="n3K-HU-96x"/>
                                     <outlet property="userImageView" destination="Cmx-v7-bAs" id="ZWG-Je-3Yn"/>

@@ -19,7 +19,7 @@ class WETopicReplyTableViewCell: UITableViewCell {
         didSet {
             replierImage.sd_setImageWithURL(replyDetail?.replierImageURL, placeholderImage: UIImage(named: "default"))
             replierName.text = replyDetail!.replierName
-//            replyTime.text = NSString.humanFriendlyDate(NSDate(timeIntervalSince1970: replyDetail!.replyTime.doubleValue))
+            replyTime.text =  NSDate(timeIntervalSince1970: replyDetail!.replyTime.doubleValue).humanReadableDate()
             replyText.text = replyDetail!.replyText
 
         }

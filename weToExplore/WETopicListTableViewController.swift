@@ -84,7 +84,7 @@ class WETopicListTableViewController: UITableViewController {
             cell.userImage.sd_setImageWithURL(topicInfo.avaterImageURL, placeholderImage: UIImage(named: "default"))
             cell.userName.setTitle(topicInfo.avaterName, forState: .Normal)
             cell.nodeName.setTitle(topicInfo.nodeName, forState: .Normal)
-            cell.replyTime.text = "\(topicInfo.replyTime)"
+            cell.replyTime.text = topicInfo.lastTouchTime
             cell.topicTitle.text = topicInfo.title
             cell.ID = topicInfo.ID
         }

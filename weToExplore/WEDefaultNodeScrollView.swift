@@ -13,8 +13,10 @@ let nodeScrollViewHeight:CGFloat = 40 // There is another one in storyboard
 
 class WEDefaultNodeScrollView: UIScrollView {
     private var lastSelectButton:WENodeButton?
+    
+    var nodeSelectChanged: ((nodeID:String)->())?
     let containerView = UIView()
-    var nodeArray:[String:String]?{
+    var nodeArray:[String:String]?{ // ID, Title
         didSet {
             for subView in self.containerView.subviews {
                 subView.removeFromSuperview()
@@ -26,6 +28,7 @@ class WEDefaultNodeScrollView: UIScrollView {
             var lastSubView:UIView? = nil
             for node in nodeArray! {
                 let nodeButton = WENodeButton(type: .Custom)
+                nodeButton.ID = node.0
                 nodeButton.setTitle(node.1, forState: .Normal)
                 nodeButton.addTarget(self, action: #selector(changeNode(_:)), forControlEvents: UIControlEvents.TouchUpInside)
                 containerView.addSubview(nodeButton)
@@ -49,7 +52,6 @@ class WEDefaultNodeScrollView: UIScrollView {
                 })
             }
             var contentViewSize = containerView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
-            print("=======\(contentViewSize)=======\n=======\(self.bounds)=======\n")
             contentViewSize.height = nodeScrollViewHeight
             containerView.frame = CGRect(origin: CGPointZero, size: contentViewSize)
             self.addSubview(containerView)
@@ -60,17 +62,32 @@ class WEDefaultNodeScrollView: UIScrollView {
         }
     }
     
-    func changeNode(button:WENodeButton) {
+    private func effectNodeButton (button:WENodeButton) {
         lastSelectButton?.scale = 0
         button.scale = 1
         lastSelectButton = button
+    }
+    func changeNode(button:WENodeButton) {
+        effectNodeButton(button)
+        nodeSelectChanged?(nodeID: button.ID ?? "all")
     }
     
     func hightlightNode(Index index:Int) {
         if index < containerView.subviews.count {
             if let button = containerView.subviews[index] as? WENodeButton {
-                self.changeNode(button)
-                self.contentOffset = button.frame.origin
+                self.effectNodeButton(button)
+                let offsetY = self.bounds.origin.y
+                // Right
+                var offsetX = button.frame.maxX - self.bounds.origin.x
+                if offsetX > screenWidth {
+                    self.setContentOffset(CGPoint(x:(self.bounds.origin.x + offsetX - screenWidth), y:offsetY), animated: true)
+                } else { // Left
+                    offsetX = button.frame.minX - self.bounds.origin.x
+                    if offsetX < 0 {
+                        offsetX += self.bounds.minX
+                        self.setContentOffset(CGPoint(x: offsetX, y:offsetY), animated: true)
+                    }
+                }
             }
         }
     }

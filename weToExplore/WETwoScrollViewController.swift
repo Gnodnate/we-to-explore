@@ -50,6 +50,15 @@ class WETwoScrollViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         nodesScrollView.delegate = self;
         nodesScrollView.nodeArray = defaultNodes
+        nodesScrollView.nodeSelectChanged = {[unowned self] nodeID in
+            for topicCV in self.childViewControllers {
+                if let topicListCV = topicCV as? WETopicListTableViewController {
+                    if topicListCV.nodeID == nodeID {
+                        self.topicListScrolView.setContentOffset(topicListCV.view.frame.origin, animated: true)
+                    }
+                }
+            }
+        }
         
         topicListScrolView.delegate = self;
         
@@ -95,7 +104,6 @@ class WETwoScrollViewController: UIViewController, UIScrollViewDelegate {
                 index = 0
             }
             nodesScrollView.hightlightNode(Index: index)
-            (self.childViewControllers[index] as! WETopicListTableViewController).pullRefresh()
         }
     }
 

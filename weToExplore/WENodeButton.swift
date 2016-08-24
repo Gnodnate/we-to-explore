@@ -21,6 +21,8 @@ class WENodeButton: UIButton {
     }
     */
     
+    var ID:String?
+    
     let titileFont: UIFont =  {
         return UIFont.systemFontOfSize(19)
     }()
@@ -35,7 +37,7 @@ class WENodeButton: UIButton {
         self.setTitleColor(UIColor.darkGrayColor(), forState: .Normal)
         self.titleLabel?.font = titileFont
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.setTitleColor(UIColor.darkGrayColor(), forState: .Normal)
@@ -45,7 +47,8 @@ class WENodeButton: UIButton {
     var scale:CGFloat = 0 {
         didSet {
             let titleColor = UIColor(red: (scale*(55.0 - 104.0) + 104.0)/255, green: (scale * (221.0 - 104.0) + 104.0)/255, blue: (scale * (55.0 - 104.0) + 104.0)/255, alpha: 1.0)
-            self.titleLabel?.textColor = titleColor
+//            self.titleLabel?.textColor = titleColor
+            self.setTitleColor(titleColor, forState: .Normal)
             
             self.titleLabel?.font = UIFont.systemFontOfSize(titileFont.pointSize * (1 + 0.3 * scale))
         }

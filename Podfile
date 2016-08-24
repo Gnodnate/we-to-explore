@@ -10,6 +10,7 @@ target 'WeToExplore' do
   pod 'Alamofire', '~> 3.4.1'
   pod 'Ji', '~> 1.2.0'
   pod 'SnapKit', '~> 0.22.0'
-pod 'SDWebImage', '~> 3.8.1'
+  pod 'SDWebImage', '~> 3.8.1'
+  pod 'MJRefresh', '~> 3.1.12'
 
 end

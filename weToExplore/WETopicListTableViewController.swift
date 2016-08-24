@@ -8,6 +8,8 @@
 
 import UIKit
 import SDWebImage
+import MJRefresh
+
 
 func _L(aString:String) -> String {
     return NSLocalizedString(aString, comment: aString)
@@ -27,8 +29,9 @@ class WETopicListTableViewController: UITableViewController {
         let model = WETopicListViewModel()
         model.topicsDidChange =  { model in
             self.topicArray = model.topics
-            self.tableView.reloadData()
-            self.refreshControl?.endRefreshing()
+//            self.tableView.reloadData()
+//            self.refreshControl?.endRefreshing()
+            self.tableView.mj_header.endRefreshing()
         }
         return model
     }
@@ -39,6 +42,8 @@ class WETopicListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.clearsSelectionOnViewWillAppear = true
+
         // hide the footer
         self.tableView.tableFooterView = UIView()
         
@@ -46,10 +51,12 @@ class WETopicListTableViewController: UITableViewController {
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 50.0
 
-        let pullRefreshController = UIRefreshControl()
-        pullRefreshController.addTarget(self, action: #selector(pullRefresh), forControlEvents: UIControlEvents.ValueChanged)
-        pullRefreshController.attributedTitle = NSAttributedString(string: "下拉刷新")
-        self.refreshControl = pullRefreshController
+        let header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(pullRefresh))
+        header.setTitle(_L("Pull down to refresh"), forState: MJRefreshState.Idle)
+        header.setTitle(_L("Refreshing"), forState: .Refreshing)
+        self.tableView.mj_header = header
+        
+        self.tableView.mj_header.beginRefreshing()
         
     }
 
@@ -83,9 +90,6 @@ class WETopicListTableViewController: UITableViewController {
         }
         return cell
     }
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 134
-    }
     
     // MARK: -Refresh action
     func pullRefresh() {
@@ -93,7 +97,7 @@ class WETopicListTableViewController: UITableViewController {
     }
     
     func pullRefreshManual() {
-        refreshControl?.beginRefreshing()
+        self.tableView.mj_header.beginRefreshing()
         viewModel.showTopics(self.nodeID)
     }
     

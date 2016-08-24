@@ -7,11 +7,21 @@
 //
 
 import UIKit
+import MJRefresh
+
 
 class WETopicTableViewController: UITableViewController {
     
-    var topicDetail:WETopicDetail?
-    var topicReplies:[WEReplyDetail]?
+    var topicDetail:WETopicDetail? {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
+    var topicReplies:[WEReplyDetail]? {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
     
     var topicID:Int?
 
@@ -21,30 +31,34 @@ class WETopicTableViewController: UITableViewController {
         // hide footer
         self.tableView.tableFooterView = UIView()
         
-        // 
+        // cell height auto calculate
         self.tableView.rowHeight = UITableViewAutomaticDimension
         
+        self.tableView.mj_header =
+            MJRefreshNormalHeader(refreshingBlock: { [unowned self] in
 
-        WEDataManager.getJSON("api/topics/show.json",
-                              parameters: ["id" : topicID!],
-                              block: true) { (responeData) in
-                                self.topicDetail = WETopicDetail(dic: responeData.first!)
-                                self.tableView.reloadData()
-        }
-        WEDataManager.getJSON("api/replies/show.json",
-                              parameters: ["topic_id" : topicID!],
-                              block: true) { (responeData) in
-                                self.topicReplies = [WEReplyDetail]()
-                                for reply in responeData {
-                                    self.topicReplies?.append(WEReplyDetail(reply))
-                                }
-                                self.tableView.reloadData()
-        }
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+                WEDataManager.getJSON("api/topics/show.json",
+                    parameters: ["id" : self.topicID!],
+                block: true) { [unowned self] (responeData) in
+                    self.topicDetail = WETopicDetail(dic: responeData.first!)
+                    self.tableView.mj_header.endRefreshing()
+                }
+                WEDataManager.getJSON("api/replies/show.json",
+                    parameters: ["topic_id" : self.topicID!],
+                block: true) { [unowned self] (responeData) in
+                    self.topicReplies = [WEReplyDetail]()
+                    for reply in responeData {
+                        self.topicReplies?.append(WEReplyDetail(reply))
+                    }
+                }
+                
+            })
+        
+        self.tableView.mj_header.beginRefreshing()
+        
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+            // Uncomment the following line to preserve selection between presentations
+            self.clearsSelectionOnViewWillAppear = true
     }
 
     override func didReceiveMemoryWarning() {

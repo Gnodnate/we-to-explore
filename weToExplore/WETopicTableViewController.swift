@@ -34,6 +34,9 @@ class WETopicTableViewController: UITableViewController {
         // cell height auto calculate
         self.tableView.rowHeight = UITableViewAutomaticDimension
         
+        // disable select highlight
+        self.tableView.allowsSelection = false
+        
         self.tableView.mj_header =
             MJRefreshNormalHeader(refreshingBlock: { [unowned self] in
 

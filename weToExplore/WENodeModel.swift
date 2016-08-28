@@ -8,16 +8,20 @@
 
 import UIKit
 import Ji
-class WENode: NSObject {
-    var ID:Int?
+class WENode {
     var name:String?
-    required init(nodeJiNode:JiNode) {
-        name = nodeJiNode.content
+    var title:String?
+    init(nodeJiNode:JiNode) {
+        title = nodeJiNode.content
         if let href = nodeJiNode["href"] {
             if let range = href.rangeOfString("go/") {
-                ID = Int(href.substringFromIndex(range.endIndex))
+                name = href.substringFromIndex(range.endIndex)
             }
         }
+    }
+    init(Title:String, Name:String) {
+        title = Title
+        name = Name
     }
 }
 class WENodeGroup: NSObject {

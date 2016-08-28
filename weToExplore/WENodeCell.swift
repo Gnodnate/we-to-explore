@@ -17,12 +17,12 @@ class WENodeCell: UITableViewCell {
     weak var exitSegue:UIStoryboardSegue?
     
     var nodeButtonArray = [UIButton]()
-    var nodeInfo:[String:String]! {
+    var nodeGroup:WENodeGroup! {
         didSet {
-            for node in nodeInfo {
+            for node in nodeGroup.nodeArray {
                 let button = UIButton()
-                button.nodeInfo = [node.0:node.1]
-                button.setTile(node.0, font: UIFont.systemFontOfSize(NodeButtonFontSize))
+                button.nodeInfo = node
+                button.setTile(node.title!, font: UIFont.systemFontOfSize(NodeButtonFontSize))
                 button.addTarget(self, action: #selector(showTopicInNode(_:)), forControlEvents: UIControlEvents.TouchDown)
                 button.addTarget(self, action: #selector(buttonTouchUpInside(_:)), forControlEvents: .TouchUpInside)
                 button.addTarget(self, action: #selector(buttonTouchUpOutside(_:)), forControlEvents: .TouchUpOutside)
@@ -42,7 +42,7 @@ class WENodeCell: UITableViewCell {
     // MARK: - button action
     
     func showTopicInNode(nodeButton:UIButton) {
-        nodeButton.backgroundColor = UIColor.blueColor()
+        nodeButton.backgroundColor = UIColor.v2exGreen()
     }
     
     func buttonTouchUpInside(nodeButton:UIButton) {
@@ -79,7 +79,7 @@ private var nodeID:Int8 = 0
 extension UIButton {
     func setTile(title:String, font:UIFont) -> Void {
         self.titleLabel?.font = font
-        self.setTitleColor(UIColor.blueColor(), forState: .Normal)
+        self.setTitleColor(UIColor.v2exGreen(), forState: .Normal)
         self.setTitleColor(UIColor.whiteColor(), forState: .Selected)
         self.setTitleColor(UIColor.whiteColor(), forState: .Highlighted)
         self.setTitle(title, forState: .Normal)
@@ -94,12 +94,12 @@ extension UIButton {
         return CGRectGetWidth(rect)
     }
     
-    var nodeInfo:[String:String]! {
+    var nodeInfo:WENode? {
         get {
-            return objc_getAssociatedObject(self, &nodeID) as? [String:String]
+            return objc_getAssociatedObject(self, &nodeID) as? WENode
         }
-        set {
-            objc_setAssociatedObject(self, &nodeID, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_COPY_NONATOMIC)
+        set (newValue) {
+            objc_setAssociatedObject(self, &nodeID, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
         }
     }
 }

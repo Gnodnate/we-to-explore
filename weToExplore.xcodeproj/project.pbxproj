@@ -15,11 +15,12 @@
 		4C2030FE1D69C7F4004B9BBA /* WEContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2030FD1D69C7F4004B9BBA /* WEContainerViewController.swift */; };
 		4C2031011D69CAE1004B9BBA /* WENodeListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2031001D69CAE1004B9BBA /* WENodeListTableViewController.swift */; };
 		4C45AE261D66A43A00263D16 /* WENodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C45AE251D66A43A00263D16 /* WENodeModel.swift */; };
+		4C5114E01D7327AB00A2113C /* UIColor-V2Green.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5114DF1D7327AB00A2113C /* UIColor-V2Green.swift */; };
 		4C52FDE81D5DE5FF00EC0B9C /* node.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C52FDE61D5DE5FF00EC0B9C /* node.xcdatamodeld */; };
 		4C52FDEB1D5DE65B00EC0B9C /* Node+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C52FDE91D5DE65B00EC0B9C /* Node+CoreDataProperties.swift */; };
 		4C52FDEC1D5DE65B00EC0B9C /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C52FDEA1D5DE65B00EC0B9C /* Node.swift */; };
 		4C52FDEE1D5DEF9A00EC0B9C /* WENodeCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C52FDED1D5DEF9A00EC0B9C /* WENodeCoreData.swift */; };
-		4C52FDF01D5EA41F00EC0B9C /* WENormalNodeTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C52FDEF1D5EA41F00EC0B9C /* WENormalNodeTableDataSource.swift */; };
+		4C52FDF01D5EA41F00EC0B9C /* WENormalNodeTableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C52FDEF1D5EA41F00EC0B9C /* WENormalNodeTableModel.swift */; };
 		4C52FDF21D5EC36500EC0B9C /* WENodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C52FDF11D5EC36500EC0B9C /* WENodeCell.swift */; };
 		4C9593721D66FD7A002AE1E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9593711D66FD7A002AE1E5 /* AppDelegate.swift */; };
 		4C9593771D670048002AE1E5 /* WETopicDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9593761D670048002AE1E5 /* WETopicDetail.swift */; };
@@ -64,11 +65,12 @@
 		4C2030FD1D69C7F4004B9BBA /* WEContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WEContainerViewController.swift; sourceTree = "<group>"; };
 		4C2031001D69CAE1004B9BBA /* WENodeListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WENodeListTableViewController.swift; sourceTree = "<group>"; };
 		4C45AE251D66A43A00263D16 /* WENodeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WENodeModel.swift; sourceTree = "<group>"; };
+		4C5114DF1D7327AB00A2113C /* UIColor-V2Green.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor-V2Green.swift"; sourceTree = "<group>"; };
 		4C52FDE71D5DE5FF00EC0B9C /* node.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = node.xcdatamodel; sourceTree = "<group>"; };
 		4C52FDE91D5DE65B00EC0B9C /* Node+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Node+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4C52FDEA1D5DE65B00EC0B9C /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		4C52FDED1D5DEF9A00EC0B9C /* WENodeCoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WENodeCoreData.swift; sourceTree = "<group>"; };
-		4C52FDEF1D5EA41F00EC0B9C /* WENormalNodeTableDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WENormalNodeTableDataSource.swift; sourceTree = "<group>"; };
+		4C52FDEF1D5EA41F00EC0B9C /* WENormalNodeTableModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WENormalNodeTableModel.swift; sourceTree = "<group>"; };
 		4C52FDF11D5EC36500EC0B9C /* WENodeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WENodeCell.swift; sourceTree = "<group>"; };
 		4C9593711D66FD7A002AE1E5 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C9593761D670048002AE1E5 /* WETopicDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WETopicDetail.swift; sourceTree = "<group>"; };
@@ -159,7 +161,7 @@
 				4CE9F3C21D4F95810088E940 /* WEReplyDetail.swift */,
 				4CE9F3C41D4F9B100088E940 /* WEUserDetail.swift */,
 				4C52FDED1D5DEF9A00EC0B9C /* WENodeCoreData.swift */,
-				4C52FDEF1D5EA41F00EC0B9C /* WENormalNodeTableDataSource.swift */,
+				4C52FDEF1D5EA41F00EC0B9C /* WENormalNodeTableModel.swift */,
 				4C45AE251D66A43A00263D16 /* WENodeModel.swift */,
 				4C9593761D670048002AE1E5 /* WETopicDetail.swift */,
 				4C95937C1D6707CD002AE1E5 /* WEDataManager.swift */,
@@ -227,6 +229,7 @@
 				4CFF43091D4C5650000CA3C5 /* LaunchScreen.storyboard */,
 				4C0F99051D5DD1FD004A8B73 /* nodes.plist */,
 				4CD1CD5E1D6D9F2D00A90565 /* NSDate-HumanFriendlyDate.swift */,
+				4C5114DF1D7327AB00A2113C /* UIColor-V2Green.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -410,10 +413,11 @@
 				4CE9F3C11D4F91AE0088E940 /* WETopicReplyTableViewCell.swift in Sources */,
 				4CA783321D6815F900C46AF9 /* WETopicListTableViewController.swift in Sources */,
 				4C52FDEC1D5DE65B00EC0B9C /* Node.swift in Sources */,
+				4C5114E01D7327AB00A2113C /* UIColor-V2Green.swift in Sources */,
 				4CA7832B1D67561700C46AF9 /* WEDefaultNodeScrollView.swift in Sources */,
 				4C52FDEE1D5DEF9A00EC0B9C /* WENodeCoreData.swift in Sources */,
 				4CD1CD5F1D6D9F2D00A90565 /* NSDate-HumanFriendlyDate.swift in Sources */,
-				4C52FDF01D5EA41F00EC0B9C /* WENormalNodeTableDataSource.swift in Sources */,
+				4C52FDF01D5EA41F00EC0B9C /* WENormalNodeTableModel.swift in Sources */,
 				4C2030F81D68B02C004B9BBA /* WEMemberInfo.swift in Sources */,
 				4C95937B1D670604002AE1E5 /* WETwoScrollViewController.swift in Sources */,
 				4C9726D01D6AE75C0003017E /* WETopicTableViewController.swift in Sources */,

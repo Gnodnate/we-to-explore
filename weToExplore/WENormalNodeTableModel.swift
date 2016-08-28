@@ -1,5 +1,5 @@
 //
-//  WENormalNodeTableDataSource.swift
+//  WENormalNodeTableModel.swift
 //  weToExplore
 //
 //  Created by Daniel Tan on 8/13/16.
@@ -8,35 +8,36 @@
 
 import UIKit
 
-class WENormalNodeTableDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
+class WENormalNodeTableModel: NSObject, UITableViewDataSource, UITableViewDelegate {
 //    private weak var tableView:UITableView?
     
-    var exitSegue:UIStoryboardSegue?
+    var tableView:UITableView?
+    var nodeButtonSegue:UIStoryboardSegue?
     
-    var nodeDic:NSDictionary {
-        get {
-            let infoPath = NSBundle.mainBundle().pathForResource("nodes", ofType: "plist", inDirectory: nil, forLocalization: nil)
-            return NSDictionary(contentsOfFile: infoPath!)!;
+    private var nodeGroupArray:[WENodeGroup]? {
+        didSet {
+            tableView!.reloadData()
         }
     }
-
-//    required init(exitSegue:UIStoryboardSegue) {
-//        super.init()
-//        self.exitSegue = exitSegue
-//    }
+    
+    // MARK: - Reload the tableview
+    func getNodes() {
+        WENodeModel.getNode(true) { (nodeGroupArray) in
+            self.nodeGroupArray = nodeGroupArray
+        }
+    }
     
     // MARK: - Config the cell
-    func configureCell(cell:WENodeCell, withIndexPath indexPath:NSIndexPath) -> Void {
-        let key = nodeDic.allKeys[indexPath.section] as! String
-        cell.nodeInfo = (nodeDic[key] as! [String:String])
-        cell.exitSegue = self.exitSegue
+    private func configureCell(cell:WENodeCell, withIndexPath indexPath:NSIndexPath) -> Void {
+        cell.nodeGroup = nodeGroupArray![indexPath.section]
+        cell.exitSegue = self.nodeButtonSegue
         
     }
     // MARK: - Table view data source
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return nodeDic.count
+        return nodeGroupArray?.count ?? 0
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -45,24 +46,22 @@ class WENormalNodeTableDataSource: NSObject, UITableViewDataSource, UITableViewD
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("nodeCell", forIndexPath: indexPath) as! WENodeCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("NodeListCell", forIndexPath: indexPath) as! WENodeCell
         configureCell(cell, withIndexPath: indexPath)
         cell.laoutButtons()
         return cell
     }
 
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return nodeDic.allKeys[section] as? String
+        return nodeGroupArray?[section].Name ?? "Not Good"
     }
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         var originX:CGFloat = 10
         var originY:CGFloat = 10
         
-        let key = nodeDic.allKeys[indexPath.section] as! String
-        let nodeInfoDic = nodeDic.objectForKey(key) as! [String:String]
-        for nodeInfo in nodeInfoDic {
-            let buttonWidth = UIButton.widthWithTitle(nodeInfo.1, andFont: UIFont.systemFontOfSize(NodeButtonFontSize))
-            if buttonWidth+10+originX < UIScreen.mainScreen().bounds.size.width {
+        for nodeInfo in (nodeGroupArray?[indexPath.section].nodeArray)! {
+            let buttonWidth = UIButton.widthWithTitle(nodeInfo.title!, andFont: UIFont.systemFontOfSize(NodeButtonFontSize))
+            if buttonWidth+10+originX < screenWidth {
                 originX += buttonWidth+10
             } else {
                 originX = 10

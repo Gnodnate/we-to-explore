@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="V2" translatesAutoresizingMaskIntoConstraints="NO" id="siA-vx-Nu5">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="V2" translatesAutoresizingMaskIntoConstraints="NO" id="siA-vx-Nu5">
                                 <rect key="frame" x="210" y="210" width="180" height="180"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bmh-z0-paE" customClass="WEDefaultNodeScrollView" customModule="WeToExplore" customModuleProvider="target">
@@ -89,7 +89,11 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="V2EX" id="ivV-v8-74z">
-                        <barButtonItem key="rightBarButtonItem" image="ist-icon" id="O4P-y1-YVn"/>
+                        <barButtonItem key="rightBarButtonItem" image="ist-icon" id="O4P-y1-YVn">
+                            <connections>
+                                <segue destination="v7R-sX-NNp" kind="show" id="Mag-z7-1Vm"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="nodesScrollView" destination="bmh-z0-paE" id="5SL-zs-T5x"/>
@@ -109,8 +113,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NodeListCell" id="6fR-k3-6In">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NodeListCell" id="6fR-k3-6In" customClass="WENodeCell" customModule="WeToExplore" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6fR-k3-6In" id="7Fq-ZC-gy6">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>

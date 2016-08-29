@@ -18,7 +18,7 @@ class WENodeListTableViewController: UITableViewController {
 
         self.tableView.dataSource = model
         self.tableView.delegate = model
-        model.tableView = self.tableView
+        model.tableViewController = self
         model.getNodes()
 
         // Uncomment the following line to preserve selection between presentations

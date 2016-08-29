@@ -14,7 +14,7 @@ let NodeButtonFontSize:CGFloat = 14
 
 class WENodeCell: UITableViewCell {
     
-    weak var exitSegue:UIStoryboardSegue?
+    var showNodeSegue:UIStoryboardSegue?
     
     var nodeButtonArray = [UIButton]()
     var nodeGroup:WENodeGroup! {
@@ -50,7 +50,10 @@ class WENodeCell: UITableViewCell {
 //        NSNotificationCenter.defaultCenter().postNotificationName("NODENAMECHANGE", object: nodeButton.nodeName)
 //        NSUserDefaults.standardUserDefaults().setObject(nodeButton.nodeInfo, forKey: DefaultNodeName)
         NSUserDefaults.standardUserDefaults().synchronize()
-        self.exitSegue?.perform()
+        if let topicListVC = self.showNodeSegue?.destinationViewController as? WETopicListTableViewController {
+            topicListVC.nodeID = (nodeButton.nodeInfo?.name)!
+        }
+        self.showNodeSegue?.perform()
     }
     func buttonTouchUpOutside(nodeButton:UIButton) {
         nodeButton.backgroundColor = UIColor.whiteColor()

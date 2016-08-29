@@ -29,8 +29,6 @@ class WETopicListTableViewController: UITableViewController {
         let model = WETopicListViewModel()
         model.topicsDidChange =  { model in
             self.topicArray = model.topics
-//            self.tableView.reloadData()
-//            self.refreshControl?.endRefreshing()
             self.tableView.mj_header.endRefreshing()
         }
         return model
@@ -97,8 +95,16 @@ class WETopicListTableViewController: UITableViewController {
     }
     
     func pullRefreshManual() {
-        self.tableView.mj_header.beginRefreshing()
-        viewModel.showTopics(self.nodeID)
+        if !self.tableView.mj_header.isRefreshing() {
+            self.tableView.mj_header.beginRefreshing()
+            viewModel.showTopics(self.nodeID)
+        }
+
+    }
+    
+    // MARK: - clear tableview
+    func clearTableView() {
+        self.topicArray?.removeAll()
     }
     
     // MARK: segue

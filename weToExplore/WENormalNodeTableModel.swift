@@ -11,15 +11,23 @@ import UIKit
 class WENormalNodeTableModel: NSObject, UITableViewDataSource, UITableViewDelegate {
 //    private weak var tableView:UITableView?
     
-    var tableView:UITableView?
-    var nodeButtonSegue:UIStoryboardSegue?
+    weak var tableViewController:UITableViewController?
     
     private var nodeGroupArray:[WENodeGroup]? {
         didSet {
-            tableView!.reloadData()
+            tableViewController?.tableView.reloadData()
         }
     }
     
+    lazy var topicListViewController:WETopicListTableViewController =
+        UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("TopListTableViewController") as! WETopicListTableViewController
+    var nodeButtonSegue:UIStoryboardSegue {
+        return UIStoryboardSegue(identifier: "showNodeTopics",source: self.tableViewController! , destination: topicListViewController) { [unowned self] in
+            self.tableViewController?.showViewController(self.topicListViewController, sender: self.tableViewController)
+            self.topicListViewController.clearTableView()
+            self.topicListViewController.pullRefreshManual()
+        }
+    }
     // MARK: - Reload the tableview
     func getNodes() {
         WENodeModel.getNode(true) { (nodeGroupArray) in
@@ -30,7 +38,7 @@ class WENormalNodeTableModel: NSObject, UITableViewDataSource, UITableViewDelega
     // MARK: - Config the cell
     private func configureCell(cell:WENodeCell, withIndexPath indexPath:NSIndexPath) -> Void {
         cell.nodeGroup = nodeGroupArray![indexPath.section]
-        cell.exitSegue = self.nodeButtonSegue
+        cell.showNodeSegue = nodeButtonSegue
         
     }
     // MARK: - Table view data source

@@ -8,23 +8,23 @@
 
 import UIKit
 
-func _keyAndName( key:String ) -> (String, String) {
+func _keyAndTitle( key:String ) -> (String, String) {
     return (key, NSLocalizedString(key, comment: ""))
 }
 
 let defaultNodes:[String:String] = {
-    return Dictionary(dictionaryLiteral:_keyAndName("tech"),
-                      _keyAndName("creative"),
-                      _keyAndName("play"),
-                      _keyAndName("apple"),
-                      _keyAndName("deals"),
-                      _keyAndName("city"),
-                      _keyAndName("qna"),
-                      _keyAndName("hot"),
-                      _keyAndName("all"),
-                      _keyAndName("r2"),
-                      _keyAndName("nodes"),
-                      _keyAndName("members"))
+    return Dictionary(dictionaryLiteral:_keyAndTitle("tech"),
+                      _keyAndTitle("creative"),
+                      _keyAndTitle("play"),
+                      _keyAndTitle("apple"),
+                      _keyAndTitle("deals"),
+                      _keyAndTitle("city"),
+                      _keyAndTitle("qna"),
+                      _keyAndTitle("hot"),
+                      _keyAndTitle("all"),
+                      _keyAndTitle("r2"),
+                      _keyAndTitle("nodes"),
+                      _keyAndTitle("members"))
 }()
 
 let screenWidth = UIScreen.mainScreen().bounds.width

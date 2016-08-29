@@ -17,7 +17,7 @@ func _L(aString:String) -> String {
 
 class WETopicListTableViewController: UITableViewController {
 
-    var nodeID:String = "all"
+    var nodeName:String = "all"
     
     var topicArray:[WETopicDetail]? {
         didSet {
@@ -81,7 +81,7 @@ class WETopicListTableViewController: UITableViewController {
         if let topicInfo = self.topicArray?[indexPath.row] {
             cell.userImage.sd_setImageWithURL(topicInfo.avaterImageURL, placeholderImage: UIImage(named: "default"))
             cell.userName.setTitle(topicInfo.avaterName, forState: .Normal)
-            cell.nodeName.setTitle(topicInfo.nodeName, forState: .Normal)
+            cell.nodeName.setTitle(topicInfo.nodeTitle, forState: .Normal)
             cell.replyTime.text = topicInfo.lastTouchTime
             cell.topicTitle.text = topicInfo.title
             cell.ID = topicInfo.ID
@@ -91,15 +91,14 @@ class WETopicListTableViewController: UITableViewController {
     
     // MARK: -Refresh action
     func pullRefresh() {
-        viewModel.showTopics(self.nodeID)
+        viewModel.showTopics(self.nodeName)
     }
     
     func pullRefreshManual() {
         if !self.tableView.mj_header.isRefreshing() {
             self.tableView.mj_header.beginRefreshing()
-            viewModel.showTopics(self.nodeID)
+            viewModel.showTopics(self.nodeName)
         }
-
     }
     
     // MARK: - clear tableview

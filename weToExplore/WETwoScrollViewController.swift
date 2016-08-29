@@ -51,11 +51,11 @@ class WETwoScrollViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         nodesScrollView.delegate = self;
         nodesScrollView.nodeArray = defaultNodes
-        nodesScrollView.nodeSelectChanged = {[unowned self] nodeID in
+        nodesScrollView.nodeSelectChanged = {[unowned self] nodeName in
             var index:CGFloat = 0.0
             for topicCV in self.childViewControllers {
                 if let topicListCV = topicCV as? WETopicListTableViewController {
-                    if topicListCV.nodeID == nodeID {
+                    if topicListCV.nodeName == nodeName {
                         let offSetY = self.topicListScrolView.bounds.origin.y
                         let offSetX = index*screenWidth
                         topicListCV.view.frame = CGRect(origin: CGPoint(x: offSetX, y: offSetY), size: CGSize(width: screenWidth, height: self.topicListHeight))
@@ -69,9 +69,9 @@ class WETwoScrollViewController: UIViewController, UIScrollViewDelegate {
         
         topicListScrolView.delegate = self;
         
-        for  (nodeID, _) in defaultNodes {
+        for  (nodeName, _) in defaultNodes {
             if let newTC = storyboard?.instantiateViewControllerWithIdentifier("TopListTableViewController") as? WETopicListTableViewController {
-                newTC.nodeID = nodeID
+                newTC.nodeName = nodeName
                 
                 self.addChildViewController(newTC)
             }

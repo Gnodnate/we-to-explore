@@ -28,7 +28,7 @@ class WENodeInfo: NSObject {
     var avatar_large:String?
     init(dic: [String:AnyObject]) {
         ID            = dic["id"] as? Int
-        name          = dic["username"] as? String
+        name          = dic["name"] as? String
         title         = dic["title"] as? String
         url           = dic["url"] as? String
         avatar_mini   = dic["avatar_mini"] as? String

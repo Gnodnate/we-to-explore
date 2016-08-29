@@ -51,7 +51,7 @@ class WENodeCell: UITableViewCell {
 //        NSUserDefaults.standardUserDefaults().setObject(nodeButton.nodeInfo, forKey: DefaultNodeName)
         NSUserDefaults.standardUserDefaults().synchronize()
         if let topicListVC = self.showNodeSegue?.destinationViewController as? WETopicListTableViewController {
-            topicListVC.nodeID = (nodeButton.nodeInfo?.name)!
+            topicListVC.nodeName = (nodeButton.nodeInfo?.name)!
         }
         self.showNodeSegue?.perform()
     }
@@ -78,7 +78,7 @@ class WENodeCell: UITableViewCell {
 }
 
 // MARK: - UIButton extension
-private var nodeID:Int8 = 0
+private var nodeInfoID:Int8 = 0
 extension UIButton {
     func setTile(title:String, font:UIFont) -> Void {
         self.titleLabel?.font = font
@@ -99,10 +99,10 @@ extension UIButton {
     
     var nodeInfo:WENode? {
         get {
-            return objc_getAssociatedObject(self, &nodeID) as? WENode
+            return objc_getAssociatedObject(self, &nodeInfoID) as? WENode
         }
         set (newValue) {
-            objc_setAssociatedObject(self, &nodeID, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
+            objc_setAssociatedObject(self, &nodeInfoID, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
         }
     }
 }

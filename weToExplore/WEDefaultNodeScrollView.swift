@@ -14,7 +14,7 @@ let nodeScrollViewHeight:CGFloat = 40 // There is another one in storyboard
 class WEDefaultNodeScrollView: UIScrollView {
     private var lastSelectButton:WENodeButton?
     
-    var nodeSelectChanged: ((nodeID:String)->())?
+    var nodeSelectChanged: ((nodeName:String)->())?
     let containerView = UIView()
     var nodeArray:[String:String]?{ // ID, Title
         didSet {
@@ -69,7 +69,7 @@ class WEDefaultNodeScrollView: UIScrollView {
     }
     func changeNode(button:WENodeButton) {
         effectNodeButton(button)
-        nodeSelectChanged?(nodeID: button.ID ?? "all")
+        nodeSelectChanged?(nodeName: button.ID ?? "all")
     }
     
     func hightlightNode(Index index:Int) {

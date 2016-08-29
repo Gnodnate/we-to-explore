@@ -12,9 +12,8 @@ import Ji
 /// Root View Model Protocol
 @objc protocol WETopicListViewModelProtocol {
     var topics:[WETopicDetail]! { get}
-//    var nodeTile:String? {get}
     var topicsDidChange: ((WETopicListViewModelProtocol) -> ())? { get set }
-    func showTopics(nodeID:String)
+    func showTopics(nodeName:String)
 }
 
 /// Root View Model

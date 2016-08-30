@@ -23,6 +23,7 @@ public class WEDataManager: NSObject {
                  parameters:[String:AnyObject]? = nil,
                  block:Bool = false,
                  complete:[[String:AnyObject]] -> Void) -> Request {
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         return Alamofire.request(.GET,
                           BaseURL+shortURL,
                           parameters: parameters,
@@ -32,20 +33,23 @@ public class WEDataManager: NSObject {
                           completionHandler: { response in
                             if response.result.isSuccess {
                                 complete((response.result.value) as! [[String:AnyObject]])
+                                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                             }
         })
     }
     class func getHTML(shortURL:String="",
                        parameters:[String:AnyObject]? = nil,
                        block:Bool = true,
-                       complete:NSData -> Void) {
-        Alamofire.request(.GET,
+                       complete:NSData -> Void) -> Request{
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        return Alamofire.request(.GET,
                           BaseURL+shortURL,
                           parameters: parameters,
                           headers: MOBILE_CLIENT_HEADERS)
             .responseData(queue: block ? nil : dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0),
                           completionHandler: { response in
                             complete(response.data!)
+                            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         })
     }
 

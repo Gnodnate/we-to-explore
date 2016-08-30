@@ -22,13 +22,13 @@ public class WEDataManager: NSObject {
     class func getJSON(shortURL:String="",
                  parameters:[String:AnyObject]? = nil,
                  block:Bool = false,
-                 complete:[[String:AnyObject]] -> Void) {
-        Alamofire.request(.GET,
+                 complete:[[String:AnyObject]] -> Void) -> Request {
+        return Alamofire.request(.GET,
                           BaseURL+shortURL,
                           parameters: parameters,
                           headers: MOBILE_CLIENT_HEADERS)
             .responseJSON(queue: block ? nil : dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0),
-                          options: .AllowFragments,
+                          options: .AllowFragments,   
                           completionHandler: { response in
                             if response.result.isSuccess {
                                 complete((response.result.value) as! [[String:AnyObject]])

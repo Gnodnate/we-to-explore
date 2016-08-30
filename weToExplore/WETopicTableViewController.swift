@@ -8,7 +8,7 @@
 
 import UIKit
 import MJRefresh
-
+import Alamofire
 
 class WETopicTableViewController: UITableViewController {
     
@@ -24,6 +24,8 @@ class WETopicTableViewController: UITableViewController {
     }
     
     var topicID:Int?
+    
+    var requestArray = [Request]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,13 +42,15 @@ class WETopicTableViewController: UITableViewController {
         self.tableView.mj_header =
             MJRefreshNormalHeader(refreshingBlock: { [unowned self] in
 
-                WEDataManager.getJSON("api/topics/show.json",
+                let topicRequest = WEDataManager.getJSON("api/topics/show.json",
                     parameters: ["id" : self.topicID!],
                 block: true) { [unowned self] (responeData) in
                     self.topicDetail = WETopicDetail(dic: responeData.first!)
                     self.tableView.mj_header.endRefreshing()
                 }
-                WEDataManager.getJSON("api/replies/show.json",
+                self.requestArray.append(topicRequest)
+                
+                let repliesRequest = WEDataManager.getJSON("api/replies/show.json",
                     parameters: ["topic_id" : self.topicID!],
                 block: true) { [unowned self] (responeData) in
                     self.topicReplies.removeAll()
@@ -54,16 +58,22 @@ class WETopicTableViewController: UITableViewController {
                         self.topicReplies.append(WEReplyDetail(reply))
                     }
                 }
+                self.requestArray.append(repliesRequest)
                 
             })
         
         self.tableView.mj_header.beginRefreshing()
         
-
-            // Uncomment the following line to preserve selection between presentations
-            self.clearsSelectionOnViewWillAppear = true
+        // Uncomment the following line to preserve selection between presentations
+        self.clearsSelectionOnViewWillAppear = true
     }
 
+    override func viewWillDisappear(animated: Bool) {
+        for request in requestArray {
+            request.task.cancel()
+        }
+        requestArray.removeAll()
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -73,7 +83,7 @@ class WETopicTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 2
+        return 2 // one for context, and one for replies
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

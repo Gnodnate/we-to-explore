@@ -42,24 +42,23 @@ class WETopicTableViewController: UITableViewController {
         self.tableView.mj_header =
             MJRefreshNormalHeader(refreshingBlock: { [unowned self] in
 
-                let topicRequest = WEDataManager.getJSON("api/topics/show.json",
+                let topicRequest = WEDataManager.getJSON("api/topics/show.json", //topic
                     parameters: ["id" : self.topicID!],
                 block: true) { [unowned self] (responeData) in
                     self.topicDetail = WETopicDetail(dic: responeData.first!)
-                    self.tableView.mj_header.endRefreshing()
+                    
+                    let repliesRequest = WEDataManager.getJSON("api/replies/show.json", // replies
+                        parameters: ["topic_id" : self.topicID!],
+                    block: true) { [unowned self] (responeData) in
+                        self.topicReplies.removeAll()
+                        for reply in responeData {
+                            self.topicReplies.append(WEReplyDetail(reply))
+                        }
+                        self.tableView.mj_header.endRefreshing()
+                    }
+                    self.requestArray.append(repliesRequest)
                 }
                 self.requestArray.append(topicRequest)
-                
-                let repliesRequest = WEDataManager.getJSON("api/replies/show.json",
-                    parameters: ["topic_id" : self.topicID!],
-                block: true) { [unowned self] (responeData) in
-                    self.topicReplies.removeAll()
-                    for reply in responeData {
-                        self.topicReplies.append(WEReplyDetail(reply))
-                    }
-                }
-                self.requestArray.append(repliesRequest)
-                
             })
         
         self.tableView.mj_header.beginRefreshing()

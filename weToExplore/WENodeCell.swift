@@ -47,9 +47,6 @@ class WENodeCell: UITableViewCell {
     
     func buttonTouchUpInside(nodeButton:UIButton) {
         nodeButton.backgroundColor = UIColor.whiteColor()
-//        NSNotificationCenter.defaultCenter().postNotificationName("NODENAMECHANGE", object: nodeButton.nodeName)
-//        NSUserDefaults.standardUserDefaults().setObject(nodeButton.nodeInfo, forKey: DefaultNodeName)
-        NSUserDefaults.standardUserDefaults().synchronize()
         if let topicListVC = self.showNodeSegue?.destinationViewController as? WETopicListTableViewController {
             topicListVC.nodeName = (nodeButton.nodeInfo?.name)!
         }

@@ -19,7 +19,7 @@ class WENode {
             }
         }
     }
-    init(Title:String, Name:String) {
+    init(Title:String?, Name:String?) {
         title = Title
         name = Name
     }

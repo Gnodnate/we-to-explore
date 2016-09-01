@@ -81,7 +81,9 @@ class WETopicListTableViewController: UITableViewController {
         if let topicInfo = self.topicArray?[indexPath.row] {
             cell.userImage.sd_setImageWithURL(topicInfo.avaterImageURL, placeholderImage: UIImage(named: "default"))
             cell.userName.setTitle(topicInfo.avaterName, forState: .Normal)
+            cell.nodeName.nodeInfo = WENode(Title: topicInfo.nodeTitle, Name: topicInfo.nodeName)
             cell.nodeName.setTitle(topicInfo.nodeTitle, forState: .Normal)
+            cell.nodeName.addTarget(self, action:#selector(switchNode(_:)) , forControlEvents: UIControlEvents.TouchUpInside)
             cell.replyTime.text = topicInfo.lastTouchTime
             cell.topicTitle.text = topicInfo.title
             cell.ID = topicInfo.ID
@@ -104,6 +106,20 @@ class WETopicListTableViewController: UITableViewController {
     // MARK: - clear tableview
     func clearTableView() {
         self.topicArray?.removeAll()
+    }
+    
+    // MARK: - switch node
+    func switchNode(nodeButton:UIButton) {
+        if self.parentViewController is WETwoScrollViewController {
+            if nil != nodeButton.nodeInfo {
+                let topicListViewController:WETopicListTableViewController =
+                    UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("TopListTableViewController") as! WETopicListTableViewController
+                
+                topicListViewController.nodeName = (nodeButton.nodeInfo?.name)!
+                topicListViewController.title = nodeButton.nodeInfo?.title
+                self.navigationController?.pushViewController(topicListViewController, animated: true)
+            }
+        }
     }
     
     // MARK: segue

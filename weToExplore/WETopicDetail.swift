@@ -61,6 +61,7 @@ class WETopicDetail: NSObject {
     var avaterImageURL:NSURL?
     var avaterName:String?
     var nodeTitle:String?
+    var nodeName:String?
     
     
     var memberInfo:WEMemberInfo?
@@ -80,6 +81,7 @@ class WETopicDetail: NSObject {
         avaterName = memberInfo?.name
         nodeInfo = WENodeInfo(dic: dic["node"] as! [String:AnyObject])
         nodeTitle = nodeInfo?.title
+        nodeName = nodeInfo?.name
         createTime = NSDate(timeIntervalSince1970: dic["created"] as? Double ?? 0)
         lastModTime = NSDate(timeIntervalSince1970: dic["last_modified"] as? Double ?? 0).humanReadableDate()
         lastTouchTime = NSDate(timeIntervalSince1970: dic["last_touched"] as? Double ?? 0).humanReadableDate()
@@ -98,6 +100,11 @@ class WETopicDetail: NSObject {
             }
         }
         if let nodeNode = jiNode.xPath("./td[3]/span[1]/a").first {
+            if let href = nodeNode.attributes["href"] {
+                if let prefixRange = href.rangeOfString("/go/") {
+                    nodeName = href.substringFromIndex(prefixRange.endIndex)
+                }
+            }
             nodeTitle = nodeNode.content
         }
         

@@ -27,20 +27,22 @@ import UIKit
 
 class WEReplyDetail: NSObject {
     
-    var replierID = NSNumber()
-    var replierName = String()
+    var replierID:NSNumber?
+    var replierName:String?
     var replierImageURL:NSURL?
-    var replyText = String()
-    var replyTime = NSNumber()
+    var content:String?
+    var content_rendered:String?
+    var replyTime:NSNumber?
     var member = [String: AnyObject]()
     required init(_ dic:Dictionary<String, AnyObject>) {
         super.init()
-        member      = dic["member"] as! Dictionary
-        replierName = member["username"] as! String
-        replierID   = member["id"] as! NSNumber
-        replierImageURL = (member["avatar_normal"] as! String).URLByAddHTTPS()
-        replyText   = dic["content"] as! String
-        replyTime   = dic["created"] as! NSNumber
+        member           = dic["member"] as! Dictionary
+        replierName      = member["username"] as? String
+        replierID        = member["id"] as? NSNumber
+        replierImageURL  = (member["avatar_normal"] as! String).URLByAddHTTPS()
+        content          = dic["content"] as? String
+        content_rendered = dic["content_rendered"] as? String
+        replyTime        = dic["created"] as? NSNumber
     }
 
 }

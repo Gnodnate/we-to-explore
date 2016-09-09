@@ -57,6 +57,7 @@ class WETopicDetail: NSObject {
     var shortURL:String?
     var title:String?
     var content:String?
+    var content_rendered:String?
     var replies:Int = 0
     var avaterImageURL:NSURL?
     var avaterName:String?
@@ -72,19 +73,20 @@ class WETopicDetail: NSObject {
     
 
     required init(dic:[String:AnyObject]) {
-        ID = dic["id"] as? Int
-        title = dic["title"] as? String
-        content = dic["content"] as? String;
-        replies = dic["replies"] as! Int
-        memberInfo = WEMemberInfo(dic: dic["member"] as! [String:AnyObject])
-        avaterImageURL = memberInfo?.avatar_normal
-        avaterName = memberInfo?.name
-        nodeInfo = WENodeInfo(dic: dic["node"] as! [String:AnyObject])
-        nodeTitle = nodeInfo?.title
-        nodeName = nodeInfo?.name
-        createTime = NSDate(timeIntervalSince1970: dic["created"] as? Double ?? 0)
-        lastModTime = NSDate(timeIntervalSince1970: dic["last_modified"] as? Double ?? 0).humanReadableDate()
-        lastTouchTime = NSDate(timeIntervalSince1970: dic["last_touched"] as? Double ?? 0).humanReadableDate()
+        ID               = dic["id"] as? Int
+        title            = dic["title"] as? String
+        content          = dic["content"] as? String;
+        content_rendered = dic["content_rendered"] as? String
+        replies          = dic["replies"] as! Int
+        memberInfo       = WEMemberInfo(dic: dic["member"] as! [String:AnyObject])
+        avaterImageURL   = memberInfo?.avatar_normal
+        avaterName       = memberInfo?.name
+        nodeInfo         = WENodeInfo(dic: dic["node"] as! [String:AnyObject])
+        nodeTitle        = nodeInfo?.title
+        nodeName         = nodeInfo?.name
+        createTime       = NSDate(timeIntervalSince1970: dic["created"] as? Double ?? 0)
+        lastModTime      = NSDate(timeIntervalSince1970: dic["last_modified"] as? Double ?? 0).humanReadableDate()
+        lastTouchTime    = NSDate(timeIntervalSince1970: dic["last_touched"] as? Double ?? 0).humanReadableDate()
     }
     
     required init(jiNode:JiNode) {

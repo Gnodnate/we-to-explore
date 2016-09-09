@@ -19,9 +19,14 @@ class WETopicReplyTableViewCell: UITableViewCell {
         didSet {
             replierImage.sd_setImageWithURL(replyDetail?.replierImageURL, placeholderImage: UIImage(named: "default"))
             replierName.text = replyDetail!.replierName
-            replyTime.text =  NSDate(timeIntervalSince1970: replyDetail!.replyTime.doubleValue).humanReadableDate()
-            replyText.text = replyDetail!.replyText
-
+            replyTime.text =  NSDate(timeIntervalSince1970: replyDetail!.replyTime!.doubleValue).humanReadableDate()
+            if let data = self.replyDetail?.content_rendered?.dataUsingEncoding(NSUnicodeStringEncoding) {
+                do {
+                    try replyText.attributedText = NSAttributedString(data: data, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil)
+                } catch let error as NSError{
+                    NSLog("%@", error)
+                }
+            }
         }
     }
     

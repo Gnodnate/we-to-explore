@@ -27,7 +27,7 @@ class WENodeButton: UIButton {
         return UIFont.systemFontOfSize(19)
     }()
     
-    var width:CGFloat {
+    var calcWidth:CGFloat {
         let size = ((self.titleLabel?.text!)! as NSString).sizeWithAttributes([NSFontAttributeName : titileFont])
         return size.width + labelSizeMargin
     }

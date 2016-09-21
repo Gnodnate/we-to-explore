@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SnapKit
 
 let nodeScrollViewHeight:CGFloat = 40 // There is another one in storyboard
 
@@ -31,32 +30,16 @@ class WEDefaultNodeScrollView: UIScrollView {
                 nodeButton.ID = node.0
                 nodeButton.setTitle(node.1, forState: .Normal)
                 nodeButton.addTarget(self, action: #selector(changeNode(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+                nodeButton.frame.size = CGSizeMake(nodeButton.calcWidth, nodeScrollViewHeight)
+                nodeButton.frame.origin = CGPointMake(lastSubView?.frame.maxX ?? 0 , 0)
                 containerView.addSubview(nodeButton)
-                let width = nodeButton.width
-
-                nodeButton.snp_makeConstraints(closure: {[unowned self]  (make) in
-                    make.width.equalTo(width)
-                    make.height.equalTo(nodeScrollViewHeight)
-                    make.top.bottom.equalTo(self.containerView)
-                    if lastSubView != nil {
-                        make.leading.equalTo(lastSubView!.snp_trailing)
-                    } else {
-                        make.leading.equalTo(self.containerView)
-                    }
-                    lastSubView = nodeButton
-                })
+                lastSubView = nodeButton
             }
-            if lastSubView != nil {
-                lastSubView?.snp_makeConstraints(closure: { (make) in
-                    make.trailing.equalTo(self.containerView).offset(0)
-                })
-            }
-            var contentViewSize = containerView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
-            contentViewSize.height = nodeScrollViewHeight
-            containerView.frame = CGRect(origin: CGPointZero, size: contentViewSize)
+            let contentViewWidth = lastSubView?.frame.maxX ?? 0
+            containerView.frame = CGRect(origin: CGPointZero, size: CGSizeMake(contentViewWidth, nodeScrollViewHeight))
             self.addSubview(containerView)
 
-            self.contentSize = CGSize(width: contentViewSize.width, height: 0)
+            self.contentSize = CGSize(width: contentViewWidth, height: 0)
 
             self.hightlightNode(Index: 0)
         }

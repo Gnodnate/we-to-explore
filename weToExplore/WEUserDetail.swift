@@ -55,9 +55,9 @@ class WEUserDetail: NSObject {
         if (dic["avatar_large"] as! String).hasPrefix("//") {
             avatar = String(format: "%@", arguments: [dic["avatar_large"] as! String])
         }
-        let dateFormatter = NSDateFormatter()
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        createTime = dateFormatter.stringFromDate(NSDate(timeIntervalSince1970: (dic["created"] as! NSNumber).doubleValue))
+        createTime = dateFormatter.string(from: Date(timeIntervalSince1970: (dic["created"] as! NSNumber).doubleValue))
         
     }
 }

@@ -10,7 +10,7 @@ import UIKit
 
 class WENodeListTableViewController: UITableViewController {
     
-    private let model = WENormalNodeTableModel()
+    fileprivate let model = WENormalNodeTableModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()

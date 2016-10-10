@@ -41,11 +41,11 @@ import Ji
 
 
 extension String {
-    func URLByAddHTTPS() -> NSURL? {
-        var url:NSURL? = nil
+    func URLByAddHTTPS() -> URL? {
+        var url:URL? = nil
         if self.hasPrefix("//") {
             let convertString = String.localizedStringWithFormat("https:%@", self)
-            url = NSURL(string: convertString)
+            url = URL(string: convertString)
         }
         return url
     }
@@ -59,7 +59,7 @@ class WETopicDetail: NSObject {
     var content:String?
     var content_rendered:String?
     var replies:Int = 0
-    var avaterImageURL:NSURL?
+    var avaterImageURL:URL?
     var avaterName:String?
     var nodeTitle:String?
     var nodeName:String?
@@ -67,7 +67,7 @@ class WETopicDetail: NSObject {
     
     var memberInfo:WEMemberInfo?
     var nodeInfo:WENodeInfo?
-    var createTime:NSDate?
+    var createTime:Date?
     var lastModTime:String?
     var lastTouchTime:String?
     
@@ -79,21 +79,21 @@ class WETopicDetail: NSObject {
         content_rendered = dic["content_rendered"] as? String
         replies          = dic["replies"] as! Int
         memberInfo       = WEMemberInfo(dic: dic["member"] as! [String:AnyObject])
-        avaterImageURL   = memberInfo?.avatar_normal
+        avaterImageURL   = memberInfo?.avatar_normal as URL?
         avaterName       = memberInfo?.name
         nodeInfo         = WENodeInfo(dic: dic["node"] as! [String:AnyObject])
         nodeTitle        = nodeInfo?.title
         nodeName         = nodeInfo?.name
-        createTime       = NSDate(timeIntervalSince1970: dic["created"] as? Double ?? 0)
-        lastModTime      = NSDate(timeIntervalSince1970: dic["last_modified"] as? Double ?? 0).humanReadableDate()
-        lastTouchTime    = NSDate(timeIntervalSince1970: dic["last_touched"] as? Double ?? 0).humanReadableDate()
+        createTime       = Date(timeIntervalSince1970: dic["created"] as? Double ?? 0)
+        lastModTime      = Date(timeIntervalSince1970: dic["last_modified"] as? Double ?? 0).humanReadableDate()
+        lastTouchTime    = Date(timeIntervalSince1970: dic["last_touched"] as? Double ?? 0).humanReadableDate()
     }
     
     required init(jiNode:JiNode) {
         if let avaterNode = jiNode.xPath("./td[1]/a").first {
             if let name = avaterNode.attributes["href"] {
-                if let index =  name.rangeOfString("/member/")?.endIndex {
-                    avaterName = name.substringFromIndex(index)
+                if let index =  name.range(of: "/member/")?.upperBound {
+                    avaterName = name.substring(from: index)
                 }
                 
             }
@@ -103,8 +103,8 @@ class WETopicDetail: NSObject {
         }
         if let nodeNode = jiNode.xPath("./td[3]/span[1]/a").first {
             if let href = nodeNode.attributes["href"] {
-                if let prefixRange = href.rangeOfString("/go/") {
-                    nodeName = href.substringFromIndex(prefixRange.endIndex)
+                if let prefixRange = href.range(of: "/go/") {
+                    nodeName = href.substring(from: prefixRange.upperBound)
                 }
             }
             nodeTitle = nodeNode.content
@@ -113,13 +113,13 @@ class WETopicDetail: NSObject {
         if let titleNode = jiNode.xPath("./td[3]/span[2]/a").first {
             title = titleNode.content
             if let urlString = titleNode.attributes["href"] { // "/t/300916#reply29"
-                if let prefixRange = urlString.rangeOfString("/t/") {
-                    if let suffRange = urlString.rangeOfString("#reply") {
-                        let range = Range(prefixRange.endIndex ..< suffRange.startIndex)
-                        ID = Int(urlString.substringWithRange(range))
-                        replies = Int(urlString.substringFromIndex(suffRange.endIndex)) ?? 0
+                if let prefixRange = urlString.range(of: "/t/") {
+                    if let suffRange = urlString.range(of: "#reply") {
+                        let range = Range(prefixRange.upperBound ..< suffRange.lowerBound)
+                        ID = Int(urlString.substring(with: range))
+                        replies = Int(urlString.substring(from: suffRange.upperBound)) ?? 0
                     } else {
-                        ID = Int(urlString.substringFromIndex(prefixRange.endIndex))
+                        ID = Int(urlString.substring(from: prefixRange.upperBound))
                     }
                 }
             }

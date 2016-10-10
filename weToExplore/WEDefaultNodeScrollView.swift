@@ -11,9 +11,9 @@ import UIKit
 let nodeScrollViewHeight:CGFloat = 40 // There is another one in storyboard
 
 class WEDefaultNodeScrollView: UIScrollView {
-    private var lastSelectButton:WENodeButton?
+    fileprivate var lastSelectButton:WENodeButton?
     
-    var nodeSelectChanged: ((nodeName:String)->())?
+    var nodeSelectChanged: ((_ nodeName:String)->())?
     let containerView = UIView()
     var nodeArray:[String:String]?{ // ID, Title
         didSet {
@@ -26,17 +26,17 @@ class WEDefaultNodeScrollView: UIScrollView {
             
             var lastSubView:UIView? = nil
             for node in nodeArray! {
-                let nodeButton = WENodeButton(type: .Custom)
+                let nodeButton = WENodeButton(type: .custom)
                 nodeButton.ID = node.0
-                nodeButton.setTitle(node.1, forState: .Normal)
-                nodeButton.addTarget(self, action: #selector(changeNode(_:)), forControlEvents: UIControlEvents.TouchUpInside)
-                nodeButton.frame.size = CGSizeMake(nodeButton.calcWidth, nodeScrollViewHeight)
-                nodeButton.frame.origin = CGPointMake(lastSubView?.frame.maxX ?? 0 , 0)
+                nodeButton.setTitle(node.1, for: UIControlState())
+                nodeButton.addTarget(self, action: #selector(changeNode(_:)), for: UIControlEvents.touchUpInside)
+                nodeButton.frame.size = CGSize(width: nodeButton.calcWidth, height: nodeScrollViewHeight)
+                nodeButton.frame.origin = CGPoint(x: lastSubView?.frame.maxX ?? 0 , y: 0)
                 containerView.addSubview(nodeButton)
                 lastSubView = nodeButton
             }
             let contentViewWidth = lastSubView?.frame.maxX ?? 0
-            containerView.frame = CGRect(origin: CGPointZero, size: CGSizeMake(contentViewWidth, nodeScrollViewHeight))
+            containerView.frame = CGRect(origin: CGPoint.zero, size: CGSize(width: contentViewWidth, height: nodeScrollViewHeight))
             self.addSubview(containerView)
 
             self.contentSize = CGSize(width: contentViewWidth, height: 0)
@@ -45,14 +45,14 @@ class WEDefaultNodeScrollView: UIScrollView {
         }
     }
     
-    private func effectNodeButton (button:WENodeButton) {
+    fileprivate func effectNodeButton (_ button:WENodeButton) {
         lastSelectButton?.scale = 0
         button.scale = 1
         lastSelectButton = button
     }
-    func changeNode(button:WENodeButton) {
+    func changeNode(_ button:WENodeButton) {
         effectNodeButton(button)
-        nodeSelectChanged?(nodeName: button.ID ?? "all")
+        nodeSelectChanged?(button.ID ?? "all")
     }
     
     func hightlightNode(Index index:Int) {

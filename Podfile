@@ -7,8 +7,8 @@ target 'WeToExplore' do
   # use_frameworks!
 
   # Pods for weToExplore
-  pod 'Alamofire', '~> 3.4.1'
-  pod 'Ji', '~> 1.2.0'
+  pod 'Alamofire', '~> 4.0.1'
+  pod 'Ji', '~> 2.0.0'
   pod 'SDWebImage', '~> 3.8.1'
   pod 'MJRefresh', '~> 3.1.12'
 

@@ -29,7 +29,7 @@ class WEReplyDetail: NSObject {
     
     var replierID:NSNumber?
     var replierName:String?
-    var replierImageURL:NSURL?
+    var replierImageURL:URL?
     var content:String?
     var content_rendered:String?
     var replyTime:NSNumber?

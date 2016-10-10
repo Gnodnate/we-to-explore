@@ -8,7 +8,7 @@
 
 import UIKit
 
-func _keyAndTitle( key:String ) -> (String, String) {
+func _keyAndTitle( _ key:String ) -> (String, String) {
     return (key, NSLocalizedString(key, comment: ""))
 }
 
@@ -27,8 +27,8 @@ let defaultNodes:[String:String] = {
                       _keyAndTitle("members"))
 }()
 
-let screenWidth = UIScreen.mainScreen().bounds.width
-let screenHeight = UIScreen.mainScreen().bounds.height
+let screenWidth = UIScreen.main.bounds.width
+let screenHeight = UIScreen.main.bounds.height
 
 let tableViewMargn:CGFloat = 8
 
@@ -40,7 +40,7 @@ class WETwoScrollViewController: UIViewController, UIScrollViewDelegate {
     let topicListContainerView = UIView()
     
     var topicListHeight:CGFloat {
-        var height:CGFloat = screenHeight - nodeScrollViewHeight -  UIApplication.sharedApplication().statusBarFrame.height
+        var height:CGFloat = screenHeight - nodeScrollViewHeight -  UIApplication.shared.statusBarFrame.height
         if let barHeight = self.navigationController?.navigationBar.bounds.height {
             height -= barHeight
         }
@@ -70,28 +70,28 @@ class WETwoScrollViewController: UIViewController, UIScrollViewDelegate {
         topicListScrolView.delegate = self;
         
         for  (nodeName, _) in defaultNodes {
-            if let newTC = storyboard?.instantiateViewControllerWithIdentifier("TopListTableViewController") as? WETopicListTableViewController {
+            if let newTC = storyboard?.instantiateViewController(withIdentifier: "TopListTableViewController") as? WETopicListTableViewController {
                 newTC.nodeName = nodeName
                 
                 self.addChildViewController(newTC)
             }
         }
         var contentViewSize = CGSize(width: screenWidth * CGFloat(defaultNodes.count), height: topicListHeight)
-        topicListContainerView.frame = CGRect(origin: CGPointZero, size: contentViewSize)
+        topicListContainerView.frame = CGRect(origin: CGPoint.zero, size: contentViewSize)
         topicListScrolView.addSubview(topicListContainerView)
         contentViewSize.height = 0
         topicListScrolView.contentSize = contentViewSize
         
         if let firestVC = self.childViewControllers.first {
-            firestVC.view.frame  = CGRect(origin: CGPointZero, size: CGSize(width: screenWidth, height: self.topicListHeight))
+            firestVC.view.frame  = CGRect(origin: CGPoint.zero, size: CGSize(width: screenWidth, height: self.topicListHeight))
             topicListContainerView.addSubview(firestVC.view)
         }
     }
     
     // MARK: -scroll view delegate
-    func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView) {
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         if scrollView.isEqual(topicListScrolView) {
-            var index:Int = (Int)(scrollView.contentOffset.x/UIScreen.mainScreen().bounds.width)
+            var index:Int = (Int)(scrollView.contentOffset.x/UIScreen.main.bounds.width)
             if index < 0 {
                 index = 0
             }
@@ -106,7 +106,7 @@ class WETwoScrollViewController: UIViewController, UIScrollViewDelegate {
         }
     }
 
-    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         self.scrollViewDidEndScrollingAnimation(scrollView)
     }
     

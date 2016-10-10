@@ -43,12 +43,12 @@ class WETopicTableViewController: UITableViewController {
             MJRefreshNormalHeader(refreshingBlock: { [unowned self] in
 
                 let topicRequest = WEDataManager.getJSON("api/topics/show.json", //topic
-                    parameters: ["id" : self.topicID!],
+                    parameters: ["id" : self.topicID! as AnyObject],
                 block: true) { [unowned self] (responeData) in
                     self.topicDetail = WETopicDetail(dic: responeData.first!)
                     
                     let repliesRequest = WEDataManager.getJSON("api/replies/show.json", // replies
-                        parameters: ["topic_id" : self.topicID!],
+                        parameters: ["topic_id" : self.topicID! as AnyObject],
                     block: true) { [unowned self] (responeData) in
                         self.topicReplies.removeAll()
                         for reply in responeData {
@@ -67,9 +67,9 @@ class WETopicTableViewController: UITableViewController {
         self.clearsSelectionOnViewWillAppear = true
     }
 
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         for request in requestArray {
-            request.task.cancel()
+            request.task?.cancel()
         }
         requestArray.removeAll()
     }
@@ -80,12 +80,12 @@ class WETopicTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 2 // one for context, and one for replies
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return self.topicDetail != nil ? 1 : 0
         } else {
@@ -94,26 +94,26 @@ class WETopicTableViewController: UITableViewController {
     }
 
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var returnCell:UITableViewCell? = nil
-        if indexPath.section == 0 {
-            if let cell = tableView.dequeueReusableCellWithIdentifier("TopicManBody")  as? WETopicMainBodyTableViewCell {
+        if (indexPath as NSIndexPath).section == 0 {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "TopicManBody")  as? WETopicMainBodyTableViewCell {
                 if self.topicDetail != nil {
                     cell.topicDetail = self.topicDetail
                 }
                 returnCell = cell
             }
         } else {
-            if let cell = tableView.dequeueReusableCellWithIdentifier("TopicReply")  as? WETopicReplyTableViewCell {
-                cell.replyDetail = self.topicReplies[indexPath.row]
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "TopicReply")  as? WETopicReplyTableViewCell {
+                cell.replyDetail = self.topicReplies[(indexPath as NSIndexPath).row]
                 returnCell = cell
             }
         }
         return returnCell!
     }
 
-    override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if 0 == indexPath.section {
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        if 0 == (indexPath as NSIndexPath).section {
             return 100
         }
         return 50

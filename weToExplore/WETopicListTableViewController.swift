@@ -11,7 +11,7 @@ import SDWebImage
 import MJRefresh
 
 
-func _L(aString:String) -> String {
+func _L(_ aString:String) -> String {
     return NSLocalizedString(aString, comment: aString)
 }
 
@@ -34,7 +34,7 @@ class WETopicListTableViewController: UITableViewController {
         return model
     }
     
-    @IBAction func showUser(sender: UIButton) {
+    @IBAction func showUser(_ sender: UIButton) {
     }
 
     override func viewDidLoad() {
@@ -50,8 +50,8 @@ class WETopicListTableViewController: UITableViewController {
         self.tableView.estimatedRowHeight = 50.0
 
         let header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(pullRefresh))
-        header.setTitle(_L("Pull down to refresh"), forState: MJRefreshState.Idle)
-        header.setTitle(_L("Refreshing"), forState: .Refreshing)
+        header?.setTitle(_L("Pull down to refresh"), for: MJRefreshState.idle)
+        header?.setTitle(_L("Refreshing"), for: .refreshing)
         self.tableView.mj_header = header
         
         self.tableView.mj_header.beginRefreshing()
@@ -66,24 +66,24 @@ class WETopicListTableViewController: UITableViewController {
 
     // MARK: - Table view data source
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return self.topicArray?.count ?? 0
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("topicCellID") as! WETopicTableViewCell
-        if let topicInfo = self.topicArray?[indexPath.row] {
-            cell.userImage.sd_setImageWithURL(topicInfo.avaterImageURL, placeholderImage: UIImage(named: "default"))
-            cell.userName.setTitle(topicInfo.avaterName, forState: .Normal)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "topicCellID") as! WETopicTableViewCell
+        if let topicInfo = self.topicArray?[(indexPath as NSIndexPath).row] {
+            cell.userImage.sd_setImage(with: topicInfo.avaterImageURL, placeholderImage: UIImage(named: "default"))
+            cell.userName.setTitle(topicInfo.avaterName, for: UIControlState())
             cell.nodeName.nodeInfo = WENode(Title: topicInfo.nodeTitle, Name: topicInfo.nodeName)
-            cell.nodeName.setTitle(topicInfo.nodeTitle, forState: .Normal)
-            cell.nodeName.addTarget(self, action:#selector(switchNode(_:)) , forControlEvents: UIControlEvents.TouchUpInside)
+            cell.nodeName.setTitle(topicInfo.nodeTitle, for: UIControlState())
+            cell.nodeName.addTarget(self, action:#selector(switchNode(_:)) , for: UIControlEvents.touchUpInside)
             cell.replyTime.text = topicInfo.lastTouchTime
             cell.topicTitle.text = topicInfo.title
             cell.ID = topicInfo.ID
@@ -109,11 +109,11 @@ class WETopicListTableViewController: UITableViewController {
     }
     
     // MARK: - switch node
-    func switchNode(nodeButton:UIButton) {
-        if self.parentViewController is WETwoScrollViewController {
+    func switchNode(_ nodeButton:UIButton) {
+        if self.parent is WETwoScrollViewController {
             if nil != nodeButton.nodeInfo {
                 let topicListViewController:WETopicListTableViewController =
-                    UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("TopListTableViewController") as! WETopicListTableViewController
+                    UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TopListTableViewController") as! WETopicListTableViewController
                 
                 topicListViewController.nodeName = (nodeButton.nodeInfo?.name)!
                 topicListViewController.title = nodeButton.nodeInfo?.title
@@ -123,8 +123,8 @@ class WETopicListTableViewController: UITableViewController {
     }
     
     // MARK: segue
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let destVC = segue.destinationViewController as? WETopicTableViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destVC = segue.destination as? WETopicTableViewController {
             if let senderView = sender as? WETopicTableViewCell {
                 destVC.topicID = senderView.ID
             }

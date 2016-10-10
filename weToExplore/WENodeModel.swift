@@ -14,8 +14,8 @@ class WENode {
     init(nodeJiNode:JiNode) {
         title = nodeJiNode.content
         if let href = nodeJiNode["href"] {
-            if let range = href.rangeOfString("go/") {
-                name = href.substringFromIndex(range.endIndex)
+            if let range = href.range(of: "go/") {
+                name = href.substring(from: range.upperBound)
             }
         }
     }
@@ -34,14 +34,14 @@ class WENodeGroup: NSObject {
         }
     }
 }
-public class WENodeModel: NSObject {
+open class WENodeModel: NSObject {
     
-    class func getNode(block:Bool,
-                       completeFunc:[WENodeGroup] -> Void) {
+    class func getNode(_ block:Bool,
+                       completeFunc:@escaping ([WENodeGroup]) -> Void) {
         var nodeGroupArray = [WENodeGroup]()
         
         WEDataManager.getHTML{ responseData in
-            let ji = Ji(htmlData: responseData)
+            let ji = Ji(htmlData: responseData as Data)
             if let jiNodeArray = ji?.xPath("//*[@id='Wrapper']/div/div[@class='box'][last()]/div/table/tr") {
                 for groupNodeJiNode in jiNodeArray {
                     nodeGroupArray.append(WENodeGroup(groupNode: groupNodeJiNode))

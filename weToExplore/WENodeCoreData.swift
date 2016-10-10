@@ -11,27 +11,27 @@ import CoreData
 
 class WENodeCoreData: NSObject {
     
-    func saveNode(title:String, name:String) -> Void {
-        let fetchRequest = NSFetchRequest(entityName: "Node")
+    func saveNode(_ title:String, name:String) -> Void {
+        let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Node");
         fetchRequest.predicate = NSPredicate(format: "title=%@", title)
         do {
-            let fetchedData = try self.managedObjectContext.executeFetchRequest(fetchRequest)
+            let fetchedData = try self.managedObjectContext.fetch(fetchRequest)
             let node = fetchedData.last as! Node
             node.name = name
     
         }catch {
-            let node = NSEntityDescription.insertNewObjectForEntityForName("Node", inManagedObjectContext: self.managedObjectContext) as! Node
+            let node = NSEntityDescription.insertNewObject(forEntityName: "Node", into: self.managedObjectContext) as! Node
             node.name = name
             node.title = name
         }
     }
     
-    func getNodeNameWith(title:String) -> String? {
+    func getNodeNameWith(_ title:String) -> String? {
         var name:String?;
-        let fetchRequest = NSFetchRequest(entityName: "Node")
+        let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Node")
         fetchRequest.predicate = NSPredicate(format: "title=%@", title)
         do {
-            let fetchedData = try self.managedObjectContext.executeFetchRequest(fetchRequest)
+            let fetchedData = try self.managedObjectContext.fetch(fetchRequest)
             let node = fetchedData.last as! Node
             name = node.name!
         }catch {
@@ -44,25 +44,27 @@ class WENodeCoreData: NSObject {
     var managedObjectContext: NSManagedObjectContext
     override init() {
         // This resource is the same name as your xcdatamodeld contained in your project.
-        guard let modelURL = NSBundle.mainBundle().URLForResource("node", withExtension:"momd") else {
+        guard let modelURL = Bundle.main.url(forResource: "node", withExtension:"momd") else {
             fatalError("Error loading model from bundle")
         }
         // The managed object model for the application. It is a fatal error for the application not to be able to find and load its model.
-        guard let mom = NSManagedObjectModel(contentsOfURL: modelURL) else {
+        guard let mom = NSManagedObjectModel(contentsOf: modelURL) else {
             fatalError("Error initializing mom from: \(modelURL)")
         }
         let psc = NSPersistentStoreCoordinator(managedObjectModel: mom)
-        managedObjectContext = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
+        managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
         managedObjectContext.persistentStoreCoordinator = psc
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
-            let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+        DispatchQueue
+            .global(qos: .background)
+            .async {
+            let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
             let docURL = urls[urls.endIndex-1]
             /* The directory the application uses to store the Core Data store file.
              This code uses a file named "DataModel.sqlite" in the application's documents directory.
              */
-            let storeURL = docURL.URLByAppendingPathComponent("AllNodes.sqlite")
+            let storeURL = docURL.appendingPathComponent("AllNodes.sqlite")
             do {
-                try psc.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: storeURL, options: nil)
+                try psc.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: storeURL, options: nil)
             } catch {
                 fatalError("Error migrating store: \(error)")
             }

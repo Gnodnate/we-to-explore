@@ -20,15 +20,15 @@ import UIKit
 class WEMemberInfo: NSObject {
     var ID:Int?
     var name:String?
-    var avatar_mini:NSURL?
-    var avatar_normal:NSURL?
-    var avatar_large:NSURL?
+    var avatar_mini:URL?
+    var avatar_normal:URL?
+    var avatar_large:URL?
     init(dic: [String:AnyObject]) {
         ID            = dic["id"] as? Int
         name          = dic["username"] as? String
-        avatar_mini   = (dic["avatar_mini"] as? String)?.URLByAddHTTPS()
-        avatar_normal = (dic["avatar_normal"] as? String)?.URLByAddHTTPS()
-        avatar_large  = (dic["avatar_large"] as? String)?.URLByAddHTTPS()
+        avatar_mini   = (dic["avatar_mini"] as? String)?.URLByAddHTTPS() as URL?
+        avatar_normal = (dic["avatar_normal"] as? String)?.URLByAddHTTPS() as URL?
+        avatar_large  = (dic["avatar_large"] as? String)?.URLByAddHTTPS() as URL?
     }
 
 }

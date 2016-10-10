@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension NSDate {
+extension Date {
     /**
      Get Human Readable Date
      
@@ -30,10 +30,10 @@ extension NSDate {
         case let x where x < 60*60*24*365:
             return _L("\(x/60/60/24) hours ago")
         default:
-            let formatter = NSDateFormatter()
-            formatter.dateStyle = .MediumStyle
-            formatter.timeStyle = .ShortStyle
-            return formatter.stringFromDate(self)
+            let formatter = DateFormatter()
+            formatter.dateStyle = .medium
+            formatter.timeStyle = .short
+            return formatter.string(from: self)
         }
         
     }

@@ -19,12 +19,12 @@ class WETopicMainBodyTableViewCell: UITableViewCell {
     var topicDetail:WETopicDetail? {
         didSet {
             tilte.text                  = topicDetail?.title
-            userImageView.sd_setImageWithURL(topicDetail?.avaterImageURL, placeholderImage: UIImage(named: "default"))
+            userImageView.sd_setImage(with: topicDetail?.avaterImageURL, placeholderImage: UIImage(named: "default"))
             lastModTime.text            = topicDetail?.lastModTime
             userName.text               = topicDetail!.memberInfo?.name
 //            self.mainBodyText.text = topicDetail!.content
             
-            if let data = self.topicDetail?.content_rendered?.dataUsingEncoding(NSUnicodeStringEncoding) {
+            if let data = self.topicDetail?.content_rendered?.data(using: String.Encoding.unicode) {
                 do {
                     try mainBodyText.attributedText = NSAttributedString(data: data, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil)
                 } catch let error as NSError{
@@ -39,7 +39,7 @@ class WETopicMainBodyTableViewCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state

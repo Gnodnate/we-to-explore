@@ -12,7 +12,7 @@ import CoreData
 
 class Node: NSManagedObject {
 
-    func addNodeTitle(title:NSString, name:String) {
+    func addNodeTitle(_ title:NSString, name:String) {
         
     }
 }

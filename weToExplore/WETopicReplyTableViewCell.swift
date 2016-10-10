@@ -17,10 +17,10 @@ class WETopicReplyTableViewCell: UITableViewCell {
     
     var replyDetail:WEReplyDetail? {
         didSet {
-            replierImage.sd_setImageWithURL(replyDetail?.replierImageURL, placeholderImage: UIImage(named: "default"))
+            replierImage.sd_setImage(with: replyDetail?.replierImageURL, placeholderImage: UIImage(named: "default"))
             replierName.text = replyDetail!.replierName
-            replyTime.text =  NSDate(timeIntervalSince1970: replyDetail!.replyTime!.doubleValue).humanReadableDate()
-            if let data = self.replyDetail?.content_rendered?.dataUsingEncoding(NSUnicodeStringEncoding) {
+            replyTime.text =  Date(timeIntervalSince1970: replyDetail!.replyTime!.doubleValue).humanReadableDate()
+            if let data = self.replyDetail?.content_rendered?.data(using: String.Encoding.unicode) {
                 do {
                     try replyText.attributedText = NSAttributedString(data: data, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil)
                 } catch let error as NSError{
@@ -36,7 +36,7 @@ class WETopicReplyTableViewCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state

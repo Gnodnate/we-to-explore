@@ -33,7 +33,7 @@ class WeToExploreTests: XCTestCase {
     func testWEDataManager() {
         WEDataManager.getHTML { response in
             XCTAssertNil(response, "failed to get HTML")
-            let htmlstring = String(data: response, encoding: NSUnicodeStringEncoding)
+            let htmlstring = String(data: response as Data, encoding: String.Encoding.unicode)
             XCTAssertNil(htmlstring, "Failed to get HTML")
         }
         

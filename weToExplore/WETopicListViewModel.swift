@@ -30,7 +30,7 @@ class WETopicListViewModel: NSObject,WETopicListViewModelProtocol  {
     func showTopics(_ nodeName:String) {
         self.lastSessionTask?.cancel()
         if defaultNodes.keys.contains(nodeName) { // default tab
-            WEDataManager.getHTML(parameters: ["tab" : nodeName as AnyObject], block: true) { (responseHTML) in
+            WEDataManager.getHTML(parameters: ["tab" : nodeName], block: true) { (responseHTML) in
                 self.topics.removeAll()
                 let ji = Ji(htmlData: responseHTML as Data)
                 if let jiNodeArray = ji?.xPath("//*[@id='Wrapper']/div/div/div[@class='cell item']/table/tr") {
@@ -42,8 +42,8 @@ class WETopicListViewModel: NSObject,WETopicListViewModelProtocol  {
             }
         } else { // node
             WEDataManager.getJSON("api/topics/show.json",
-                                  parameters: ["node_name": nodeName as AnyObject,
-                                    "p": 0 as AnyObject],
+                                  parameters: ["node_name": nodeName,
+                                    "p": 0],
                                   block: true,
                                   complete: { (responseJSON) in
                                     self.topics.removeAll()

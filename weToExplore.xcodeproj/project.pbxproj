@@ -292,7 +292,7 @@
 			attributes = {
 				CLASSPREFIX = WE;
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = Gnodnate;
 				TargetAttributes = {
 					4C95938F1D671AA1002AE1E5 = {

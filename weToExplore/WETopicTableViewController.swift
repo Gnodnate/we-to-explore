@@ -43,12 +43,12 @@ class WETopicTableViewController: UITableViewController {
             MJRefreshNormalHeader(refreshingBlock: { [unowned self] in
 
                 let topicRequest = WEDataManager.getJSON("api/topics/show.json", //topic
-                    parameters: ["id" : self.topicID! as AnyObject],
+                    parameters: ["id" : self.topicID!],
                 block: true) { [unowned self] (responeData) in
                     self.topicDetail = WETopicDetail(dic: responeData.first!)
                     
                     let repliesRequest = WEDataManager.getJSON("api/replies/show.json", // replies
-                        parameters: ["topic_id" : self.topicID! as AnyObject],
+                        parameters: ["topic_id" : self.topicID!],
                     block: true) { [unowned self] (responeData) in
                         self.topicReplies.removeAll()
                         for reply in responeData {
@@ -89,7 +89,7 @@ class WETopicTableViewController: UITableViewController {
         if section == 0 {
             return self.topicDetail != nil ? 1 : 0
         } else {
-            return self.topicReplies.count ?? 0
+            return self.topicReplies.count 
         }
     }
 
